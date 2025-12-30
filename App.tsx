@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -19,6 +20,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <Analytics />
       {loading && <SplashScreen onComplete={() => setLoading(false)} />}
       
       <div className={`min-h-screen bg-white dark:bg-cyber-black text-gray-900 dark:text-cyber-text font-sans selection:bg-cyber-green selection:text-black transition-colors duration-300 ${loading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
