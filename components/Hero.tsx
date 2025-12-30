@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
         </div>
         
         <p className="max-w-2xl mx-auto text-lg text-gray-600 dark:text-cyber-muted mb-10 leading-relaxed font-mono text-sm md:text-base border-t border-b border-white/5 py-4 bg-black/20 backdrop-blur-sm">
-          <span className="text-cyber-blue">>></span> Experienced in SOC operations, SIEM engineering, threat detection, and incident response. 
+          <span className="text-cyber-blue">&gt;&gt;</span> Experienced in SOC operations, SIEM engineering, threat detection, and incident response. 
           Expert in building scalable, compliance-aligned detection frameworks.
         </p>
         
