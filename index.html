@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Rafay Ali - Cyber Security Engineer</title>
+    <meta name="description" content="Cybersecurity portfolio featuring interactive terminal and tools." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              cyber: {
+                black: '#0a0a0a',
+                dark: '#111111',
+                gray: '#1a1a1a',
+                green: '#00ff88',
+                blue: '#00d4ff',
+                text: '#e0e0e0',
+                muted: '#a0a0a0',
+              }
+            },
+            animation: {
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth Scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        /* Default to dark mode colors, overridden by Tailwind classes */
+        @apply bg-white text-gray-900 dark:bg-[#0a0a0a] dark:text-[#e0e0e0];
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        @apply bg-gray-100 dark:bg-[#1a1a1a];
+      }
+      ::-webkit-scrollbar-thumb {
+        @apply bg-cyber-green/80 dark:bg-[#00ff88];
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        @apply bg-cyber-blue dark:bg-[#00d4ff];
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
