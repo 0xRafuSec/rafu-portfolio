@@ -1,5 +1,21 @@
 import React from 'react';
-import { ShieldCheck, Mail, Github, Linkedin, Activity, Database, Eye, Shield } from 'lucide-react';
+import { ShieldCheck, Github, Linkedin, Activity, Database, Eye, Shield } from 'lucide-react';
+
+// Custom Outlook Icon SVG
+const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M1 6L1 17C1 18.6569 2.34315 20 4 20H20C21.6569 20 23 18.6569 23 17V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M1 6L12 13L23 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2" className="text-blue-500" strokeOpacity="0" />
+    <path d="M16 16H20V12" stroke="#0078D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <rect x="2" y="5" width="20" height="14" rx="1.5" stroke="#0078D4" strokeWidth="2" fill="none" strokeOpacity="0.5" className="hidden"/> 
+    {/* Stylized O for Outlook in blue */}
+    <circle cx="12" cy="12" r="9" stroke="#0078D4" strokeWidth="0" fill="#0078D4" fillOpacity="0.1" />
+    <path d="M22 12V7.12607C22 6.53696 21.6163 6.01455 21.053 5.86438L12.9863 3.71328C12.3396 3.54082 11.6604 3.54082 11.0137 3.71328L2.94697 5.86438C2.38374 6.01455 2 6.53696 2 7.12607V17C2 18.6569 3.34315 20 5 20H19C20.6569 20 22 18.6569 22 17V12Z" stroke="#0078D4" strokeWidth="2"/>
+    <path d="M2 7L12 13L22 7" stroke="#0078D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <text x="14" y="19" fontSize="10" fill="#0078D4" fontWeight="bold" stroke="none" style={{ fontFamily: 'Arial' }}>O</text>
+  </svg>
+);
 
 const About: React.FC = () => {
   return (
@@ -35,10 +51,10 @@ const About: React.FC = () => {
 
             <div className="flex flex-col md:flex-row gap-8 items-start md:items-center border-t border-gray-200 dark:border-white/10 pt-8">
               <a href="mailto:rafay.arshad1@outlook.com" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/20 rounded-lg flex items-center justify-center text-orange-600 dark:text-orange-500 group-hover:scale-110 transition-transform">
-                   <Mail size={20} />
+                <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/10 rounded-lg flex items-center justify-center text-[#0078D4] group-hover:scale-110 transition-transform">
+                   <OutlookIcon size={20} />
                 </div>
-                <span className="text-gray-600 dark:text-gray-300 group-hover:text-orange-500 transition-colors font-mono text-sm md:text-base">rafay.arshad1@outlook.com</span>
+                <span className="text-gray-600 dark:text-gray-300 group-hover:text-[#0078D4] transition-colors font-mono text-sm md:text-base">rafay.arshad1@outlook.com</span>
               </a>
 
               <div className="flex gap-4">

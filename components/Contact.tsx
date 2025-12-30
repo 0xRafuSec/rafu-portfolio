@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Send, Github, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Send, Github, Linkedin } from 'lucide-react';
+
+const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+     <path d="M22 12V7.12607C22 6.53696 21.6163 6.01455 21.053 5.86438L12.9863 3.71328C12.3396 3.54082 11.6604 3.54082 11.0137 3.71328L2.94697 5.86438C2.38374 6.01455 2 6.53696 2 7.12607V17C2 18.6569 3.34315 20 5 20H19C20.6569 20 22 18.6569 22 17V12Z" stroke="#0078D4" strokeWidth="2"/>
+    <path d="M2 7L12 13L22 7" stroke="#0078D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <text x="14" y="19" fontSize="10" fill="#0078D4" fontWeight="bold" stroke="none" style={{ fontFamily: 'Arial' }}>O</text>
+  </svg>
+);
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'success'>('idle');
@@ -43,7 +51,7 @@ const Contact: React.FC = () => {
               
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green">
-                  <Mail size={20} />
+                  <OutlookIcon size={20} />
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Email</h4>
