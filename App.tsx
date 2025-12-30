@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -20,6 +21,7 @@ const App: React.FC = () => {
   return (
     <>
       {loading && <SplashScreen onComplete={() => setLoading(false)} />}
+      <SpeedInsights />
       
       <div className={`min-h-screen bg-white dark:bg-cyber-black text-gray-900 dark:text-cyber-text font-sans selection:bg-cyber-green selection:text-black transition-colors duration-300 ${loading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
         <Navbar />
