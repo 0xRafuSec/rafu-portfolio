@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-cyber-black scroll-mt-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-sans">
           Get In <span className="text-cyber-green">Touch</span>
         </h2>
 
@@ -33,12 +33,12 @@ const Contact: React.FC = () => {
           
           {/* Contact Info */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
-            <p className="text-cyber-muted mb-8 text-lg">
+            <h3 className="text-2xl font-bold text-white mb-6 font-mono">Let's Connect</h3>
+            <p className="text-cyber-muted mb-8 text-lg font-mono">
               I'm open to discussing SOC operations, SIEM engineering opportunities, and security consultation.
             </p>
             
-            <div className="space-y-6 mb-8">
+            <div className="space-y-6 mb-8 font-mono">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green">
                   <MapPin size={20} />
@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
               <a href="https://github.com/0xRafuSec" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-cyber-green hover:text-black hover:border-cyber-green transition-all duration-300">
                 <Github size={18} />
               </a>
-              <a href="#" className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-cyber-green hover:text-black hover:border-cyber-green transition-all duration-300">
+              <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-cyber-green hover:text-black hover:border-cyber-green transition-all duration-300">
                 <Linkedin size={18} />
               </a>
             </div>
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="bg-cyber-gray p-8 rounded-2xl border border-white/5 shadow-xl">
-            <div className="space-y-4">
+            <div className="space-y-4 font-mono">
               <div>
                 <label className="block text-sm font-medium text-cyber-muted mb-1">Your Name</label>
                 <input required type="text" className="w-full bg-black/30 border border-white/10 rounded-lg p-3 text-white focus:border-cyber-green outline-none transition-colors" placeholder="What is your good name?" />
@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
               <button 
                 type="submit" 
                 disabled={formState !== 'idle'}
-                className="w-full py-4 bg-gradient-to-r from-cyber-green to-cyber-blue text-black font-bold rounded-lg hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full py-4 bg-gradient-to-r from-cyber-green to-cyber-blue text-black font-bold rounded-lg hover:shadow-neon-green transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed font-sans"
               >
                 {formState === 'idle' && <>Send Message <Send size={18} /></>}
                 {formState === 'sending' && 'Transmitting...'}

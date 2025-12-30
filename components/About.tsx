@@ -24,7 +24,7 @@ const About: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h4 className="text-cyber-blue font-mono tracking-widest text-sm uppercase mb-2">Introduction</h4>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white font-sans">
               Overview<span className="text-cyber-green">.</span>
             </h2>
           </div>
@@ -35,15 +35,15 @@ const About: React.FC = () => {
               <ShieldCheck size={180} />
             </div>
 
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-light">
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-light font-body">
               Hello! I'm <span className="font-bold text-gray-900 dark:text-white">Muhammad Rafay Ali</span>, an Experienced <Shield size={18} className="inline mb-1 text-cyber-green mx-1" /> <span className="font-medium text-gray-900 dark:text-white">Cyber Security Engineer</span> skilled in SOC operations, SIEM engineering, threat detection, and compliance frameworks.
             </p>
             
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-light">
-              Currently at <span className="text-cyber-blue font-medium">Cyber Silo</span>, focusing on <span className="font-medium text-gray-900 dark:text-white">threat hunting</span>, log optimization, and ISO 27001 compliance. Hands-on experience performing incident response and building scalable detection frameworks. Experienced in <Activity size={18} className="inline mb-1 text-cyber-blue mx-1" /> <span className="font-medium text-gray-900 dark:text-white">SOC operations</span>, <Database size={18} className="inline mb-1 text-purple-400 mx-1" /> <span className="font-medium text-gray-900 dark:text-white">SIEM engineering</span>, and <Eye size={18} className="inline mb-1 text-red-400 mx-1" /> <span className="font-medium text-gray-900 dark:text-white">threat detection</span>, ensuring robust monitoring and rapid threat mitigation.
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-light font-body">
+              I specialize in <span className="font-medium text-gray-900 dark:text-white">threat hunting</span>, log optimization, and ISO 27001 compliance. Hands-on experience performing incident response and building scalable detection frameworks. Experienced in <Activity size={18} className="inline mb-1 text-cyber-blue mx-1" /> <span className="font-medium text-gray-900 dark:text-white">SOC operations</span>, <Database size={18} className="inline mb-1 text-purple-400 mx-1" /> <span className="font-medium text-gray-900 dark:text-white">SIEM engineering</span>, and <Eye size={18} className="inline mb-1 text-red-400 mx-1" /> <span className="font-medium text-gray-900 dark:text-white">threat detection</span>, ensuring robust monitoring and rapid threat mitigation.
             </p>
 
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-10 relative z-10 font-light">
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-10 relative z-10 font-light font-body">
               Developed automated threat hunting scripts integrated with Wazuh SIEM to reduce incident response time and enhance threat management. Passionate about transforming Information Security through proactive defense strategies and continuous learning.
               <br /><br />
               Let's collaborate to bring your secure infrastructure to life!

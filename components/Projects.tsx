@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-cyber-black transition-colors duration-300 scroll-mt-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white font-sans">
           Featured <span className="text-cyber-green">Projects</span>
         </h2>
 
@@ -50,9 +50,9 @@ const Projects: React.FC = () => {
             <button
               key={cat}
               onClick={() => setFilter(cat as any)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all capitalize ${
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all capitalize font-mono ${
                 filter === cat
-                  ? 'bg-cyber-blue text-black shadow-[0_0_15px_rgba(0,212,255,0.4)]'
+                  ? 'bg-cyber-blue text-black shadow-neon-blue'
                   : 'bg-white dark:bg-cyber-gray text-gray-600 dark:text-cyber-muted hover:bg-gray-100 dark:hover:bg-cyber-gray/80 border border-gray-200 dark:border-white/5'
               }`}
             >
@@ -74,17 +74,17 @@ const Projects: React.FC = () => {
               
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-cyber-green transition-colors">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-cyber-green transition-colors font-sans">{project.title}</h3>
                   <span className="text-xs font-mono py-1 px-2 rounded bg-gray-100 dark:bg-black/30 text-cyber-blue capitalize border border-cyber-blue/20">{project.category}</span>
                 </div>
                 
-                <p className="text-gray-600 dark:text-cyber-muted text-sm mb-6 line-clamp-3">
+                <p className="text-gray-600 dark:text-cyber-muted text-sm mb-6 line-clamp-3 font-mono">
                   {project.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, i) => (
-                    <span key={i} className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-black/30 px-2 py-1 rounded">
+                    <span key={i} className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-black/30 px-2 py-1 rounded font-mono">
                       #{tag}
                     </span>
                   ))}
@@ -92,12 +92,12 @@ const Projects: React.FC = () => {
 
                 <div className="flex gap-4 pt-4 border-t border-gray-100 dark:border-white/5">
                   {project.links.github && (
-                    <a href={project.links.github} className="flex items-center gap-2 text-sm font-medium text-cyber-green hover:text-green-600 dark:hover:text-white transition-colors">
+                    <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-cyber-green hover:text-green-600 dark:hover:text-white transition-colors font-mono">
                       <Github size={16} /> Code
                     </a>
                   )}
                   {project.links.demo && (
-                    <a href={project.links.demo} className="flex items-center gap-2 text-sm font-medium text-cyber-blue hover:text-blue-600 dark:hover:text-white transition-colors">
+                    <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-cyber-blue hover:text-blue-600 dark:hover:text-white transition-colors font-mono">
                       <ExternalLink size={16} /> Live Demo
                     </a>
                   )}
