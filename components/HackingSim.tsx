@@ -104,8 +104,8 @@ const HackingSim: React.FC = () => {
     <div className="max-w-4xl mx-auto bg-white dark:bg-[#111] rounded-xl border border-gray-200 dark:border-white/5 p-6 md:p-8 shadow-2xl">
         <div className="flex justify-between items-center mb-6">
             <h3 className="text-xl md:text-2xl font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-                <Activity className="text-cyber-green" />
-                Live <span className="text-cyber-blue">Threat Simulation</span>
+                <Activity className="text-cyber-green-dark dark:text-cyber-green" />
+                Live <span className="text-cyber-blue-dark dark:text-cyber-blue">Threat Simulation</span>
             </h3>
             <div className="flex items-center gap-4">
                 <span className={`text-xs font-mono px-2 py-1 rounded ${isRunning ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 animate-pulse' : 'bg-gray-100 text-gray-500 dark:bg-gray-800'}`}>
@@ -116,7 +116,7 @@ const HackingSim: React.FC = () => {
                     className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all ${
                         isRunning 
                         ? 'bg-red-500 hover:bg-red-600 text-white shadow-lg shadow-red-500/30' 
-                        : 'bg-cyber-green hover:bg-emerald-400 text-black shadow-lg shadow-cyber-green/30'
+                        : 'bg-cyber-green-dark dark:bg-cyber-green hover:bg-emerald-600 dark:hover:bg-emerald-400 text-white dark:text-black shadow-lg shadow-cyber-green-dark/30 dark:shadow-cyber-green/30'
                     }`}
                 >
                     {isRunning ? <Square size={16} fill="currentColor" /> : <Play size={18} fill="currentColor" className="ml-1" />}
@@ -142,12 +142,12 @@ const HackingSim: React.FC = () => {
         {/* Progress Bar */}
         <div className="relative h-2 bg-gray-200 dark:bg-[#1a1a1a] rounded-full overflow-hidden mb-6">
             <div 
-                className="absolute top-0 left-0 h-full bg-cyber-green shadow-[0_0_10px_#00ff88] transition-all duration-100"
+                className="absolute top-0 left-0 h-full bg-cyber-green-dark dark:bg-cyber-green shadow-none dark:shadow-[0_0_10px_#00ff88] transition-all duration-100"
                 style={{ width: `${progress}%` }}
             ></div>
         </div>
 
-        {/* Console */}
+        {/* Console - Always keep dark for that hacker feel, but adjust surrounding if needed */}
         <div className="rounded-lg overflow-hidden border border-gray-300 dark:border-white/10 bg-gray-900 dark:bg-[#0a0a0a] shadow-inner">
             <div className="flex items-center justify-between px-4 py-2 bg-gray-800 dark:bg-[#1a1a1a] border-b border-gray-700 dark:border-white/5">
                 <div className="flex items-center gap-2">
@@ -172,7 +172,7 @@ const HackingSim: React.FC = () => {
                             log.includes('[+]') ? 'text-green-400' :
                             log.includes('[!]') ? 'text-red-400 font-bold' :
                             log.includes('[*]') ? 'text-blue-400' :
-                            log.includes('VERBOSE') ? 'text-gray-600' :
+                            log.includes('VERBOSE') ? 'text-gray-500' :
                             'text-gray-400'
                         }`}>
                             {log}

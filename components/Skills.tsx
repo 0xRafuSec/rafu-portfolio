@@ -42,11 +42,11 @@ const Icons = {
 import { Shield, Code, Server, Lock, Globe, Box, Bug, Terminal as TerminalIcon, ShieldCheck, FileText, CheckSquare, Search, Eye, ShieldAlert, Zap, Cloud, Scale, Bot } from 'lucide-react';
 
 const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: string, isCustom?: boolean }) => (
-  <div className="group relative flex items-center justify-center p-3 bg-white/80 dark:bg-black/40 rounded-xl border border-gray-200 dark:border-white/10 hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-sm hover:shadow-[0_0_15px_rgba(0,255,157,0.2)] backdrop-blur-sm">
-    <div className="text-gray-500 dark:text-gray-400 group-hover:text-cyber-green transition-colors">
+  <div className="group relative flex items-center justify-center p-3 bg-white/80 dark:bg-black/40 rounded-xl border border-gray-200 dark:border-white/10 hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-sm hover:shadow-[0_0_15px_rgba(0,163,101,0.2)] dark:hover:shadow-[0_0_15px_rgba(0,255,157,0.2)] backdrop-blur-sm">
+    <div className="text-gray-600 dark:text-gray-400 group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors">
       {isCustom ? <Icon /> : <Icon className="w-8 h-8 sm:w-10 sm:h-10" strokeWidth={1.5} />}
     </div>
-    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-cyber-green text-black text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20 font-mono">
+    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-cyber-green-dark dark:bg-cyber-green text-white dark:text-black text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20 font-mono">
       {name}
     </span>
   </div>
@@ -61,7 +61,7 @@ const Skills: React.FC = () => {
             Expertise
           </h2>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white relative z-10 font-sans">
-            Ski<span className="text-cyber-green">lls.</span>
+            Ski<span className="text-cyber-green-dark dark:text-cyber-green">lls.</span>
           </h2>
         </div>
 
@@ -71,7 +71,7 @@ const Skills: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-8 items-start border-b border-gray-200 dark:border-white/5 pb-12">
             <div className="w-full md:w-64 flex-shrink-0">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
-                <ShieldAlert className="text-cyber-green w-6 h-6" />
+                <ShieldAlert className="text-cyber-green-dark dark:text-cyber-green w-6 h-6" />
                 SIEM & SOC
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-500 mt-2 font-sans">Threat Detection & Response</p>
@@ -89,7 +89,7 @@ const Skills: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-8 items-start border-b border-gray-200 dark:border-white/5 pb-12">
             <div className="w-full md:w-64 flex-shrink-0">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
-                 <Zap className="text-cyber-blue w-6 h-6" />
+                 <Zap className="text-cyber-blue-dark dark:text-cyber-blue w-6 h-6" />
                  Offensive Security
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-500 mt-2 font-sans">VAPT & Exploitation</p>
@@ -124,7 +124,7 @@ const Skills: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-8 items-start border-b border-gray-200 dark:border-white/5 pb-12">
             <div className="w-full md:w-64 flex-shrink-0">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
-                <Scale className="text-yellow-500 w-6 h-6" />
+                <Scale className="text-yellow-600 dark:text-yellow-500 w-6 h-6" />
                 Governance
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-500 mt-2 font-sans">GRC & Standards</p>
@@ -140,7 +140,7 @@ const Skills: React.FC = () => {
            <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="w-full md:w-64 flex-shrink-0">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
-                <Bot className="text-red-500 w-6 h-6" />
+                <Bot className="text-red-600 dark:text-red-500 w-6 h-6" />
                 Automation
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-500 mt-2 font-sans">Scripting & DevOps</p>

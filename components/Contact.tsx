@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
     <section id="contact" className="py-20 scroll-mt-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-sans text-gray-900 dark:text-white">
-          Get In <span className="text-cyber-green">Touch</span>
+          Get In <span className="text-cyber-green-dark dark:text-cyber-green">Touch</span>
         </h2>
 
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
             
             <div className="space-y-6 mb-8 font-mono">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green border border-gray-200 dark:border-white/5">
+                <div className="w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
               </div>
               
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green border border-gray-200 dark:border-white/5">
+                <div className="w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5">
                   <OutlookIcon size={20} />
                 </div>
                 <div>
@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green border border-gray-200 dark:border-white/5">
+                <div className="w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5">
                   <Phone size={20} />
                 </div>
                 <div>
@@ -71,10 +71,10 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="flex gap-4">
-              <a href="https://github.com/0xRafuSec" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green hover:text-black hover:border-cyber-green transition-all duration-300 hover:scale-110">
+              <a href="https://github.com/0xRafuSec" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 hover:scale-110">
                 <Github size={18} />
               </a>
-              <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green hover:text-black hover:border-cyber-green transition-all duration-300 hover:scale-110">
+              <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-blue-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-blue-dark dark:hover:border-cyber-green transition-all duration-300 hover:scale-110">
                 <Linkedin size={18} />
               </a>
             </div>
@@ -85,21 +85,21 @@ const Contact: React.FC = () => {
             <div className="space-y-4 font-mono">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Name</label>
-                <input required type="text" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="What is your good name?" />
+                <input required type="text" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="What is your good name?" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Email</label>
-                <input required type="email" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="you@company.com" />
+                <input required type="email" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="you@company.com" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Message</label>
-                <textarea required rows={5} className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green outline-none transition-colors resize-none placeholder-gray-500" placeholder="What do you want to say?" />
+                <textarea required rows={5} className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors resize-none placeholder-gray-500" placeholder="What do you want to say?" />
               </div>
               
               <button 
                 type="submit" 
                 disabled={formState !== 'idle'}
-                className="group relative w-full py-4 bg-gradient-to-r from-cyber-green to-cyber-blue text-black font-bold rounded-lg overflow-hidden hover:shadow-[0_0_20px_#00ff9d] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed font-sans hover:scale-[1.02]"
+                className="group relative w-full py-4 bg-gradient-to-r from-cyber-green-dark to-cyber-blue-dark dark:from-cyber-green dark:to-cyber-blue text-white dark:text-black font-bold rounded-lg overflow-hidden hover:shadow-[0_0_20px_rgba(0,163,101,0.5)] dark:hover:shadow-[0_0_20px_#00ff9d] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed font-sans hover:scale-[1.02]"
               >
                 <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-shimmer skew-x-[10deg]"></div>
                 <span className="relative z-10 flex items-center gap-2">

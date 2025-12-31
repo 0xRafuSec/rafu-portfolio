@@ -38,27 +38,27 @@ const Experience: React.FC = () => {
     <section id="experience" className="py-20 scroll-mt-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white font-sans">
-          Work <span className="text-cyber-green">Experience</span>
+          Work <span className="text-cyber-green-dark dark:text-cyber-green">Experience</span>
         </h2>
 
         <div className="max-w-4xl mx-auto relative pl-8 md:pl-0">
           {/* Vertical Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyber-green to-transparent transform md:-translate-x-1/2"></div>
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyber-green-dark dark:from-cyber-green to-transparent transform md:-translate-x-1/2"></div>
 
           <div className="space-y-12">
             {experienceData.map((item, index) => (
               <div key={item.id} className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                 
                 {/* Dot */}
-                <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-gray-100 dark:bg-black border-4 border-cyber-green rounded-full transform -translate-x-[7px] md:-translate-x-1/2 mt-6 z-10 shadow-[0_0_10px_#00ff9d]"></div>
+                <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-gray-100 dark:bg-black border-4 border-cyber-green-dark dark:border-cyber-green rounded-full transform -translate-x-[7px] md:-translate-x-1/2 mt-6 z-10 shadow-none dark:shadow-[0_0_10px_#00ff9d]"></div>
 
                 {/* Content Side */}
                 <div className="flex-1 ml-8 md:ml-0">
-                  <div className="bg-white/80 dark:bg-black/40 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 transition-all duration-300 hover:scale-[1.02] hover:border-cyber-green hover:shadow-[0_0_20px_rgba(0,255,136,0.15)] group">
+                  <div className="bg-white/80 dark:bg-black/40 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 transition-all duration-300 hover:scale-[1.02] hover:border-cyber-green-dark dark:hover:border-cyber-green hover:shadow-lg dark:hover:shadow-[0_0_20px_rgba(0,255,136,0.15)] group">
                     <div className="flex flex-col gap-2 mb-4">
-                      <h3 className="text-xl font-bold text-cyber-green group-hover:text-cyber-blue transition-colors font-sans">{item.title}</h3>
+                      <h3 className="text-xl font-bold text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue transition-colors font-sans">{item.title}</h3>
                       <h4 className="text-lg text-gray-800 dark:text-white font-medium flex items-center gap-2 font-mono">
-                        <Briefcase size={16} className="text-cyber-blue" />
+                        <Briefcase size={16} className="text-cyber-blue-dark dark:text-cyber-blue" />
                         {item.company}
                       </h4>
                       <div className="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-cyber-muted font-mono">
@@ -73,7 +73,7 @@ const Experience: React.FC = () => {
                     <ul className="space-y-3">
                       {item.points.map((point, i) => (
                         <li key={i} className="text-gray-600 dark:text-cyber-text/80 text-sm flex items-start gap-2 font-body">
-                          <span className="text-cyber-green mt-1.5 w-1.5 h-1.5 bg-cyber-green rounded-full flex-shrink-0 group-hover:bg-cyber-blue transition-colors"></span>
+                          <span className="text-cyber-green-dark dark:text-cyber-green mt-1.5 w-1.5 h-1.5 bg-cyber-green-dark dark:bg-cyber-green rounded-full flex-shrink-0 group-hover:bg-cyber-blue-dark dark:group-hover:bg-cyber-blue transition-colors"></span>
                           <span className="leading-relaxed">{point}</span>
                         </li>
                       ))}

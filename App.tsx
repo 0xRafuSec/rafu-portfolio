@@ -26,7 +26,7 @@ const App: React.FC = () => {
       {/* Hidden Hint for CTF Players */}
       {/* Hint: Try the Konami Code... (Up, Up, Down, Down, Left, Right, Left, Right, B, A) */}
       
-      <div className={`min-h-screen relative font-sans selection:bg-cyber-green selection:text-black transition-colors duration-300 ${loading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+      <div className={`min-h-screen relative font-sans selection:bg-cyber-green-dark dark:selection:bg-cyber-green selection:text-white dark:selection:text-black transition-colors duration-300 ${loading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
         
         <Konami />
 
@@ -52,7 +52,7 @@ const App: React.FC = () => {
             <div className="container mx-auto px-4 space-y-24 relative z-10">
               <div className="text-center mb-10">
                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white font-sans">
-                  Interactive <span className="text-cyber-green">Terminal</span>
+                  Interactive <span className="text-cyber-green-dark dark:text-cyber-green">Terminal</span>
                 </h2>
                 <p className="text-gray-600 dark:text-cyber-muted mt-2 font-mono">Execute commands, simulate attacks, and analyze security.</p>
               </div>

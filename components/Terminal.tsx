@@ -186,7 +186,7 @@ const Terminal: React.FC = () => {
   const quickCommands = ['help', 'ls', 'whoami', 'ping 8.8.8.8'];
 
   return (
-    <div className="w-full max-w-3xl mx-auto font-mono text-sm shadow-[0_0_50px_rgba(0,0,0,0.3)] rounded-lg overflow-hidden border border-gray-200 dark:border-[#333] backdrop-blur-sm bg-white/80 dark:bg-black/80">
+    <div className="w-full max-w-3xl mx-auto font-mono text-sm shadow-[0_0_50px_rgba(0,0,0,0.3)] rounded-lg overflow-hidden border border-gray-200 dark:border-[#333] backdrop-blur-sm bg-white/95 dark:bg-black/80">
       <div className="flex items-center justify-between bg-gray-100/90 dark:bg-[#1a1a1a]/90 px-4 py-2 border-b border-gray-200 dark:border-[#333]">
         <div className="flex items-center gap-2">
            <TerminalIcon size={14} className="text-gray-500 dark:text-gray-400"/>
@@ -207,7 +207,7 @@ const Terminal: React.FC = () => {
         {history.map((line, i) => (
           <div key={i} className={`mb-1 whitespace-pre-wrap leading-relaxed ${
             line.type === 'input' ? 'text-gray-800 dark:text-white' : 
-            line.type === 'error' ? 'text-red-500 dark:text-red-400' : 
+            line.type === 'error' ? 'text-red-600 dark:text-red-400' : 
             line.type === 'success' ? 'text-green-600 dark:text-green-400' :
             'text-gray-600 dark:text-cyber-green'
           }`}>
@@ -224,7 +224,7 @@ const Terminal: React.FC = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="bg-transparent border-none outline-none flex-1 text-gray-800 dark:text-white min-w-[50px] caret-cyber-green"
+                className="bg-transparent border-none outline-none flex-1 text-gray-800 dark:text-white min-w-[50px] caret-cyber-green-dark dark:caret-cyber-green"
                 autoFocus
                 autoComplete="off"
             />
@@ -238,7 +238,7 @@ const Terminal: React.FC = () => {
             key={cmd}
             onClick={() => handleCommand(cmd)}
             disabled={isProcessing}
-            className="px-3 py-1 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-700 rounded hover:border-cyber-green hover:text-cyber-green dark:hover:text-cyber-green text-xs text-gray-600 dark:text-gray-300 transition-colors disabled:opacity-50"
+            className="px-3 py-1 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-700 rounded hover:border-cyber-green-dark dark:hover:border-cyber-green hover:text-cyber-green-dark dark:hover:text-cyber-green text-xs text-gray-600 dark:text-gray-300 transition-colors disabled:opacity-50"
           >
             {cmd}
           </button>

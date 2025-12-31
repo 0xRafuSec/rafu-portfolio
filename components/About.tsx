@@ -20,32 +20,32 @@ const About: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h4 className="text-cyber-blue font-mono tracking-widest text-sm uppercase mb-2">Introduction</h4>
+            <h4 className="text-cyber-blue-dark dark:text-cyber-blue font-mono tracking-widest text-sm uppercase mb-2">Introduction</h4>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white font-sans">
-              Over<span className="text-cyber-green">view.</span>
+              Over<span className="text-cyber-green-dark dark:text-cyber-green">view.</span>
             </h2>
           </div>
           
-          <div className="bg-white/50 dark:bg-black/40 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-8 md:p-12 shadow-xl dark:shadow-none relative overflow-hidden transition-all hover:border-cyber-green/50">
+          <div className="bg-white/50 dark:bg-black/40 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-8 md:p-12 shadow-xl dark:shadow-none relative overflow-hidden transition-all hover:border-cyber-green-dark/50 dark:hover:border-cyber-green/50">
              {/* Decor */}
             <div className="absolute top-0 right-0 p-4 opacity-5 dark:opacity-10 pointer-events-none">
               <ShieldCheck size={180} />
             </div>
 
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-light font-body">
-              Hello! I'm <span className="text-cyber-green text-sm md:text-base font-bold">Muhammad Rafay Ali</span>, an Experienced <span className="text-cyber-green text-sm md:text-base font-bold">Cyber Security Engineer</span> Skilled in crafting detection logic, optimizing logs, and engineering scalable monitoring pipelines using Wazuh and Threat Hawk to surface high-signal threats.
+              Hello! I'm <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">Muhammad Rafay Ali</span>, an Experienced <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">Cyber Security Engineer</span> Skilled in crafting detection logic, optimizing logs, and engineering scalable monitoring pipelines using Wazuh and Threat Hawk to surface high-signal threats.
             </p>
             
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-light font-body">
-              I specialize in Threat Hunting, Rule Optimization, and ISO 27001 compliance. Experienced in <Activity size={18} className="inline mb-1 text-cyber-blue mx-1" /> <span className="text-cyber-green text-sm md:text-base font-bold">SOC Operations</span>, <Database size={18} className="inline mb-1 text-purple-400 mx-1" /> <span className="text-cyber-green text-sm md:text-base font-bold">SIEM Engineering</span>, and <Eye size={18} className="inline mb-1 text-red-400 mx-1" /> <span className="text-cyber-green text-sm md:text-base font-bold">Threat Detection</span>, ensuring robust monitoring and rapid threat mitigation. 
+              I specialize in Threat Hunting, Rule Optimization, and ISO 27001 compliance. Experienced in <Activity size={18} className="inline mb-1 text-cyber-blue-dark dark:text-cyber-blue mx-1" /> <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">SOC Operations</span>, <Database size={18} className="inline mb-1 text-purple-600 dark:text-purple-400 mx-1" /> <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">SIEM Engineering</span>, and <Eye size={18} className="inline mb-1 text-red-600 dark:text-red-400 mx-1" /> <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">Threat Detection</span>, ensuring robust monitoring and rapid threat mitigation. 
             </p>
 
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-10 relative z-10 font-light font-body">
-              Actively sharpening offensive and defensive skills through <span className="text-cyber-green text-sm md:text-base font-bold">TryHackMe</span> and <span className="text-cyber-green text-sm md:text-base font-bold">Hack The Box labs</span>, translating attack techniques into practical detection and response strategies. Certified in <span className="text-cyber-green text-sm md:text-base font-bold">ISO/IEC 27001 Lead Auditor, SOC Foundations, and Google Cybersecurity Professional</span> programs, reinforcing a strong foundation in governance concepts, security operations, and modern defensive practices.
+              Actively sharpening offensive and defensive skills through <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">TryHackMe</span> and <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">Hack The Box labs</span>, translating attack techniques into practical detection and response strategies. Certified in <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">ISO/IEC 27001 Lead Auditor, SOC Foundations, and Google Cybersecurity Professional</span> programs, reinforcing a strong foundation in governance concepts, security operations, and modern defensive practices.
               <br /><br />
           
-          <div className="bg-cyber-green/5 border-l-2 border-cyber-green p-4 mt-8">
-            <p className="text-cyber-green text-sm md:text-base font-bold">
+          <div className="bg-cyber-green/5 border-l-2 border-cyber-green-dark dark:border-cyber-green p-4 mt-8">
+            <p className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">
                  "Let's collaborate to bring your secure infrastructure to life!"
             </p>
             </div>

@@ -48,8 +48,8 @@ const Navbar: React.FC = () => {
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#" className="flex items-center gap-2 group hover-glitch">
-          <Shield className="w-8 h-8 text-cyber-green group-hover:text-cyber-blue transition-colors duration-300" />
-          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-mono group-hover:text-shadow-neon">Rafu<span className="text-cyber-green group-hover:text-cyber-blue"> CyberSec</span></span>
+          <Shield className="w-8 h-8 text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue transition-colors duration-300" />
+          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-mono group-hover:text-shadow-neon">Rafu<span className="text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue"> CyberSec</span></span>
         </a>
 
         {/* Desktop Menu */}
@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className="relative text-sm font-medium text-gray-600 dark:text-cyber-text hover:text-cyber-green dark:hover:text-cyber-green transition-colors duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-cyber-green before:transition-all before:duration-300 hover:before:w-full font-mono"
+              className="relative text-sm font-medium text-gray-600 dark:text-cyber-text hover:text-cyber-green-dark dark:hover:text-cyber-green transition-colors duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-cyber-green-dark dark:before:bg-cyber-green before:transition-all before:duration-300 hover:before:w-full font-mono"
             >
               {link.name}
             </a>
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
           </button>
           
           <button 
-            className="text-gray-900 dark:text-cyber-text hover:text-cyber-green"
+            className="text-gray-900 dark:text-cyber-text hover:text-cyber-green-dark dark:hover:text-cyber-green"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-gray-700 dark:text-cyber-text hover:text-cyber-green font-medium py-2 px-4 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition-colors font-mono"
+              className="text-gray-700 dark:text-cyber-text hover:text-cyber-green-dark dark:hover:text-cyber-green font-medium py-2 px-4 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition-colors font-mono"
             >
               {link.name}
             </a>
