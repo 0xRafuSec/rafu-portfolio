@@ -10,11 +10,10 @@ const Education: React.FC = () => {
       year: "2019 - 2023",
       description: "Focused on Information Security, Network Security, and Software Engineering. Completed final year project on IoT Intrusion Detection Systems."
     },
-    // Add more entries if needed
   ];
 
   return (
-    <section id="education" className="py-20 bg-gray-50 dark:bg-cyber-black transition-colors duration-300">
+    <section id="education" className="py-20 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white">
           Academic <span className="text-cyber-green">Background</span>
@@ -22,7 +21,7 @@ const Education: React.FC = () => {
 
         <div className="max-w-4xl mx-auto">
           {education.map((edu, index) => (
-            <div key={index} className="bg-white dark:bg-cyber-gray p-8 rounded-2xl border border-gray-200 dark:border-white/5 shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-1">
+            <div key={index} className="bg-white/50 dark:bg-cyber-gray/40 backdrop-blur-md p-8 rounded-2xl border border-gray-200 dark:border-white/5 shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:border-cyber-green/30">
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="w-16 h-16 bg-cyber-green/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-cyber-green/20 transition-colors">
                   <GraduationCap size={32} className="text-cyber-green" />

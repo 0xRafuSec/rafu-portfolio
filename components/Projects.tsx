@@ -38,7 +38,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-cyber-black transition-colors duration-300 scroll-mt-20">
+    <section id="projects" className="py-20 transition-colors duration-300 scroll-mt-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white font-sans">
           Featured <span className="text-cyber-green">Projects</span>
@@ -53,7 +53,7 @@ const Projects: React.FC = () => {
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all capitalize font-mono ${
                 filter === cat
                   ? 'bg-cyber-blue text-black shadow-neon-blue'
-                  : 'bg-white dark:bg-cyber-gray text-gray-600 dark:text-cyber-muted hover:bg-gray-100 dark:hover:bg-cyber-gray/80 border border-gray-200 dark:border-white/5'
+                  : 'bg-white/50 dark:bg-cyber-gray/30 text-gray-600 dark:text-cyber-muted hover:bg-white dark:hover:bg-cyber-gray/80 border border-gray-200 dark:border-white/5'
               }`}
             >
               {cat}
@@ -64,7 +64,7 @@ const Projects: React.FC = () => {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="group bg-white dark:bg-cyber-gray border border-gray-200 dark:border-white/5 rounded-xl overflow-hidden hover:border-cyber-green transition-all duration-300 hover:-translate-y-2 shadow-lg dark:shadow-none">
+            <div key={project.id} className="group bg-white/80 dark:bg-cyber-gray/40 backdrop-blur-md border border-gray-200 dark:border-white/5 rounded-xl overflow-hidden hover:border-cyber-green transition-all duration-300 hover:-translate-y-2 shadow-lg dark:shadow-none">
               <div className="h-48 bg-gradient-to-br from-cyber-green to-cyber-blue flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 <div className="transform group-hover:scale-110 transition-transform duration-300 bg-white/20 p-4 rounded-full backdrop-blur-sm">
