@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { ChevronRight, Download, Github, Linkedin, Terminal } from 'lucide-react';
 
@@ -14,7 +16,7 @@ const Hero: React.FC = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-green"></span>
           </span>
-          System Status: Online
+          Avaliable For Hire
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-gray-900 dark:text-white font-sans animate-fade-in-up [animation-delay:200ms]">
@@ -24,7 +26,7 @@ const Hero: React.FC = () => {
         <div className="flex items-center justify-center gap-2 mb-8 animate-fade-in-up [animation-delay:400ms]">
             <Terminal className="text-cyber-green w-5 h-5 md:w-8 md:h-8" />
             <h2 className="text-xl md:text-3xl text-gray-800 dark:text-gray-200 font-mono font-bold tracking-wider bg-black/5 dark:bg-black/30 px-4 py-1 rounded border-l-4 border-cyber-green">
-            CYBER SECURITY ENGINEER
+            CYBER <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyber-green to-cyber-blue">SECURITY ENGINEER</span>
             </h2>
         </div>
         
@@ -35,25 +37,28 @@ const Hero: React.FC = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up [animation-delay:800ms]">
           {/* Primary Action */}
-          <a href="#contact" className="group px-8 py-3 bg-cyber-green text-black font-bold font-mono rounded-sm transition-all hover:bg-white hover:text-black hover:shadow-neon-green flex items-center gap-2 skew-x-[-10deg]">
-            <span className="skew-x-[10deg] flex items-center gap-2">
+          <a href="#contact" className="group relative px-8 py-3 bg-cyber-green text-black font-bold font-mono rounded-sm overflow-hidden hover:shadow-[0_0_20px_#00ff9d] transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:scale-105">
+            <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-shimmer skew-x-[10deg]"></div>
+            <span className="skew-x-[10deg] flex items-center gap-2 relative z-10">
                 Initiate Contact
                 <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </span>
           </a>
           
           {/* Secondary Action */}
-          <a href="#projects" className="px-8 py-3 border border-cyber-green text-cyber-green font-bold font-mono rounded-sm hover:bg-cyber-green/10 transition-all duration-300 flex items-center gap-2 skew-x-[-10deg]">
-            <span className="skew-x-[10deg]">View Projects</span>
+          <a href="#projects" className="group relative px-8 py-3 border border-cyber-green text-cyber-green font-bold font-mono rounded-sm overflow-hidden hover:bg-cyber-green/10 transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:shadow-[0_0_10px_#00ff9d] hover:scale-105">
+             <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-cyber-green/20 to-transparent group-hover:animate-shimmer skew-x-[10deg]"></div>
+            <span className="skew-x-[10deg] relative z-10">View Projects</span>
           </a>
           
           {/* Download CV */}
           <a 
             href="https://1drv.ms/b/c/2812bdd673d78bce/IQBDoBQRIr2fRoRQUNC1D3QOAa_V-N_VL5eUqDP-49d-zLI?e=e1yhiE" 
             target="_blank" 
-            className="px-8 py-3 border border-cyber-blue text-cyber-blue font-bold font-mono rounded-sm hover:bg-cyber-blue/10 transition-all duration-300 flex items-center gap-2 skew-x-[-10deg]"
+            className="group relative px-8 py-3 border border-cyber-blue text-cyber-blue font-bold font-mono rounded-sm overflow-hidden hover:bg-cyber-blue/10 transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:shadow-[0_0_10px_#00e1ff] hover:scale-105"
           >
-             <span className="skew-x-[10deg] flex items-center gap-2">
+             <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-cyber-blue/20 to-transparent group-hover:animate-shimmer skew-x-[10deg]"></div>
+             <span className="skew-x-[10deg] flex items-center gap-2 relative z-10">
                 <Download size={18} />
                 Download CV
              </span>

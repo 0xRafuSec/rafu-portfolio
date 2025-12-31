@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Certifications from './components/Certifications';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Projects from './components/Projects';
-import Terminal from './components/Terminal';
-import HackingSim from './components/HackingSim';
-import PasswordAnalyzer from './components/PasswordAnalyzer';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import SplashScreen from './components/SplashScreen';
-import Konami from './components/Konami';
-import BackToTop from './components/BackToTop';
+'use client';
 
-const App: React.FC = () => {
+import React, { useState, useEffect } from 'react';
+import Navbar from './Navbar';
+import Hero from './Hero';
+import About from './About';
+import Skills from './Skills';
+import Certifications from './Certifications';
+import Experience from './Experience';
+import Education from './Education';
+import Projects from './Projects';
+import Terminal from './Terminal';
+import HackingSim from './HackingSim';
+import PasswordAnalyzer from './PasswordAnalyzer';
+import Contact from './Contact';
+import Footer from './Footer';
+import SplashScreen from './SplashScreen';
+import Konami from './Konami';
+import BackToTop from './BackToTop';
+
+const ClientApp: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   return (
@@ -72,4 +74,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default ClientApp;

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Shield, Sun, Moon } from 'lucide-react';
 
@@ -34,12 +36,9 @@ const Navbar: React.FC = () => {
   };
 
   const navLinks = [
-    { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
-    { name: 'Education', href: '#education' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Terminal', href: '#interactive' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -50,9 +49,9 @@ const Navbar: React.FC = () => {
         : 'bg-transparent py-6'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" className="flex items-center gap-2 group">
-          <Shield className="w-8 h-8 text-cyber-green group-hover:rotate-12 transition-transform duration-300" />
-          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-mono">Rafu<span className="text-cyber-green"> CyberSec</span></span>
+        <a href="#" className="flex items-center gap-2 group hover-glitch">
+          <Shield className="w-8 h-8 text-cyber-green group-hover:text-cyber-blue transition-colors duration-300" />
+          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-mono group-hover:text-shadow-neon">Rafu<span className="text-cyber-green group-hover:text-cyber-blue"> CyberSec</span></span>
         </a>
 
         {/* Desktop Menu */}

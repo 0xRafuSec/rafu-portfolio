@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { MapPin, Phone, Send, Github, Linkedin } from 'lucide-react';
 
@@ -45,7 +47,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-gray-900 dark:text-white font-medium">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Wah Cantt, Pakistan</p>
+                  <p className="text-gray-600 dark:text-gray-400">Islamabad, Pakistan</p>
                 </div>
               </div>
               
@@ -71,10 +73,10 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="flex gap-4">
-              <a href="https://github.com/0xRafuSec" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green hover:text-black hover:border-cyber-green transition-all duration-300">
+              <a href="https://github.com/0xRafuSec" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green hover:text-black hover:border-cyber-green transition-all duration-300 hover:scale-110">
                 <Github size={18} />
               </a>
-              <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green hover:text-black hover:border-cyber-green transition-all duration-300">
+              <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green hover:text-black hover:border-cyber-green transition-all duration-300 hover:scale-110">
                 <Linkedin size={18} />
               </a>
             </div>
@@ -99,11 +101,14 @@ const Contact: React.FC = () => {
               <button 
                 type="submit" 
                 disabled={formState !== 'idle'}
-                className="w-full py-4 bg-gradient-to-r from-cyber-green to-cyber-blue text-black font-bold rounded-lg hover:shadow-neon-green transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed font-sans"
+                className="group relative w-full py-4 bg-gradient-to-r from-cyber-green to-cyber-blue text-black font-bold rounded-lg overflow-hidden hover:shadow-[0_0_20px_#00ff9d] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed font-sans hover:scale-[1.02]"
               >
-                {formState === 'idle' && <>Send Message <Send size={18} /></>}
-                {formState === 'sending' && 'Transmitting...'}
-                {formState === 'success' && 'Message Sent!'}
+                <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-shimmer skew-x-[10deg]"></div>
+                <span className="relative z-10 flex items-center gap-2">
+                  {formState === 'idle' && <>Send Message <Send size={18} /></>}
+                  {formState === 'sending' && 'Transmitting...'}
+                  {formState === 'success' && 'Message Sent!'}
+                </span>
               </button>
             </div>
           </form>

@@ -8,7 +8,12 @@ const certifications = [
     date: "2024"
   },
   {
-    name: "ISO/IEC 27001:2022",
+    name: "ISO/IEC 27001:2022 Lead Auditor",
+    issuer: "MasterMind",
+    date: "2025"
+  },
+  {
+    name: "ISO/IEC 27001:2022 Information Security Associate",
     issuer: "SKILLFRONT",
     date: "2024"
   },
@@ -26,11 +31,6 @@ const certifications = [
     name: "Ethical Hacking & Penetration Testing",
     issuer: "Udemy",
     date: "2023"
-  },
-  {
-    name: "Kali Linux OS Mastery",
-    issuer: "Udemy",
-    date: "2023"
   }
 ];
 
@@ -38,7 +38,7 @@ const Certifications: React.FC = () => {
   return (
     <section id="certifications" className="py-20 scroll-mt-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white font-sans">
            Professional <span className="text-cyber-green">Certifications</span>
         </h2>
         
@@ -49,8 +49,8 @@ const Certifications: React.FC = () => {
                 <Award size={24} />
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 dark:text-white text-sm">{cert.name}</h3>
-                <p className="text-blue-600 dark:text-cyber-blue text-xs mt-1">{cert.issuer}</p>
+                <h3 className="font-bold text-gray-900 dark:text-white text-sm font-sans">{cert.name}</h3>
+                <p className="text-blue-600 dark:text-cyber-blue text-xs mt-1 font-mono">{cert.issuer}</p>
               </div>
             </div>
           ))}

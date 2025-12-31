@@ -37,7 +37,7 @@ const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-20 scroll-mt-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white font-sans">
           Work <span className="text-cyber-green">Experience</span>
         </h2>
 
@@ -56,12 +56,12 @@ const Experience: React.FC = () => {
                 <div className="flex-1 ml-8 md:ml-0">
                   <div className="bg-white/80 dark:bg-black/40 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 transition-all duration-300 hover:scale-[1.02] hover:border-cyber-green hover:shadow-[0_0_20px_rgba(0,255,136,0.15)] group">
                     <div className="flex flex-col gap-2 mb-4">
-                      <h3 className="text-xl font-bold text-cyber-green group-hover:text-cyber-blue transition-colors">{item.title}</h3>
-                      <h4 className="text-lg text-gray-800 dark:text-white font-medium flex items-center gap-2">
+                      <h3 className="text-xl font-bold text-cyber-green group-hover:text-cyber-blue transition-colors font-sans">{item.title}</h3>
+                      <h4 className="text-lg text-gray-800 dark:text-white font-medium flex items-center gap-2 font-mono">
                         <Briefcase size={16} className="text-cyber-blue" />
                         {item.company}
                       </h4>
-                      <div className="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-cyber-muted">
+                      <div className="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-cyber-muted font-mono">
                         <span className="flex items-center gap-1">
                           <Calendar size={14} /> {item.date}
                         </span>
@@ -72,7 +72,7 @@ const Experience: React.FC = () => {
                     </div>
                     <ul className="space-y-3">
                       {item.points.map((point, i) => (
-                        <li key={i} className="text-gray-600 dark:text-cyber-text/80 text-sm flex items-start gap-2">
+                        <li key={i} className="text-gray-600 dark:text-cyber-text/80 text-sm flex items-start gap-2 font-body">
                           <span className="text-cyber-green mt-1.5 w-1.5 h-1.5 bg-cyber-green rounded-full flex-shrink-0 group-hover:bg-cyber-blue transition-colors"></span>
                           <span className="leading-relaxed">{point}</span>
                         </li>

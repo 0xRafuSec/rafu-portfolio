@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Project } from '../types';
 import { Github, ExternalLink, Shield, Search, Code, Lock } from 'lucide-react';
@@ -92,12 +94,12 @@ const Projects: React.FC = () => {
 
                 <div className="flex gap-4 pt-4 border-t border-gray-100 dark:border-white/5">
                   {project.links.github && (
-                    <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-cyber-green hover:text-green-600 dark:hover:text-white transition-colors font-mono">
+                    <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-cyber-green hover:text-green-600 dark:hover:text-white transition-colors font-mono hover-glitch">
                       <Github size={16} /> Code
                     </a>
                   )}
                   {project.links.demo && (
-                    <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-cyber-blue hover:text-blue-600 dark:hover:text-white transition-colors font-mono">
+                    <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-cyber-blue hover:text-blue-600 dark:hover:text-white transition-colors font-mono hover-glitch">
                       <ExternalLink size={16} /> Live Demo
                     </a>
                   )}
