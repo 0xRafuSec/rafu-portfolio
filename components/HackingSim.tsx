@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Square, Activity, Terminal, ShieldAlert, Globe, Lock } from 'lucide-react';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState, useEffect, useRef } from 'react';
 import { TerminalLine } from '../types';
 import { Terminal as TerminalIcon } from 'lucide-react';

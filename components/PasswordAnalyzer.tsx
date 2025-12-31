@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, Check, X } from 'lucide-react';
 

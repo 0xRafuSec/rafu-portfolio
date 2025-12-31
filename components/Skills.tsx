@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react';
-import { Shield, Code, Server, Lock, Globe, Box, Bug, Terminal as TerminalIcon, ShieldCheck, FileText, CheckSquare, Search, Eye, ShieldAlert, Zap, Cloud, Scale, Bot } from 'lucide-react';
 
 // Custom SVG Icons for Brands
 const Icons = {
@@ -41,6 +38,8 @@ const Icons = {
     </svg>
   ),
 };
+
+import { Shield, Code, Server, Lock, Globe, Box, Bug, Terminal as TerminalIcon, ShieldCheck, FileText, CheckSquare, Search, Eye, ShieldAlert, Zap, Cloud, Scale, Bot } from 'lucide-react';
 
 const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: string, isCustom?: boolean }) => (
   <div className="group relative flex items-center justify-center p-3 bg-white/80 dark:bg-black/40 rounded-xl border border-gray-200 dark:border-white/10 hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-sm hover:shadow-[0_0_15px_rgba(0,255,157,0.2)] backdrop-blur-sm">

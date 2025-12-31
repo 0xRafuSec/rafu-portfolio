@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState } from 'react';
 import { Project } from '../types';
 import { Github, ExternalLink, Shield, Search, Code, Lock } from 'lucide-react';
