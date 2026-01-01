@@ -7,9 +7,16 @@ const Icons = {
         <path d="M64 12c-2.4 0-4.7.7-6.7 2.1l-42 28C11.9 44.4 10 48.1 10 52v24c0 3.9 1.9 7.6 5.3 9.9l42 28c2 1.4 4.3 2.1 6.7 2.1s4.7-.7 6.7-2.1l42-28c3.4-2.3 5.3-6 5.3-9.9V52c0-3.9-1.9-7.6-5.3-9.9l-42-28C68.7 12.7 66.4 12 64 12zm0 18l32 21.3L64 72.7 32 51.3 64 30z"/>
     </svg>
   ),
-  Splunk: () => (
-    <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10 fill-current">
-      <path d="M23.01 10.37h-3.46c-.73-2.19-2.77-3.76-5.18-3.76-3.03 0-5.5 2.47-5.5 5.5s2.47 5.5 5.5 5.5c2.41 0 4.45-1.57 5.18-3.76h3.46c-.77 4.1-4.35 7.19-8.64 7.19-4.86 0-8.8-3.94-8.8-8.8 0-1.89.6-3.64 1.6-5.06l-.01.01-6.1-3.64.91-2.72 6.57 3.92c1.72-1.02 3.73-1.61 5.89-1.61 4.29 0 7.87 3.09 8.64 7.19z" />
+  QRadar: () => (
+    <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-10 sm:h-10 fill-current">
+        <path d="M16,2A14,14,0,1,0,30,16,14.016,14.016,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12.013,12.013,0,0,1,16,28Z"/>
+        <path d="M11 11h10v2H11zM11 15h10v2H11zM11 19h7v2h-7z"/>
+    </svg>
+  ),
+  ThreatHawk: () => (
+    <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10 fill-current" stroke="currentColor" strokeWidth="0">
+       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+       <circle cx="12" cy="12" r="2"/>
     </svg>
   ),
   Kali: () => (
@@ -19,7 +26,7 @@ const Icons = {
   ),
   Python: () => (
     <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10 fill-current">
-      <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-2.55l.04-.37.12-.3.19-.24.26-.18.32-.14.37-.1.41-.07.44-.04zm-4.5 1.53l-.16.03-.13.07-.09.11-.05.14-.02.16.02.16.05.14.09.11.13.07.16.03.16-.03.13-.07.09-.11.05-.14.02-.16-.02-.16-.05-.14-.09-.11-.13-.07zm10.81 9.12l.21.03.28.07.32.12.35.18.36.26.36.36.35.46.32.59.28.73.21.88.14 1.05.05 1.23-.06 1.22-.16 1.04-.24.87-.32.71-.36.57-.4.44-.42.33-.42.24-.4.16-.36.1-.32.05-.24.01h-.16l-.06-.01h-8.16v2.55l-.04.37-.12.3-.19.24-.26.18-.32.14-.37.1-.41.07-.44.04h-1.83l-.9-.2-.73-.26-.59-.3-.45-.32-.34-.34-.25-.34-.16-.33-.1-.3-.04-.26-.02-.2.01-.13v-5.25l.05-.63.13-.55.21-.46.26-.38.3-.31.33-.25.35-.19.35-.14.33-.1.3-.07.26-.04.21-.02h5.47l.69-.05.59-.14.5-.22.41-.27.33-.32.27-.35.2-.36.15-.37.1-.35.07-.32.04-.27.02-.21v-3.06h1.27l.63.02.48.05.32.05.15.02.06.02zm-4.5 11.25l-.16.03-.13.07-.09.11-.05.14-.02.16.02.16.05.14.09.11.13.07.16.03.16-.03.13-.07.09-.11.05-.14.02-.16-.02-.16-.05-.14-.09-.11-.13-.07z"/>
+      <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-2.55l.04-.37.12-.3.19-.24.26-.18.32-.14.37.1-.41.07-.44.04zm-4.5 1.53l-.16.03-.13.07-.09.11-.05.14-.02.16.02.16.05.14.09.11.13.07.16.03.16-.03.13-.07.09-.11.05-.14.02-.16-.05-.14-.09-.11-.13-.07zm10.81 9.12l.21.03.28.07.32.12.35.18.36.26.36.36.35.46.32.59.28.73.21.88.14 1.05.05 1.23-.06 1.22-.16 1.04-.24.87-.32.71-.36.57-.4.44-.42.33-.42.24-.4.16-.36.1-.32.05-.24.01h-.16l-.06-.01h-8.16v2.55l-.04.37-.12.3-.19.24-.26.18-.32.14-.37.1-.41.07-.44.04h-1.83l-.9-.2-.73-.26-.59-.3-.45-.32-.34-.34-.25-.34-.16-.33-.1-.3-.04-.26-.02-.2.01-.13v-5.25l.05-.63.13-.55.21-.46.26-.38.3-.31.33-.25.35-.19.35-.14.33-.1.3-.07.26-.04.21-.02h5.47l.69-.05.59-.14.5-.22.41-.27.33-.32.27-.35.2-.36.15-.37.1-.35.07-.32.04-.27.02-.21v-3.06h1.27l.63.02.48.05.32.05.15.02.06.02zm-4.5 11.25l-.16.03-.13.07-.09.11-.05.14-.02.16.02.16.05.14.09.11.13.07.16.03.16-.03.13-.07.09-.11.05-.14.02-.16-.02-.16-.05-.14-.09-.11-.13-.07z"/>
     </svg>
   ),
   Windows: () => (
@@ -37,9 +44,14 @@ const Icons = {
       <path d="M5.4 18.9L10 5h4.3l-5.6 15zM12.9 8.6L18 20h-4z"/>
     </svg>
   ),
+  Mitre: () => (
+     <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10 fill-current">
+        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h2v2H7V7zm4 0h2v2h-2V7zm4 0h2v2h-2V7zM7 11h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zM7 15h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/>
+     </svg>
+  )
 };
 
-import { Shield, Code, Server, Lock, Globe, Box, Bug, Terminal as TerminalIcon, ShieldCheck, FileText, CheckSquare, Search, Eye, ShieldAlert, Zap, Cloud, Scale, Bot } from 'lucide-react';
+import { Shield, Code, Server, Lock, Globe, Box, Bug, Terminal as TerminalIcon, ShieldCheck, FileText, CheckSquare, Search, Eye, ShieldAlert, Zap, Cloud, Scale, Bot, FileSearch, Radio } from 'lucide-react';
 
 const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: string, isCustom?: boolean }) => (
   <div className="group relative flex items-center justify-center p-3 bg-white/80 dark:bg-black/40 rounded-xl border border-gray-200 dark:border-white/10 hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-sm hover:shadow-[0_0_15px_rgba(0,163,101,0.2)] dark:hover:shadow-[0_0_15px_rgba(0,255,157,0.2)] backdrop-blur-sm">
@@ -78,9 +90,10 @@ const Skills: React.FC = () => {
             </div>
             <div className="flex flex-wrap gap-4 flex-1">
               <SkillBadge icon={Icons.Wazuh} name="Wazuh" isCustom={true} />
-              <SkillBadge icon={Icons.Splunk} name="Splunk" isCustom={true} />
-              <SkillBadge icon={Eye} name="Threat Hawk" />
-              <SkillBadge icon={Shield} name="Incident Response" />
+              <SkillBadge icon={Icons.QRadar} name="IBM QRadar" isCustom={true} />
+              <SkillBadge icon={Icons.ThreatHawk} name="Threat Hawk" isCustom={true} />
+              <SkillBadge icon={Globe} name="Threat Intelligence" />
+              <SkillBadge icon={FileSearch} name="IOC Analysis" />
               <SkillBadge icon={Search} name="Threat Hunting" />
             </div>
           </div>
@@ -98,8 +111,8 @@ const Skills: React.FC = () => {
               <SkillBadge icon={Icons.Kali} name="Kali Linux" isCustom={true} />
               <SkillBadge icon={Bug} name="Burp Suite" />
               <SkillBadge icon={Box} name="Metasploit" />
-              <SkillBadge icon={Globe} name="OSINT" />
-              <SkillBadge icon={Lock} name="Mimikatz" />
+              <SkillBadge icon={Icons.Mitre} name="MITRE ATT&CK" isCustom={true} />
+              <SkillBadge icon={Radio} name="OSINT" />
             </div>
           </div>
 
@@ -132,7 +145,8 @@ const Skills: React.FC = () => {
             <div className="flex flex-wrap gap-4 flex-1">
               <SkillBadge icon={FileText} name="ISO 27001" />
               <SkillBadge icon={CheckSquare} name="NCA-ECC" />
-              <SkillBadge icon={ShieldCheck} name="CIS Controls" />
+              <SkillBadge icon={ShieldCheck} name="SAMA" />
+              <SkillBadge icon={Shield} name="ADHICS" />
             </div>
           </div>
 

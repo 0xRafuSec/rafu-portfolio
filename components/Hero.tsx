@@ -29,8 +29,7 @@ const Hero: React.FC = () => {
         </div>
         
         <p className="max-w-2xl mx-auto text-lg text-gray-600 dark:text-cyber-muted mb-10 leading-relaxed font-mono text-sm md:text-base border-t border-b border-gray-200 dark:border-white/5 py-4 bg-white/5 dark:bg-black/20 backdrop-blur-sm animate-fade-in-up [animation-delay:600ms]">
-          <span className="text-cyber-blue-dark dark:text-cyber-blue">&gt;&gt;</span> Experienced in SOC operations, SIEM engineering, threat detection, and incident response. 
-          Expert in building scalable, compliance-aligned detection frameworks.
+          <span className="text-cyber-blue-dark dark:text-cyber-blue">&gt;&gt;</span> Transforming logs into intelligence and vulnerabilities into fortifications through precision threat detection and automated incident response.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up [animation-delay:800ms]">
@@ -51,7 +50,7 @@ const Hero: React.FC = () => {
           
           {/* Download CV */}
           <a 
-            href="https://1drv.ms/b/c/2812bdd673d78bce/IQBDoBQRIr2fRoRQUNC1D3QOAa_V-N_VL5eUqDP-49d-zLI?e=e1yhiE" 
+            href="https://rafucybersec.vercel.app/resume" 
             target="_blank" 
             className="group relative px-8 py-3 border border-cyber-blue-dark dark:border-cyber-blue text-cyber-blue-dark dark:text-cyber-blue font-bold font-mono rounded-sm overflow-hidden hover:bg-cyber-blue-dark/5 dark:hover:bg-cyber-blue/10 transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:shadow-[0_0_10px_rgba(0,150,170,0.3)] dark:hover:shadow-[0_0_10px_#00e1ff] hover:scale-105"
           >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Github, Linkedin, Activity, Database, Eye, Shield } from 'lucide-react';
+import { ShieldCheck, Github, Linkedin, Activity, Database, Eye, Shield, Mail } from 'lucide-react';
 
 const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -51,22 +51,30 @@ const About: React.FC = () => {
             </div>
             </p>
 
-            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center border-t border-gray-200 dark:border-white/10 pt-8">
-              <a href="mailto:rafay.arshad1@outlook.com" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 bg-blue-50 dark:bg-blue-900/10 rounded-lg flex items-center justify-center text-[#0078D4] group-hover:scale-110 transition-transform">
-                   <OutlookIcon size={20} />
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-start border-t border-gray-200 dark:border-white/10 pt-8">
+              {/* Email Button */}
+              <a href="mailto:rafay.arshad1@outlook.com" className="flex items-center gap-2 group bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-900/30 rounded-full pl-2 pr-4 py-1.5 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all w-10 hover:w-auto overflow-hidden whitespace-nowrap">
+                <div className="min-w-[24px] flex justify-center text-[#0078D4]">
+                    <OutlookIcon size={20} />
                 </div>
-                <span className="text-gray-600 dark:text-gray-300 group-hover:text-[#0078D4] transition-colors font-mono text-sm md:text-base">rafay.arshad1@outlook.com</span>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-mono text-[#0078D4]">rafay.arshad1@outlook.com</span>
               </a>
 
-              <div className="flex gap-4">
-                <a href="https://github.com/0xRafuSec" target="_blank" className="w-10 h-10 bg-gray-100 dark:bg-white/5 rounded-lg flex items-center justify-center text-gray-900 dark:text-white hover:bg-black hover:text-white transition-all">
-                  <Github size={20} />
-                </a>
-                <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" className="w-10 h-10 bg-blue-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white transition-all">
-                  <Linkedin size={20} />
-                </a>
-              </div>
+              {/* GitHub Button */}
+              <a href="https://github.com/0xRafuSec" target="_blank" className="flex items-center gap-2 group bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full pl-2 pr-4 py-1.5 hover:bg-gray-200 dark:hover:bg-white/10 transition-all w-10 hover:w-auto overflow-hidden whitespace-nowrap">
+                <div className="min-w-[24px] flex justify-center text-gray-900 dark:text-white">
+                    <Github size={20} />
+                </div>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-mono text-gray-900 dark:text-white">0xRafuSec</span>
+              </a>
+
+               {/* LinkedIn Button */}
+              <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" className="flex items-center gap-2 group bg-blue-100 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-900/40 rounded-full pl-2 pr-4 py-1.5 hover:bg-blue-200 dark:hover:bg-blue-900/40 transition-all w-10 hover:w-auto overflow-hidden whitespace-nowrap">
+                <div className="min-w-[24px] flex justify-center text-blue-600 dark:text-blue-400">
+                    <Linkedin size={20} />
+                </div>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-mono text-blue-600 dark:text-blue-400">Muhammad Rafay Ali</span>
+              </a>
             </div>
           </div>
         </div>

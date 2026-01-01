@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { TimelineItem } from '../types';
 
 const experienceData: TimelineItem[] = [
@@ -54,7 +54,16 @@ const Experience: React.FC = () => {
 
                 {/* Content Side */}
                 <div className="flex-1 ml-8 md:ml-0">
-                  <div className="bg-white/80 dark:bg-black/40 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 transition-all duration-300 hover:scale-[1.02] hover:border-cyber-green-dark dark:hover:border-cyber-green hover:shadow-lg dark:hover:shadow-[0_0_20px_rgba(0,255,136,0.15)] group">
+                  <a 
+                    href="#" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-white/80 dark:bg-black/40 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 transition-all duration-300 hover:scale-[1.02] hover:border-cyber-green-dark dark:hover:border-cyber-green hover:shadow-lg dark:hover:shadow-[0_0_20px_rgba(0,255,136,0.15)] group cursor-pointer relative"
+                  >
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ExternalLink size={18} className="text-cyber-green-dark dark:text-cyber-green" />
+                    </div>
+
                     <div className="flex flex-col gap-2 mb-4">
                       <h3 className="text-xl font-bold text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue transition-colors font-sans">{item.title}</h3>
                       <h4 className="text-lg text-gray-800 dark:text-white font-medium flex items-center gap-2 font-mono">
@@ -78,7 +87,7 @@ const Experience: React.FC = () => {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </a>
                 </div>
 
                 {/* Empty Side for Layout Balance */}

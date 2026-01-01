@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TerminalLine } from '../types';
-import { Terminal as TerminalIcon } from 'lucide-react';
+import { Terminal as TerminalIcon, Copy, Check, Loader } from 'lucide-react';
 
 const Terminal: React.FC = () => {
   const [input, setInput] = useState('');
@@ -8,6 +8,8 @@ const Terminal: React.FC = () => {
   const [history, setHistory] = useState<TerminalLine[]>([
     { type: 'output', content: "Welcome to Rafay's Portfolio Terminal. Type 'help' to begin." },
   ]);
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
   const [isProcessing, setIsProcessing] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -17,7 +19,7 @@ const Terminal: React.FC = () => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
-  }, [history]);
+  }, [history, isProcessing]);
 
   const fileSystem: Record<string, string[]> = {
     '~': ['projects/', 'docs/', 'tools/', 'about.txt', 'contact.txt'],
@@ -30,29 +32,47 @@ const Terminal: React.FC = () => {
     setHistory(prev => [...prev, line]);
   };
 
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+  };
+
   const handleCommand = async (cmd: string) => {
     if (isProcessing) return;
+    const trimmedCmd = cmd.trim();
+    if (!trimmedCmd) return;
 
-    const args = cmd.trim().split(' ');
+    setCommandHistory(prev => [...prev, trimmedCmd]);
+    setHistoryIndex(-1);
+
+    const args = trimmedCmd.split(' ');
     const command = args[0].toLowerCase();
     const target = args[1];
 
     addToHistory({ type: 'input', content: `guest@rafay-portfolio:${currentDir}$ ${cmd}` });
     setInput('');
+    setIsProcessing(true);
 
-    // Keep focus on input
-    setTimeout(() => inputRef.current?.focus(), 10);
+    // Simulate processing time for realism
+    setTimeout(() => {
+      processCommand(command, target, args);
+      setIsProcessing(false);
+      setTimeout(() => inputRef.current?.focus(), 10);
+    }, 400);
+  };
 
-    switch (command) {
+  const processCommand = (command: string, target: string, args: string[]) => {
+     switch (command) {
       case 'help':
         addToHistory({ type: 'output', content: `Available commands:
   help            Show this help message
   whoami          Display user info
-  ls              List directory contents
+  ls [dir]        List directory contents
   cd <dir>        Change directory
+  pwd             Print working directory
   cat <file>      Read a file
   ping <host>     Simulate network ping
   ssh <host>      Attempt SSH connection
+  history         Show command history
   download <file> Download a file
   clear           Clear the terminal` });
         break;
@@ -61,31 +81,62 @@ const Terminal: React.FC = () => {
         addToHistory({ type: 'output', content: 'Visitor\nAccess Level: Public\nLocation: Internet' });
         break;
 
+      case 'pwd':
+        addToHistory({ type: 'output', content: `/home/guest/${currentDir.replace('~', '')}` });
+        break;
+
+      case 'history':
+        addToHistory({ type: 'output', content: commandHistory.map((c, i) => `${i + 1}  ${c}`).join('\n') });
+        break;
+
       case 'ls':
-        const contents = fileSystem[currentDir] ? fileSystem[currentDir].join('  ') : '';
+        const dirToList = target ? (target === '~' ? '~' : `${currentDir}/${target}`.replace('//', '/')) : currentDir;
+        // Simple mock implementation for listing other dirs if they exist in our mock FS keys
+        // Logic simplified: only list current or explicitly matched keys
+        let contents = '';
+        if (target && fileSystem[target]) {
+           contents = fileSystem[target].join('  ');
+        } else if (fileSystem[currentDir]) {
+           contents = fileSystem[currentDir].join('  ');
+        } else {
+           contents = '';
+        }
+        
+        if (target && !fileSystem[target] && target !== '~' && !target.startsWith('/')) {
+             // Try relative path
+             const relativePath = `${currentDir}/${target}`.replace('~/', '');
+             const fullKey = `~/${relativePath}`;
+             if(fileSystem[fullKey]) {
+                 contents = fileSystem[fullKey].join('  ');
+             } else {
+                 addToHistory({ type: 'error', content: `ls: cannot access '${target}': No such file or directory` });
+                 return;
+             }
+        }
         addToHistory({ type: 'output', content: contents });
         break;
 
       case 'cd':
-        if (!target) {
+        if (!target || target === '~') {
             setCurrentDir('~');
         } else if (target === '..') {
             if (currentDir !== '~') {
-                // Simple logic to go back one level
-                setCurrentDir('~');
+                const parts = currentDir.split('/');
+                parts.pop();
+                setCurrentDir(parts.join('/') || '~');
             }
         } else if (target === '/') {
              addToHistory({ type: 'error', content: `Permission denied: Root access required.` });
         } else {
-            const availableDirs = fileSystem[currentDir]
-                .filter(item => item.endsWith('/'))
-                .map(item => item.slice(0, -1));
-            
-            if (availableDirs.includes(target)) {
-                setCurrentDir(`${currentDir}/${target}`);
-            } else {
+            // Check relative path
+            const potentialPath = currentDir === '~' ? `~/${target}` : `${currentDir}/${target}`;
+            // Clean up path
+             const validDirs = Object.keys(fileSystem);
+             if (validDirs.includes(potentialPath)) {
+                 setCurrentDir(potentialPath);
+             } else {
                  addToHistory({ type: 'error', content: `cd: no such file or directory: ${target}` });
-            }
+             }
         }
         break;
 
@@ -94,8 +145,12 @@ const Terminal: React.FC = () => {
             addToHistory({ type: 'output', content: 'Cyber Security Engineer with expertise in SOC, SIEM, and Threat Hunting.' });
         } else if (target === 'contact.txt' && currentDir === '~') {
             addToHistory({ type: 'output', content: 'Email: rafay.arshad1@outlook.com\nPhone: +92 300 9817 567' });
-        } else if (target && currentDir !== '~' && fileSystem[currentDir]?.includes(target)) {
-            addToHistory({ type: 'output', content: `[Binary file or protected content: ${target}]` });
+        } else if (target && fileSystem[currentDir]?.includes(target)) {
+            if (target.endsWith('.pdf') || target.endsWith('.py') || target.endsWith('.sh')) {
+                 addToHistory({ type: 'output', content: `[Binary file or protected content: ${target}]` });
+            } else {
+                 addToHistory({ type: 'error', content: `cat: ${target}: Is a directory` });
+            }
         } else {
             addToHistory({ type: 'error', content: `File not found: ${target || ''}` });
         }
@@ -106,7 +161,7 @@ const Terminal: React.FC = () => {
             addToHistory({ type: 'error', content: 'Usage: ping <host>' });
             break;
         }
-        setIsProcessing(true);
+        setIsProcessing(true); // Keep processing true for async
         addToHistory({ type: 'output', content: `Pinging ${target} [192.168.1.10] with 32 bytes of data:` });
         
         let count = 0;
@@ -152,7 +207,6 @@ const Terminal: React.FC = () => {
             let progress = 0;
             const dlInterval = setInterval(() => {
                 progress += 20;
-                const bar = '='.repeat(progress / 5) + '>'.padEnd(20 - (progress/5), ' ');
                 if (progress >= 100) {
                      clearInterval(dlInterval);
                      addToHistory({ type: 'success', content: `[====================] 100% Complete.\nSaved to /local/downloads/${target}` });
@@ -169,21 +223,37 @@ const Terminal: React.FC = () => {
         setHistory([{ type: 'output', content: "Terminal cleared." }]);
         break;
 
-      case '':
-        break;
-
       default:
         addToHistory({ type: 'error', content: `Command not found: ${command}. Type 'help' for available commands.` });
     }
-  };
+  }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleCommand(input);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (commandHistory.length > 0) {
+        const newIndex = historyIndex + 1;
+        if (newIndex < commandHistory.length) {
+          setHistoryIndex(newIndex);
+          setInput(commandHistory[commandHistory.length - 1 - newIndex]);
+        }
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex > 0) {
+        const newIndex = historyIndex - 1;
+        setHistoryIndex(newIndex);
+        setInput(commandHistory[commandHistory.length - 1 - newIndex]);
+      } else if (historyIndex === 0) {
+        setHistoryIndex(-1);
+        setInput('');
+      }
     }
   };
 
-  const quickCommands = ['help', 'ls', 'whoami', 'ping 8.8.8.8'];
+  const quickCommands = ['help', 'ls', 'whoami', 'pwd', 'clear'];
 
   return (
     <div className="w-full max-w-3xl mx-auto font-mono text-sm shadow-[0_0_50px_rgba(0,0,0,0.3)] rounded-lg overflow-hidden border border-gray-200 dark:border-[#333] backdrop-blur-sm bg-white/95 dark:bg-black/80">
@@ -205,15 +275,33 @@ const Terminal: React.FC = () => {
         onClick={() => inputRef.current?.focus()}
       >
         {history.map((line, i) => (
-          <div key={i} className={`mb-1 whitespace-pre-wrap leading-relaxed ${
-            line.type === 'input' ? 'text-gray-800 dark:text-white' : 
-            line.type === 'error' ? 'text-red-600 dark:text-red-400' : 
-            line.type === 'success' ? 'text-green-600 dark:text-green-400' :
-            'text-gray-600 dark:text-cyber-green'
-          }`}>
-            {line.content}
+          <div key={i} className="group relative mb-1">
+             <div className={`whitespace-pre-wrap leading-relaxed ${
+              line.type === 'input' ? 'text-gray-800 dark:text-white font-bold mt-4' : 
+              line.type === 'error' ? 'text-red-600 dark:text-red-400' : 
+              line.type === 'success' ? 'text-green-600 dark:text-green-400' :
+              'text-gray-600 dark:text-cyber-green'
+            }`}>
+              {line.content}
+            </div>
+            {line.type === 'output' && (
+              <button 
+                onClick={(e) => { e.stopPropagation(); copyToClipboard(line.content); }}
+                className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 p-1 bg-gray-200 dark:bg-gray-800 rounded text-gray-500 hover:text-cyber-green transition-all"
+                title="Copy Output"
+              >
+                <Copy size={12} />
+              </button>
+            )}
           </div>
         ))}
+
+        {isProcessing && (
+           <div className="flex items-center gap-2 text-cyber-green mt-2 animate-pulse">
+              <Loader size={14} className="animate-spin" />
+              <span>Processing...</span>
+           </div>
+        )}
         
         {!isProcessing && (
             <div className="flex items-center gap-2 mt-2">

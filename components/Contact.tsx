@@ -99,9 +99,10 @@ const Contact: React.FC = () => {
               <button 
                 type="submit" 
                 disabled={formState !== 'idle'}
-                className="group relative w-full py-4 bg-gradient-to-r from-cyber-green-dark to-cyber-blue-dark dark:from-cyber-green dark:to-cyber-blue text-white dark:text-black font-bold rounded-lg overflow-hidden hover:shadow-[0_0_20px_rgba(0,163,101,0.5)] dark:hover:shadow-[0_0_20px_#00ff9d] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed font-sans hover:scale-[1.02]"
+                className="group relative w-full py-4 bg-gradient-to-r from-cyber-green-dark to-cyber-blue-dark dark:from-cyber-green dark:to-cyber-blue text-white dark:text-black font-bold rounded-lg overflow-hidden hover:shadow-[0_0_20px_rgba(0,163,101,0.5)] dark:hover:shadow-[0_0_30px_#00ff9d] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed font-sans hover:scale-[1.02] active:scale-95 duration-200"
               >
                 <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-shimmer skew-x-[10deg]"></div>
+                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <span className="relative z-10 flex items-center gap-2">
                   {formState === 'idle' && <>Send Message <Send size={18} /></>}
                   {formState === 'sending' && 'Transmitting...'}
