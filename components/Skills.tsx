@@ -105,11 +105,17 @@ const Icons = {
 import { Shield, Code, Terminal as TerminalIcon, Radio, ShieldCheck, FileText, CheckSquare, ShieldAlert, Zap, Cloud, Scale, Bot } from 'lucide-react';
 
 const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: string, isCustom?: boolean }) => (
-  <div className="group relative flex items-center justify-center p-3 bg-white/80 dark:bg-black/40 rounded-xl border border-gray-200 dark:border-white/10 hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-sm hover:shadow-[0_0_15px_rgba(0,163,101,0.2)] dark:hover:shadow-[0_0_15px_rgba(0,255,157,0.2)] backdrop-blur-sm">
-    <div className="text-gray-600 dark:text-gray-400 group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors">
-      {isCustom ? <Icon /> : <Icon className="w-8 h-8 sm:w-10 sm:h-10" strokeWidth={1.5} />}
+  <div className="group relative flex items-center justify-center p-3 bg-white/80 dark:bg-black/40 rounded-xl border border-gray-200 dark:border-white/10 hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-sm hover:shadow-[0_0_20px_rgba(0,163,101,0.4)] dark:hover:shadow-[0_0_25px_rgba(0,255,157,0.5)] backdrop-blur-sm hover:scale-110 hover:-translate-y-1 cursor-pointer">
+    {/* Animated glow effect */}
+    <div className="absolute inset-0 rounded-xl bg-cyber-green-dark/0 dark:bg-cyber-green/0 group-hover:bg-cyber-green-dark/10 dark:group-hover:bg-cyber-green/10 transition-all duration-300 blur-sm opacity-0 group-hover:opacity-100 -z-10"></div>
+    
+    {/* Icon container with rotation animation */}
+    <div className="text-gray-600 dark:text-gray-400 group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-all duration-300 group-hover:rotate-6 group-hover:scale-110">
+      {isCustom ? <Icon /> : <Icon className="w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-300" strokeWidth={1.5} />}
     </div>
-    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-cyber-green-dark dark:bg-cyber-green text-white dark:text-black text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20 font-mono">
+    
+    {/* Tooltip with slide-up animation */}
+    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 translate-y-2 group-hover:translate-y-0 px-2 py-1 bg-cyber-green-dark dark:bg-cyber-green text-white dark:text-black text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none z-20 font-mono shadow-lg">
       {name}
     </span>
   </div>
