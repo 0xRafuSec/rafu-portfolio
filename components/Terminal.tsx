@@ -60,7 +60,7 @@ const Terminal: React.FC = () => {
     }, 400);
   };
 
-  const processCommand = (command: string, target: string, args: string[]) => {
+  const processCommand = (command: string, target: string, _args: string[]) => {
      switch (command) {
       case 'help':
         addToHistory({ type: 'output', content: `Available commands:
