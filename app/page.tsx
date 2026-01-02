@@ -1,23 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Certifications from './components/Certifications';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Projects from './components/Projects';
-import Terminal from './components/Terminal';
-import HackingSim from './components/HackingSim';
-import PasswordAnalyzer from './components/PasswordAnalyzer';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import SplashScreen from './components/SplashScreen';
-import Konami from './components/Konami';
-import BackToTop from './components/BackToTop';
+'use client'
 
-const App: React.FC = () => {
-  const [loading, setLoading] = useState(true);
+import { useState, useEffect } from 'react'
+import Navbar from '../components/Navbar'
+import Hero from '../components/Hero'
+import About from '../components/About'
+import Skills from '../components/Skills'
+import Certifications from '../components/Certifications'
+import Experience from '../components/Experience'
+import Education from '../components/Education'
+import Projects from '../components/Projects'
+import Terminal from '../components/Terminal'
+import HackingSim from '../components/HackingSim'
+import PasswordAnalyzer from '../components/PasswordAnalyzer'
+import Contact from '../components/Contact'
+import Footer from '../components/Footer'
+import SplashScreen from '../components/SplashScreen'
+import Konami from '../components/Konami'
+import BackToTop from '../components/BackToTop'
+
+export default function Home() {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Simple Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible')
+        }
+      })
+    }, { threshold: 0.1 })
+
+    // Attach observer to sections
+    const interval = setInterval(() => {
+      document.querySelectorAll('section:not(.observed)').forEach(section => {
+        section.classList.add('reveal-on-scroll', 'observed')
+        observer.observe(section)
+      })
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <>
@@ -31,7 +54,7 @@ const App: React.FC = () => {
         <Konami />
 
         {/* Global Backgrounds */}
-        <div className="fixed inset-0 z-[-1] bg-gray-50 dark:bg-cyber-black transition-colors duration-300"></div>
+        <div className="fixed inset-0 z-[-1] bg-gray-50 dark:bg-[#0a0a0a] transition-colors duration-300"></div>
         <div className="fixed inset-0 z-[-1] bg-grid-pattern pointer-events-none"></div>
         <div className="fixed inset-0 z-[-1] bg-gradient-to-tr from-transparent via-transparent to-cyber-green/5 dark:to-cyber-green/10 pointer-events-none"></div>
         
@@ -69,7 +92,6 @@ const App: React.FC = () => {
         <BackToTop />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default App;

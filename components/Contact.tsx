@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { MapPin, Phone, Send, Github, Linkedin } from 'lucide-react';
 
 const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
@@ -10,16 +10,51 @@ const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?:
 );
 
 const Contact: React.FC = () => {
-  const [formState, setFormState] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [formState, setFormState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState('sending');
-    // Simulate API call - Note to user: Integrate EmailJS or Formspree here for real emails
-    setTimeout(() => {
-      setFormState('success');
+    
+    const form = e.currentTarget as HTMLFormElement;
+    const formData = new FormData(form);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+
+    try {
+      // Using EmailJS - Free service for sending emails from frontend
+      // You need to:
+      // 1. Sign up at https://www.emailjs.com/
+      // 2. Create a service (Gmail, Outlook, etc.)
+      // 3. Create an email template
+      // 4. Get your Public Key, Service ID, and Template ID
+      // 5. Replace the values below with your actual credentials
+      
+      // For now, using a simple fetch to a backend endpoint
+      // You can also use EmailJS by installing: npm install @emailjs/browser
+      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setFormState('success');
+        form.reset();
+        setTimeout(() => setFormState('idle'), 3000);
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setFormState('error');
       setTimeout(() => setFormState('idle'), 3000);
-    }, 1500);
+    }
   };
 
   return (
@@ -39,35 +74,64 @@ const Contact: React.FC = () => {
             </p>
             
             <div className="space-y-6 mb-8 font-mono">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5">
-                  <MapPin size={20} />
+              <a 
+                href="https://maps.google.com/?q=Islamabad,Pakistan" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-cyber-gray/30 border border-gray-200 dark:border-white/5 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
+              >
+                <div className="relative w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  <MapPin size={20} className="relative z-10" />
+                  <div className="absolute inset-0 bg-cyber-green-dark dark:bg-cyber-green rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
                 </div>
-                <div>
-                  <h4 className="text-gray-900 dark:text-white font-medium">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Islamabad, Pakistan</p>
+                <div className="flex-1">
+                  <h4 className="text-gray-900 dark:text-white font-medium group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors duration-300">Location</h4>
+                  <p className="text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">Islamabad, Pakistan</p>
                 </div>
-              </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
+                  <svg className="w-5 h-5 text-cyber-green-dark dark:text-cyber-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
               
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5">
-                  <OutlookIcon size={20} />
+              <a 
+                href="mailto:rafay.arshad1@outlook.com"
+                className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-cyber-gray/30 border border-gray-200 dark:border-white/5 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
+              >
+                <div className="relative w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  <OutlookIcon size={20} className="relative z-10" />
+                  <div className="absolute inset-0 bg-cyber-green-dark dark:bg-cyber-green rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
                 </div>
-                <div>
-                  <h4 className="text-gray-900 dark:text-white font-medium">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400">rafay.arshad1@outlook.com</p>
+                <div className="flex-1">
+                  <h4 className="text-gray-900 dark:text-white font-medium group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors duration-300">Email</h4>
+                  <p className="text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300 break-all">rafay.arshad1@outlook.com</p>
                 </div>
-              </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
+                  <svg className="w-5 h-5 text-cyber-green-dark dark:text-cyber-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5">
-                  <Phone size={20} />
+              <a 
+                href="tel:+923009817567"
+                className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-cyber-gray/30 border border-gray-200 dark:border-white/5 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
+              >
+                <div className="relative w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  <Phone size={20} className="relative z-10" />
+                  <div className="absolute inset-0 bg-cyber-green-dark dark:bg-cyber-green rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
                 </div>
-                <div>
-                  <h4 className="text-gray-900 dark:text-white font-medium">Phone</h4>
-                  <p className="text-gray-600 dark:text-gray-400">+92 300 9817 567</p>
+                <div className="flex-1">
+                  <h4 className="text-gray-900 dark:text-white font-medium group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors duration-300">Phone</h4>
+                  <p className="text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">+92 300 9817 567</p>
                 </div>
-              </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
+                  <svg className="w-5 h-5 text-cyber-green-dark dark:text-cyber-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
             </div>
 
             <div className="flex gap-4">
@@ -81,19 +145,19 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="bg-white/80 dark:bg-cyber-gray/40 backdrop-blur-md p-8 rounded-2xl border border-gray-200 dark:border-white/5 shadow-xl">
+          <form ref={formRef} onSubmit={handleSubmit} className="bg-white/80 dark:bg-cyber-gray/40 backdrop-blur-md p-8 rounded-2xl border border-gray-200 dark:border-white/5 shadow-xl">
             <div className="space-y-4 font-mono">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Name</label>
-                <input required type="text" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="What is your good name?" />
+                <input required name="name" type="text" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="What is your good name?" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Email</label>
-                <input required type="email" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="you@company.com" />
+                <input required name="email" type="email" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="you@company.com" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Message</label>
-                <textarea required rows={5} className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors resize-none placeholder-gray-500" placeholder="What do you want to say?" />
+                <textarea required name="message" rows={5} className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors resize-none placeholder-gray-500" placeholder="What do you want to say?" />
               </div>
               
               <button 
@@ -105,10 +169,17 @@ const Contact: React.FC = () => {
                 <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <span className="relative z-10 flex items-center gap-2">
                   {formState === 'idle' && <>Send Message <Send size={18} /></>}
-                  {formState === 'sending' && 'Transmitting...'}
-                  {formState === 'success' && 'Message Sent!'}
+                  {formState === 'sending' && <>Transmitting... <span className="animate-spin">⚡</span></>}
+                  {formState === 'success' && <>Message Sent! ✓</>}
+                  {formState === 'error' && <>Error! Try again</>}
                 </span>
               </button>
+              
+              {formState === 'error' && (
+                <p className="text-sm text-red-500 dark:text-red-400 text-center">
+                  Failed to send. Please email directly at rafay.arshad1@outlook.com
+                </p>
+              )}
             </div>
           </form>
 

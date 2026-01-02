@@ -1,17 +1,14 @@
 import React from 'react';
-import { ShieldCheck, Github, Linkedin, Activity, Database, Eye, Shield, Mail } from 'lucide-react';
+import { ShieldCheck, Github, Linkedin, Activity, Database, Eye } from 'lucide-react';
 
 const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <path d="M1 6L1 17C1 18.6569 2.34315 20 4 20H20C21.6569 20 23 18.6569 23 17V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M1 6L12 13L23 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2" className="text-blue-500" strokeOpacity="0" />
-    <path d="M16 16H20V12" stroke="#0078D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="12" cy="12" r="9" stroke="#0078D4" strokeWidth="0" fill="#0078D4" fillOpacity="0.1" />
-    <path d="M22 12V7.12607C22 6.53696 21.6163 6.01455 21.053 5.86438L12.9863 3.71328C12.3396 3.54082 11.6604 3.54082 11.0137 3.71328L2.94697 5.86438C2.38374 6.01455 2 6.53696 2 7.12607V17C2 18.6569 3.34315 20 5 20H19C20.6569 20 22 18.6569 22 17V12Z" stroke="#0078D4" strokeWidth="2"/>
-    <path d="M2 7L12 13L22 7" stroke="#0078D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <text x="14" y="19" fontSize="10" fill="#0078D4" fontWeight="bold" stroke="none" style={{ fontFamily: 'Arial' }}>O</text>
-  </svg>
+  <img 
+    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftoutlook.svg" 
+    alt="Outlook" 
+    width={size} 
+    height={size} 
+    className={className}
+  />
 );
 
 const About: React.FC = () => {
@@ -40,16 +37,15 @@ const About: React.FC = () => {
               I specialize in Threat Hunting, Rule Optimization, and ISO 27001 compliance. Experienced in <Activity size={18} className="inline mb-1 text-cyber-blue-dark dark:text-cyber-blue mx-1" /> <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">SOC Operations</span>, <Database size={18} className="inline mb-1 text-purple-600 dark:text-purple-400 mx-1" /> <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">SIEM Engineering</span>, and <Eye size={18} className="inline mb-1 text-red-600 dark:text-red-400 mx-1" /> <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">Threat Detection</span>, ensuring robust monitoring and rapid threat mitigation. 
             </p>
 
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-10 relative z-10 font-light font-body">
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-light font-body">
               Actively sharpening offensive and defensive skills through <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">TryHackMe</span> and <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">Hack The Box labs</span>, translating attack techniques into practical detection and response strategies. Certified in <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">ISO/IEC 27001 Lead Auditor, SOC Foundations, and Google Cybersecurity Professional</span> programs, reinforcing a strong foundation in governance concepts, security operations, and modern defensive practices.
-              <br /><br />
-          
-          <div className="bg-cyber-green/5 border-l-2 border-cyber-green-dark dark:border-cyber-green p-4 mt-8">
-            <p className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">
+            </p>
+            
+            <div className="bg-cyber-green/5 border-l-2 border-cyber-green-dark dark:border-cyber-green p-4 mt-8 mb-6 relative z-10">
+              <p className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">
                  "Let's collaborate to bring your secure infrastructure to life!"
-            </p>
+              </p>
             </div>
-            </p>
 
             <div className="flex flex-col md:flex-row gap-4 items-center justify-start border-t border-gray-200 dark:border-white/10 pt-8">
               {/* Email Button */}

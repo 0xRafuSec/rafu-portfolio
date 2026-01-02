@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Shield, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,9 +47,56 @@ const Navbar: React.FC = () => {
         : 'bg-transparent py-6'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" className="flex items-center gap-2 group hover-glitch">
-          <Shield className="w-8 h-8 text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue transition-colors duration-300" />
-          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-mono group-hover:text-shadow-neon">Rafu<span className="text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue"> CyberSec</span></span>
+        <a href="#" className="flex items-center gap-3 group">
+          {/* Clean Professional Cyber Logo */}
+          <div className="relative">
+            <svg 
+              width="36" 
+              height="36" 
+              viewBox="0 0 36 36" 
+              className="text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue transition-all duration-300 group-hover:scale-105"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Shield */}
+              <path 
+                d="M18 6 L10 9.5 L10 18 C10 23.5 18 28 18 28 C18 28 26 23.5 26 18 L26 9.5 Z" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Lock/Check inside */}
+              <path 
+                d="M15 18 L18 21 L21 18" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Hex badge */}
+              <text 
+                x="18" 
+                y="15" 
+                fontSize="7" 
+                fill="currentColor" 
+                textAnchor="middle"
+                className="font-mono font-bold"
+                opacity="0.8"
+              >
+                0x
+              </text>
+            </svg>
+            {/* Subtle glow on hover */}
+            <div className="absolute inset-0 bg-cyber-green-dark/20 dark:bg-cyber-green/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 scale-150" />
+          </div>
+          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-mono relative">
+            <span className="relative z-10">Rafu</span>
+            <span className="text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue relative z-10 transition-colors duration-300"> CyberSec</span>
+            {/* Clean underline on hover */}
+            <span className="absolute -bottom-0.5 left-0 h-[2px] bg-gradient-to-r from-cyber-green-dark to-cyber-blue-dark dark:from-cyber-green dark:to-cyber-blue w-0 group-hover:w-full transition-all duration-500" />
+          </span>
         </a>
 
         {/* Desktop Menu */}
@@ -66,12 +113,56 @@ const Navbar: React.FC = () => {
           
           <button 
             onClick={toggleTheme}
-            className="relative w-14 h-7 bg-gray-300 dark:bg-gray-800 rounded-full transition-colors duration-300 focus:outline-none shadow-inner border border-gray-400 dark:border-gray-700"
+            className="relative w-14 h-7 rounded-full transition-all duration-700 ease-out focus:outline-none overflow-hidden group"
             aria-label="Toggle Theme"
           >
-             <div className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center ${isDark ? 'translate-x-7 bg-cyber-black text-cyber-green' : 'translate-x-0 bg-white text-orange-500'}`}>
-                {isDark ? <Moon size={14} /> : <Sun size={14} />}
-             </div>
+            {/* Background with gradient */}
+            <div className={`absolute inset-0 rounded-full transition-all duration-700 ${
+              isDark 
+                ? 'bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800' 
+                : 'bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200'
+            }`} />
+            
+            {/* Stars for dark mode */}
+            {isDark && (
+              <>
+                <div className="absolute top-1 left-2 w-1 h-1 bg-cyber-green rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
+                <div className="absolute top-3 left-6 w-0.5 h-0.5 bg-cyber-blue rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+                <div className="absolute top-2 right-4 w-0.5 h-0.5 bg-cyber-green rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+              </>
+            )}
+            
+            {/* Sun rays for light mode */}
+            {!isDark && (
+              <div className="absolute inset-0 opacity-30">
+                <div className="absolute top-0 left-1/2 w-0.5 h-full bg-yellow-400 transform -translate-x-1/2" />
+                <div className="absolute top-1/2 left-0 w-full h-0.5 bg-yellow-400 transform -translate-y-1/2" />
+                <div className="absolute top-0 left-1/2 w-0.5 h-full bg-yellow-400 transform -translate-x-1/2 rotate-45" />
+                <div className="absolute top-0 left-1/2 w-0.5 h-full bg-yellow-400 transform -translate-x-1/2 -rotate-45" />
+              </div>
+            )}
+            
+            {/* Toggle circle */}
+            <div className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full transform transition-all duration-700 ease-out flex items-center justify-center shadow-xl ${
+              isDark 
+                ? 'translate-x-7 bg-gradient-to-br from-slate-900 to-slate-800 border border-cyber-green/40' 
+                : 'translate-x-0 bg-gradient-to-br from-yellow-300 to-orange-400 border border-orange-200'
+            }`}>
+              <div className={`transform transition-all duration-700 ${isDark ? 'rotate-0' : 'rotate-180'}`}>
+                {isDark ? (
+                  <Moon size={14} className="text-cyber-green drop-shadow-[0_0_4px_rgba(0,255,157,0.6)]" />
+                ) : (
+                  <Sun size={14} className="text-orange-600 drop-shadow-[0_0_4px_rgba(255,165,0,0.6)]" />
+                )}
+              </div>
+            </div>
+            
+            {/* Glow effect */}
+            <div className={`absolute inset-0 rounded-full transition-opacity duration-700 ${
+              isDark 
+                ? 'bg-cyber-green/20 opacity-0 group-hover:opacity-100' 
+                : 'bg-orange-400/30 opacity-0 group-hover:opacity-100'
+            }`} />
           </button>
         </div>
 
@@ -79,11 +170,32 @@ const Navbar: React.FC = () => {
         <div className="flex items-center gap-4 md:hidden">
           <button 
              onClick={toggleTheme}
-             className="relative w-12 h-6 bg-gray-300 dark:bg-gray-800 rounded-full transition-colors duration-300 focus:outline-none shadow-inner border border-gray-400 dark:border-gray-700"
+             className="relative w-12 h-6 rounded-full transition-all duration-700 ease-out focus:outline-none overflow-hidden group"
           >
-             <div className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center ${isDark ? 'translate-x-6 bg-cyber-black text-cyber-green' : 'translate-x-0 bg-white text-orange-500'}`}>
-                {isDark ? <Moon size={12} /> : <Sun size={12} />}
-             </div>
+            <div className={`absolute inset-0 rounded-full transition-all duration-700 ${
+              isDark 
+                ? 'bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800' 
+                : 'bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200'
+            }`} />
+            {isDark && (
+              <>
+                <div className="absolute top-0.5 left-1.5 w-0.5 h-0.5 bg-cyber-green rounded-full animate-pulse" />
+                <div className="absolute top-2 right-3 w-0.5 h-0.5 bg-cyber-blue rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+              </>
+            )}
+            <div className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full transform transition-all duration-700 ease-out flex items-center justify-center shadow-lg ${
+              isDark 
+                ? 'translate-x-5.5 bg-gradient-to-br from-slate-900 to-slate-800 border border-cyber-green/40' 
+                : 'translate-x-0 bg-gradient-to-br from-yellow-300 to-orange-400 border border-orange-200'
+            }`}>
+              <div className={`transform transition-all duration-700 ${isDark ? 'rotate-0' : 'rotate-180'}`}>
+                {isDark ? (
+                  <Moon size={12} className="text-cyber-green" />
+                ) : (
+                  <Sun size={12} className="text-orange-600" />
+                )}
+              </div>
+            </div>
           </button>
           
           <button 

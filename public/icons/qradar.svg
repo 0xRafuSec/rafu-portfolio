@@ -1,0 +1,6 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="10" fill="#1F2937"/>
+  <circle cx="12" cy="12" r="9" fill="none" stroke="#E60012" stroke-width="1.5"/>
+  <text x="12" y="16" font-size="10" fill="#E60012" text-anchor="middle" font-weight="bold" font-family="Arial, sans-serif">Q</text>
+</svg>
+

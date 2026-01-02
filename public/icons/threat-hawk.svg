@@ -1,0 +1,12 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="threatHawkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FF9D" />
+      <stop offset="100%" stop-color="#00E1FF" />
+    </linearGradient>
+  </defs>
+  <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l8 4v8.64l-8 4-8-4V8.18l8-4z" fill="url(#threatHawkGrad)"/>
+  <path d="M12 6L6 9v6l6 3 6-3V9l-6-3zm0 2.36l4 2v3.28l-4 2-4-2V10.36l4-2z" fill="url(#threatHawkGrad)" opacity="0.8"/>
+  <circle cx="12" cy="12" r="1.5" fill="#00E1FF"/>
+</svg>
+
