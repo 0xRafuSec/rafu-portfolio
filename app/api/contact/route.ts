@@ -48,24 +48,46 @@ export async function POST(request: NextRequest) {
 
     const resend = new Resend(resendApiKey);
     
-    const { error } = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Change to your verified domain
-      to: ['rafay.arshad1@outlook.com'],
-      subject: `New Contact: ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><small>Sent from your portfolio contact form</small></p>
-      `,
-    });
-    
-    if (error) {
-      console.error('Resend error:', error);
-      throw error;
+    try {
+      const { data, error } = await resend.emails.send({
+        from: 'Acme <onboarding@resend.dev>', // Test email - verify your domain in Resend for production
+        to: ['rafay.arshad1@outlook.com'],
+        replyTo: email, // So you can reply directly to the sender
+        subject: `New Contact: ${name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message.replace(/\n/g, '<br>')}</p>
+          <hr>
+          <p><small>Sent from your portfolio contact form</small></p>
+        `,
+      });
+      
+      if (error) {
+        console.error('Resend API error:', JSON.stringify(error, null, 2));
+        return NextResponse.json(
+          { 
+            error: 'Failed to send message', 
+            details: error.message || 'Unknown Resend error',
+            errorCode: error.name 
+          },
+          { status: 500 }
+        );
+      }
+
+      console.log('Email sent successfully:', data);
+    } catch (resendError: any) {
+      console.error('Resend exception:', resendError);
+      return NextResponse.json(
+        { 
+          error: 'Failed to send message', 
+          details: resendError?.message || 'Resend service error',
+          errorType: resendError?.name || 'UnknownError'
+        },
+        { status: 500 }
+      );
     }
 
 
@@ -73,10 +95,19 @@ export async function POST(request: NextRequest) {
       { success: true, message: 'Message sent successfully' },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('Contact form error:', error);
+    console.error('Error details:', {
+      message: error?.message,
+      name: error?.name,
+      stack: error?.stack,
+    });
     return NextResponse.json(
-      { error: 'Failed to send message' },
+      { 
+        error: 'Failed to send message',
+        details: error?.message || 'Unknown error occurred',
+        errorType: error?.name || 'Error'
+      },
       { status: 500 }
     );
   }

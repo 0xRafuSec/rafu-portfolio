@@ -43,14 +43,17 @@ const Contact: React.FC = () => {
         body: JSON.stringify({ name, email, message }),
       });
 
+      const result = await response.json();
+
       if (response.ok) {
         setFormState('success');
         form.reset();
         setTimeout(() => setFormState('idle'), 3000);
       } else {
-        throw new Error('Failed to send message');
+        console.error('API Error:', result);
+        throw new Error(result.details || result.error || 'Failed to send message');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending message:', error);
       setFormState('error');
       setTimeout(() => setFormState('idle'), 3000);
