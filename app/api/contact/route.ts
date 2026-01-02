@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
     try {
       const { data, error } = await resend.emails.send({
         from: 'Acme <onboarding@resend.dev>', // Test email - verify your domain in Resend for production
-        to: ['rafay.arshad1@outlook.com'],
+        to: ['rafay.arshad1@gmail.com'],
         replyTo: email, // So you can reply directly to the sender
         subject: `New Contact: ${name}`,
         html: `
