@@ -90,7 +90,6 @@ const Terminal: React.FC = () => {
         break;
 
       case 'ls':
-        const dirToList = target ? (target === '~' ? '~' : `${currentDir}/${target}`.replace('//', '/')) : currentDir;
         // Simple mock implementation for listing other dirs if they exist in our mock FS keys
         // Logic simplified: only list current or explicitly matched keys
         let contents = '';
