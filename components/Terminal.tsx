@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TerminalLine } from '../types';
-import { Terminal as TerminalIcon, Copy, Check, Loader } from 'lucide-react';
+import { Terminal as TerminalIcon, Copy, Loader } from 'lucide-react';
 
 const Terminal: React.FC = () => {
   const [input, setInput] = useState('');
