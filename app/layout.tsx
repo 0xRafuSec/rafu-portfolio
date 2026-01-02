@@ -18,10 +18,11 @@ const jetBrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: '0xRafuSec | Cyber Warfare Engineer',
+  title: '0xRafuSec | Cyber Security Engineer',
   description: 'Cybersecurity portfolio featuring interactive terminal and tools.',
   icons: {
-    icon: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2300ff9d%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z%22/><path d=%22m9 12 2 2 4-4%22/></svg>',
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
   },
 }
 

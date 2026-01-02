@@ -5,7 +5,7 @@ interface SplashScreenProps {
 }
 
 const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
-  const [lines, setLines] = useState<string[]>([]);
+  const [lines, setLines] = useState<Array<{ text: string; displayed: string }>>([]);
   const [progress, setProgress] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -61,13 +61,37 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
     return () => clearInterval(intervalId);
   }, []);
 
-  // Boot Sequence Logic
+  // Boot Sequence Logic with Typing Animation
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
+    const typingIntervals: ReturnType<typeof setInterval>[] = [];
 
-    bootSequence.forEach(({ text, delay }) => {
+    bootSequence.forEach(({ text, delay }, index) => {
       setTimeout(() => {
-        setLines((prev) => [...prev, text]);
+        // Add line with empty displayed text
+        setLines((prev) => [...prev, { text, displayed: '' }]);
+        
+        // Type out the text character by character
+        let charIndex = 0;
+        const typingInterval = setInterval(() => {
+          setLines((prev) => {
+            const newLines = [...prev];
+            if (newLines[index]) {
+              newLines[index] = {
+                ...newLines[index],
+                displayed: text.substring(0, charIndex + 1)
+              };
+            }
+            return newLines;
+          });
+          
+          charIndex++;
+          if (charIndex >= text.length) {
+            clearInterval(typingInterval);
+          }
+        }, 50); // Typing speed: 50ms per character
+        
+        typingIntervals.push(typingInterval);
       }, delay);
     });
 
@@ -88,6 +112,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
     return () => {
       clearTimeout(timeoutId);
       clearInterval(progressInterval);
+      typingIntervals.forEach(interval => clearInterval(interval));
     };
   }, [onComplete]);
 
@@ -101,11 +126,11 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             <div key={index} className="flex items-center gap-2 mb-1">
               <span className="text-blue-400">{'>'}</span>
               <span className={index === lines.length - 1 ? "text-white font-bold" : "text-green-500/80"}>
-                {line}
+                {line.displayed}
+                {line.displayed.length < line.text.length && (
+                  <span className="inline-block w-2 h-4 bg-green-500 animate-pulse ml-1"/>
+                )}
               </span>
-              {index === lines.length - 1 && index < bootSequence.length - 1 && (
-                <span className="inline-block w-2 h-4 bg-green-500 animate-pulse ml-1"/>
-              )}
             </div>
           ))}
         </div>

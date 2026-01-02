@@ -3,7 +3,7 @@ import { ShieldCheck, Github, Linkedin, Activity, Database, Eye } from 'lucide-r
 
 const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
   <img 
-    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftoutlook.svg" 
+    src="/icons/outlook.png" 
     alt="Outlook" 
     width={size} 
     height={size} 

@@ -4,25 +4,64 @@ import React from 'react';
 const Icons = {
   Wazuh: () => (
     <img 
-      src="https://wazuh.com/brand-assets/Wazuh-Logo.svg" 
+      src="/icons/wazuh.svg" 
       alt="Wazuh" 
-      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-      onError={(e) => {
-        e.currentTarget.src = '/icons/wazuh.svg';
-      }}
+      className="w-12 h-12 sm:w-28 sm:h-28 object-contain"
     />
   ),
   QRadar: () => (
     <img 
-      src="/icons/qradar.svg" 
+      src="/icons/qradar.png" 
       alt="IBM QRadar" 
-      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+      className="w-12 h-12 sm:w-28 sm:h-28 object-contain"
     />
   ),
   ThreatHawk: () => (
     <img 
-      src="/icons/threat-hawk.svg" 
+      src="/icons/threat-hawk.png" 
       alt="Threat Hawk" 
+      className="w-12 h-12 sm:w-28 sm:h-28 object-contain"
+    />
+  ),
+  Threat: () => (
+    <img 
+      src="/icons/threat.svg" 
+      alt="Threat Intelligence" 
+      className="w-8 h-8 sm:w-20 sm:h-20 object-contain"
+    />
+  ),
+  IOCs: () => (
+    <img 
+      src="/icons/iocs.png" 
+      alt="IOCs" 
+      className="w-8 h-8 sm:w-20 sm:h-20 object-contain"
+    />
+  ), 
+  Hunting: () => (
+    <img 
+      src="/icons/hunting.png" 
+      alt="Hunting" 
+      className="w-8 h-8 sm:w-20 sm:h-20 object-contain"
+    />
+  ),
+  Burp: () => (
+    <img 
+      src="/icons/burp.png" 
+      alt="Burp Suite" 
+      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+    />
+  ),
+  Metasploit: () => (
+    <img 
+      src="/icons/metasploit.png" 
+      alt="Metasploit" 
+      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+    />
+  ),
+  Python: () => (
+    <img 
+      src="/icons/python.png" 
+      alt="Python"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
@@ -30,13 +69,6 @@ const Icons = {
     <img 
       src="/icons/kali.svg" 
       alt="Kali Linux" 
-      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-    />
-  ),
-  Python: () => (
-    <img 
-      src="/icons/python.svg" 
-      alt="Python" 
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
@@ -63,14 +95,14 @@ const Icons = {
   ),
   Mitre: () => (
     <img 
-      src="/icons/mitre.svg" 
+      src="/icons/mitre.png" 
       alt="MITRE ATT&CK" 
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   )
 };
 
-import { Shield, Code, Server, Globe, Box, Bug, Terminal as TerminalIcon, ShieldCheck, FileText, CheckSquare, Search, ShieldAlert, Zap, Cloud, Scale, Bot, FileSearch, Radio } from 'lucide-react';
+import { Shield, Code, Terminal as TerminalIcon, Radio, ShieldCheck, FileText, CheckSquare, ShieldAlert, Zap, Cloud, Scale, Bot } from 'lucide-react';
 
 const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: string, isCustom?: boolean }) => (
   <div className="group relative flex items-center justify-center p-3 bg-white/80 dark:bg-black/40 rounded-xl border border-gray-200 dark:border-white/10 hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-sm hover:shadow-[0_0_15px_rgba(0,163,101,0.2)] dark:hover:shadow-[0_0_15px_rgba(0,255,157,0.2)] backdrop-blur-sm">
@@ -111,9 +143,9 @@ const Skills: React.FC = () => {
               <SkillBadge icon={Icons.Wazuh} name="Wazuh" isCustom={true} />
               <SkillBadge icon={Icons.QRadar} name="IBM QRadar" isCustom={true} />
               <SkillBadge icon={Icons.ThreatHawk} name="Threat Hawk" isCustom={true} />
-              <SkillBadge icon={Globe} name="Threat Intelligence" />
-              <SkillBadge icon={FileSearch} name="IOC Analysis" />
-              <SkillBadge icon={Search} name="Threat Hunting" />
+              <SkillBadge icon={Icons.Threat} name="Threat Intelligence" isCustom={true} />
+              <SkillBadge icon={Icons.IOCs} name="IOC Analysis" isCustom={true} />
+              <SkillBadge icon={Icons.Hunting} name="Threat Hunting" isCustom={true} />
             </div>
           </div>
 
@@ -128,10 +160,10 @@ const Skills: React.FC = () => {
             </div>
             <div className="flex flex-wrap gap-4 flex-1">
               <SkillBadge icon={Icons.Kali} name="Kali Linux" isCustom={true} />
-              <SkillBadge icon={Bug} name="Burp Suite" />
-              <SkillBadge icon={Box} name="Metasploit" />
+              <SkillBadge icon={Icons.Burp} name="Burp Suite" isCustom={true} />
+              <SkillBadge icon={Icons.Metasploit} name="Metasploit" isCustom={true} />
               <SkillBadge icon={Icons.Mitre} name="MITRE ATT&CK" isCustom={true} />
-              <SkillBadge icon={Radio} name="OSINT" />
+              <SkillBadge icon={Radio} name="OSINT" isCustom={true} />
             </div>
           </div>
 
@@ -148,7 +180,6 @@ const Skills: React.FC = () => {
                <SkillBadge icon={Icons.Windows} name="Windows Security" isCustom={true} />
                <SkillBadge icon={Icons.Linux} name="Linux" isCustom={true} />
                <SkillBadge icon={Icons.Azure} name="Azure" isCustom={true} />
-               <SkillBadge icon={Server} name="Server Admin" />
             </div>
           </div>
 

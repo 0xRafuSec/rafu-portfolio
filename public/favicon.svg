@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <path 
+    d="M18 6 L10 9.5 L10 18 C10 23.5 18 28 18 28 C18 28 26 23.5 26 18 L26 9.5 Z" 
+    stroke="#00ff9d" 
+    strokeWidth="2.5"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path 
+    d="M15 18 L18 21 L21 18" 
+    stroke="#00ff9d" 
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <text 
+    x="13" 
+    y="16" 
+    font-size="10" 
+    fill="#00ff9d" 
+    textAnchor="middle"
+    dominantBaseline="middle"
+    fontFamily="monospace"
+    fontWeight="bold"
+    opacity="0.8"
+  >
+    0x
+  </text>
+</svg>
+

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,11 +35,20 @@ const Navbar: React.FC = () => {
   };
 
   const navLinks = [
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Skills', href: '#skills', id: 'skills' },
+    { name: 'Experience', href: '#experience', id: 'experience' },
+    { name: 'Projects', href: '#projects', id: 'projects' },
+    { name: 'Contact', href: '#contact', id: 'contact' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setIsOpen(false);
+  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
@@ -47,7 +57,7 @@ const Navbar: React.FC = () => {
         : 'bg-transparent py-6'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group">
           {/* Clean Professional Cyber Logo */}
           <div className="relative">
             <svg 
@@ -97,7 +107,7 @@ const Navbar: React.FC = () => {
             {/* Clean underline on hover */}
             <span className="absolute -bottom-0.5 left-0 h-[2px] bg-gradient-to-r from-cyber-green-dark to-cyber-blue-dark dark:from-cyber-green dark:to-cyber-blue w-0 group-hover:w-full transition-all duration-500" />
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
@@ -105,7 +115,8 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className="relative text-sm font-medium text-cyber-green-dark dark:text-cyber-green hover:text-cyber-blue-dark dark:hover:text-cyber-blue transition-colors duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-cyber-blue-dark dark:before:bg-cyber-blue before:transition-all before:duration-300 hover:before:w-full font-mono tracking-wide"
+              onClick={(e) => handleNavClick(e, link.id)}
+              className="relative text-sm font-medium text-cyber-green-dark dark:text-cyber-green hover:text-cyber-blue-dark dark:hover:text-cyber-blue transition-colors duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-cyber-blue-dark dark:before:bg-cyber-blue before:transition-all before:duration-300 hover:before:w-full font-mono tracking-wide cursor-pointer"
             >
               {link.name}
             </a>
@@ -116,11 +127,11 @@ const Navbar: React.FC = () => {
             className="relative w-14 h-7 rounded-full transition-all duration-700 ease-out focus:outline-none overflow-hidden group"
             aria-label="Toggle Theme"
           >
-            {/* Background with gradient */}
+            {/* Background with gradient - matches website theme */}
             <div className={`absolute inset-0 rounded-full transition-all duration-700 ${
               isDark 
-                ? 'bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800' 
-                : 'bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200'
+                ? 'bg-[#0a0a0a] border border-white/10' 
+                : 'bg-gray-100 border border-gray-300'
             }`} />
             
             {/* Stars for dark mode */}
@@ -145,14 +156,14 @@ const Navbar: React.FC = () => {
             {/* Toggle circle */}
             <div className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full transform transition-all duration-700 ease-out flex items-center justify-center shadow-xl ${
               isDark 
-                ? 'translate-x-7 bg-gradient-to-br from-slate-900 to-slate-800 border border-cyber-green/40' 
-                : 'translate-x-0 bg-gradient-to-br from-yellow-300 to-orange-400 border border-orange-200'
+                ? 'translate-x-7 bg-cyber-green border border-cyber-green/50' 
+                : 'translate-x-0 bg-yellow-400 border border-yellow-500'
             }`}>
               <div className={`transform transition-all duration-700 ${isDark ? 'rotate-0' : 'rotate-180'}`}>
                 {isDark ? (
-                  <Moon size={14} className="text-cyber-green drop-shadow-[0_0_4px_rgba(0,255,157,0.6)]" />
+                  <Moon size={14} className="text-black drop-shadow-[0_0_4px_rgba(0,255,157,0.6)]" />
                 ) : (
-                  <Sun size={14} className="text-orange-600 drop-shadow-[0_0_4px_rgba(255,165,0,0.6)]" />
+                  <Sun size={14} className="text-yellow-800 drop-shadow-[0_0_4px_rgba(255,200,0,0.6)]" />
                 )}
               </div>
             </div>
@@ -161,7 +172,7 @@ const Navbar: React.FC = () => {
             <div className={`absolute inset-0 rounded-full transition-opacity duration-700 ${
               isDark 
                 ? 'bg-cyber-green/20 opacity-0 group-hover:opacity-100' 
-                : 'bg-orange-400/30 opacity-0 group-hover:opacity-100'
+                : 'bg-yellow-400/30 opacity-0 group-hover:opacity-100'
             }`} />
           </button>
         </div>
@@ -174,8 +185,8 @@ const Navbar: React.FC = () => {
           >
             <div className={`absolute inset-0 rounded-full transition-all duration-700 ${
               isDark 
-                ? 'bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800' 
-                : 'bg-gradient-to-r from-amber-200 via-orange-300 to-amber-200'
+                ? 'bg-[#0a0a0a] border border-white/10' 
+                : 'bg-gray-100 border border-gray-300'
             }`} />
             {isDark && (
               <>
@@ -185,14 +196,14 @@ const Navbar: React.FC = () => {
             )}
             <div className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full transform transition-all duration-700 ease-out flex items-center justify-center shadow-lg ${
               isDark 
-                ? 'translate-x-5.5 bg-gradient-to-br from-slate-900 to-slate-800 border border-cyber-green/40' 
-                : 'translate-x-0 bg-gradient-to-br from-yellow-300 to-orange-400 border border-orange-200'
+                ? 'translate-x-5.5 bg-cyber-green border border-cyber-green/50' 
+                : 'translate-x-0 bg-yellow-400 border border-yellow-500'
             }`}>
               <div className={`transform transition-all duration-700 ${isDark ? 'rotate-0' : 'rotate-180'}`}>
                 {isDark ? (
-                  <Moon size={12} className="text-cyber-green" />
+                  <Moon size={12} className="text-black" />
                 ) : (
-                  <Sun size={12} className="text-orange-600" />
+                  <Sun size={12} className="text-yellow-800" />
                 )}
               </div>
             </div>
@@ -214,8 +225,8 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-cyber-green-dark dark:text-cyber-green hover:text-cyber-blue-dark dark:hover:text-cyber-blue font-medium py-2 px-4 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition-colors font-mono"
+              onClick={(e) => handleNavClick(e, link.id)}
+              className="text-cyber-green-dark dark:text-cyber-green hover:text-cyber-blue-dark dark:hover:text-cyber-blue font-medium py-2 px-4 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition-colors font-mono cursor-pointer"
             >
               {link.name}
             </a>
