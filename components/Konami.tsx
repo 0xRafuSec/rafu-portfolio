@@ -4,7 +4,7 @@ import { Unlock, X } from 'lucide-react';
 const Konami: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-  const [inputHistory, setInputHistory] = useState<string[]>([]);
+  const [_inputHistory, setInputHistory] = useState<string[]>([]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
