@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight, Download, Github, Linkedin, Terminal } from 'lucide-react';
+import { ChevronRight, Download, Github, Linkedin, Terminal, Instagram } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -88,6 +88,9 @@ const Hero: React.FC = () => {
            </a>
            <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-blue-dark dark:hover:text-cyber-blue transition-colors hover:scale-110 transform duration-200">
              <Linkedin size={24} />
+           </a>
+           <a href="https://www.instagram.com/rafucybersec/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-600 dark:hover:text-pink-500 transition-colors hover:scale-110 transform duration-200">
+             <Instagram size={24} />
            </a>
         </div>
       </div>

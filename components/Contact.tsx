@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { MapPin, Phone, Send, Github, Linkedin } from 'lucide-react';
+import { MapPin, Phone, Send, Github, Linkedin, Instagram } from 'lucide-react';
 
 const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -143,6 +143,9 @@ const Contact: React.FC = () => {
               </a>
               <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-blue-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-blue-dark dark:hover:border-cyber-green transition-all duration-300 hover:scale-110">
                 <Linkedin size={18} />
+              </a>
+              <a href="https://www.instagram.com/rafucybersec/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-pink-600 dark:hover:bg-pink-500 hover:text-white dark:hover:text-white hover:border-pink-600 dark:hover:border-pink-500 transition-all duration-300 hover:scale-110">
+                <Instagram size={18} />
               </a>
             </div>
           </div>

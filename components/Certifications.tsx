@@ -6,37 +6,37 @@ const certifications = [
     name: "Certified SOC Analyst Foundation",
     issuer: "SIEM XPERT",
     date: "2024",
-    link: "#"
+    link: "/certificates/SOC Foundation.pdf"
   },
   {
     name: "ISO/IEC 27001:2022 Lead Auditor",
     issuer: "MasterMind",
     date: "2025",
-    link: "#"
+    link: "/certificates/ISO 27001 Lead Auditor.pdf"
   },
   {
     name: "ISO/IEC 27001:2022 Information Security Associate",
     issuer: "SKILLFRONT",
     date: "2024",
-    link: "#"
+    link: "/certificates/ISO 27001 INFORMATION SECURITY ASSOCIATE.pdf"
   },
   {
     name: "Cybersecurity Specialization",
     issuer: "Google",
     date: "2023",
-    link: "#"
+    link: "/certificates/Google Cybersecurity.pdf"
   },
   {
     name: "Security Analyst Fundamentals",
     issuer: "IBM",
     date: "2023",
-    link: "#"
+    link: "/certificates/Security Analyst Fundamentals.pdf"
   },
   {
     name: "Ethical Hacking & Penetration Testing",
     issuer: "Udemy",
     date: "2023",
-    link: "#"
+    link: "/certificates/UEH.pdf"
   }
 ];
 
