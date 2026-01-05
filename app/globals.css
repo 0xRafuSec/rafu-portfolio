@@ -88,6 +88,30 @@ body {
   transform: translateY(0);
 }
 
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
 /* Glitch Effect Classes */
 .hover-glitch:hover {
   animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
@@ -100,5 +124,22 @@ body {
   60% { transform: translate(2px, 2px) }
   80% { transform: translate(2px, -2px) }
   100% { transform: translate(0) }
+}
+
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-5px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
 }
 

@@ -11,36 +11,85 @@ const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?:
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const formRef = useRef<HTMLFormElement>(null);
+
+  // Blocked email addresses
+  const blockedEmails = [
+    'rafay.arshad1@outlook.com',
+    'rafay.arshad1@gmail.com',
+    'muhammad.rafayali@outlook.com'
+  ];
+
+  const validateEmail = (email: string): boolean => {
+    const normalizedEmail = email.toLowerCase().trim();
+    return !blockedEmails.some(blocked => blocked.toLowerCase() === normalizedEmail);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState('sending');
+    setErrorMessage('');
     
     const form = e.currentTarget as HTMLFormElement;
     const formData = new FormData(form);
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const message = formData.get('message') as string;
+    const website = formData.get('website') as string; // Honeypot field
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setFormState('error');
+      setErrorMessage('Please enter a valid email address.');
+      setTimeout(() => {
+        setFormState('idle');
+        setErrorMessage('');
+      }, 3000);
+      return;
+    }
+
+    // Check if email is blocked
+    if (!validateEmail(email)) {
+      setFormState('error');
+      setErrorMessage('This email address cannot be used for contact form submissions.');
+      setTimeout(() => {
+        setFormState('idle');
+        setErrorMessage('');
+      }, 3000);
+      return;
+    }
+
+    // Validate input lengths
+    if (name.length > 100) {
+      setFormState('error');
+      setErrorMessage('Name must be less than 100 characters.');
+      setTimeout(() => {
+        setFormState('idle');
+        setErrorMessage('');
+      }, 3000);
+      return;
+    }
+
+    if (message.length > 5000) {
+      setFormState('error');
+      setErrorMessage('Message must be less than 5000 characters.');
+      setTimeout(() => {
+        setFormState('idle');
+        setErrorMessage('');
+      }, 3000);
+      return;
+    }
 
     try {
-      // Using EmailJS - Free service for sending emails from frontend
-      // You need to:
-      // 1. Sign up at https://www.emailjs.com/
-      // 2. Create a service (Gmail, Outlook, etc.)
-      // 3. Create an email template
-      // 4. Get your Public Key, Service ID, and Template ID
-      // 5. Replace the values below with your actual credentials
-      
-      // For now, using a simple fetch to a backend endpoint
-      // You can also use EmailJS by installing: npm install @emailjs/browser
       
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, website }),
       });
 
       const result = await response.json();
@@ -51,12 +100,18 @@ const Contact: React.FC = () => {
         setTimeout(() => setFormState('idle'), 3000);
       } else {
         console.error('API Error:', result);
-        throw new Error(result.details || result.error || 'Failed to send message');
+        const errorMsg = result.error || result.details || 'Failed to send message';
+        setErrorMessage(errorMsg);
+        throw new Error(errorMsg);
       }
     } catch (error: any) {
       console.error('Error sending message:', error);
       setFormState('error');
-      setTimeout(() => setFormState('idle'), 3000);
+      setErrorMessage(error?.message || 'Failed to send message. Please try again.');
+      setTimeout(() => {
+        setFormState('idle');
+        setErrorMessage('');
+      }, 3000);
     }
   };
 
@@ -141,10 +196,10 @@ const Contact: React.FC = () => {
               <a href="https://github.com/0xRafuSec" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 hover:scale-110">
                 <Github size={18} />
               </a>
-              <a href="https://www.linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-blue-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-blue-dark dark:hover:border-cyber-green transition-all duration-300 hover:scale-110">
+              <a href="https://linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-blue-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-blue-dark dark:hover:border-cyber-blue transition-all duration-300 hover:scale-110">
                 <Linkedin size={18} />
               </a>
-              <a href="https://www.instagram.com/rafucybersec/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-pink-600 dark:hover:bg-pink-500 hover:text-white dark:hover:text-white hover:border-pink-600 dark:hover:border-pink-500 transition-all duration-300 hover:scale-110">
+              <a href="https://instagram.com/rafucybersec/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-pink-600 dark:hover:bg-pink-500 hover:text-white dark:hover:text-white hover:border-pink-600 dark:hover:border-pink-500 transition-all duration-300 hover:scale-110">
                 <Instagram size={18} />
               </a>
             </div>
@@ -155,16 +210,52 @@ const Contact: React.FC = () => {
             <div className="space-y-4 font-mono">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Name</label>
-                <input required name="name" type="text" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="What is your good name?" />
+                <input 
+                  required 
+                  name="name" 
+                  type="text" 
+                  maxLength={100}
+                  className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" 
+                  placeholder="What is your good name?" 
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Email</label>
-                <input required name="email" type="email" className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" placeholder="you@company.com" />
+                <input 
+                  required 
+                  name="email" 
+                  type="email" 
+                  maxLength={254}
+                  className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors placeholder-gray-500" 
+                  placeholder="you@company.com" 
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Message</label>
-                <textarea required name="message" rows={5} className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors resize-none placeholder-gray-500" placeholder="What do you want to say?" />
+                <textarea 
+                  required 
+                  name="message" 
+                  rows={5} 
+                  maxLength={5000}
+                  className="w-full bg-gray-50 dark:bg-black/30 border border-gray-300 dark:border-white/10 rounded-lg p-3 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green outline-none transition-colors resize-none placeholder-gray-500" 
+                  placeholder="What do you want to say?" 
+                />
               </div>
+              
+              {/* Honeypot field - hidden from users, bots will fill it */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  opacity: 0,
+                  pointerEvents: 'none'
+                }}
+                aria-hidden="true"
+              />
               
               <button 
                 type="submit" 
@@ -183,7 +274,7 @@ const Contact: React.FC = () => {
               
               {formState === 'error' && (
                 <p className="text-sm text-red-500 dark:text-red-400 text-center">
-                  Failed to send. Please email directly at rafay.arshad1@outlook.com
+                  {errorMessage || 'Failed to send. Please email directly at rafay.arshad1@outlook.com'}
                 </p>
               )}
             </div>

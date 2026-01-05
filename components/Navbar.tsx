@@ -13,10 +13,15 @@ const Navbar: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll);
     
-    // Check system preference or default to dark
-    if (document.documentElement.classList.contains('dark')) {
+    // Load theme preference from localStorage or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
       setIsDark(true);
     } else {
+      document.documentElement.classList.remove('dark');
       setIsDark(false);
     }
 
@@ -28,17 +33,19 @@ const Navbar: React.FC = () => {
     if (isDark) {
       html.classList.remove('dark');
       setIsDark(false);
+      localStorage.setItem('theme', 'light');
     } else {
       html.classList.add('dark');
       setIsDark(true);
+      localStorage.setItem('theme', 'dark');
     }
   };
 
   const navLinks = [
-    { name: 'Skills', href: '#skills', id: 'skills' },
-    { name: 'Experience', href: '#experience', id: 'experience' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
-    { name: 'Contact', href: '#contact', id: 'contact' },
+    { name: 'Skills', href: 'skills', id: 'skills' },
+    { name: 'Experience', href: 'experience', id: 'experience' },
+    { name: 'Projects', href: 'projects', id: 'projects' },
+    { name: 'Contact', href: 'contact', id: 'contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -101,7 +108,7 @@ const Navbar: React.FC = () => {
             {/* Subtle glow on hover */}
             <div className="absolute inset-0 bg-cyber-green-dark/20 dark:bg-cyber-green/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 scale-150" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-mono relative">
+          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-mono relative hover-glitch">
             <span className="relative z-10">Rafu</span>
             <span className="text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue relative z-10 transition-colors duration-300"> CyberSec</span>
             {/* Clean underline on hover */}
@@ -110,13 +117,14 @@ const Navbar: React.FC = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.id)}
-              className="relative text-sm font-medium text-cyber-green-dark dark:text-cyber-green hover:text-cyber-blue-dark dark:hover:text-cyber-blue transition-colors duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-cyber-blue-dark dark:before:bg-cyber-blue before:transition-all before:duration-300 hover:before:w-full font-mono tracking-wide cursor-pointer"
+              aria-label={`Navigate to ${link.name} section`}
+              className="relative text-sm font-medium text-cyber-green-dark dark:text-cyber-green hover:text-cyber-blue-dark dark:hover:text-cyber-blue transition-colors duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-0.5 before:bg-cyber-blue-dark dark:before:bg-cyber-blue before:transition-all before:duration-300 hover:before:w-full font-mono tracking-wide cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyber-green-dark dark:focus:ring-cyber-green rounded px-2 py-1"
             >
               {link.name}
             </a>

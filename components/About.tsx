@@ -24,12 +24,12 @@ const About: React.FC = () => {
           </div>
           
           <div className="bg-white/50 dark:bg-black/40 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-8 md:p-12 shadow-xl dark:shadow-none relative overflow-hidden transition-all hover:border-cyber-green-dark/50 dark:hover:border-cyber-green/50">
-             {/* Decor */}
-            <div className="absolute top-0 right-0 p-4 opacity-5 dark:opacity-10 pointer-events-none">
-              <ShieldCheck size={180} />
-            </div>
+              {/* Decor */}
+              <div className="absolute top-0 right-0 p-4 opacity-5 dark:opacity-10 pointer-events-none">
+                <ShieldCheck size={180} />
+              </div>
 
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-light font-body">
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 relative z-10 font-light font-body">
               Hello! I'm <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">Muhammad Rafay Ali</span>, an Experienced <span className="text-cyber-green-dark dark:text-cyber-green text-sm md:text-base font-bold">Cyber Security Engineer</span> Skilled in crafting detection logic, optimizing logs, and engineering scalable monitoring pipelines using Wazuh and Threat Hawk to surface high-signal threats.
             </p>
             

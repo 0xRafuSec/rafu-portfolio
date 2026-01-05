@@ -16,7 +16,7 @@ const projectsData: Project[] = [
     title: "Multi-Sensor Intrusion Detection IoT",
     description: "Developed an IoT-based security solution using ESP32, motion/gas/fire sensors, and ESP32-CAM. Engineered a mobile application using Flutter and Firebase for real-time alerts, improving response time by 60%.",
     category: "development",
-    tags: ["IoT", "ESP32", "Flutter", "Firebase", "C++"],
+    tags: ["IoT", "ESP32", "Flutter", "Dart", "Firebase", "C++"],
     links: { github: "https://github.com/0xRafuSec/Multi-Sensor-Intrusion-Detection-IOT" }
   }
 ];

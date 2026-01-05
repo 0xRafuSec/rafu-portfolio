@@ -86,14 +86,19 @@ const Education: React.FC = () => {
                       <Code size={18} className="text-cyber-blue-dark dark:text-cyber-blue" />
                       <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide font-mono">Final Year Project</h4>
                     </div>
-                    <div className="bg-black/5 dark:bg-white/5 rounded-lg p-4 border-l-4 border-cyber-blue-dark dark:border-cyber-blue group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-colors">
-                      <h5 className="font-bold text-gray-900 dark:text-white mb-1 font-mono group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors">
+                    <a 
+                      href="https://github.com/0xRafuSec/Multi-Sensor-Intrusion-Detection-IOT" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block bg-black/5 dark:bg-white/5 rounded-lg p-4 border-l-4 border-cyber-blue-dark dark:border-cyber-blue group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-colors hover:bg-black/10 dark:hover:bg-white/10 cursor-pointer"
+                    >
+                      <h5 className="font-bold text-gray-900 dark:text-white mb-1 font-mono group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors hover-glitch">
                         {edu.fyp.title}
                       </h5>
                       <p className="text-sm text-gray-600 dark:text-gray-400 font-mono leading-relaxed">
                         {edu.fyp.description}
                       </p>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
