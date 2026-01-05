@@ -4,6 +4,8 @@ import './globals.css'
 import NoZoomScript from './components/NoZoomScript'
 import ErrorBoundary from './components/ErrorBoundary'
 import StructuredData from './components/StructuredData'
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -117,6 +119,8 @@ export default function RootLayout({
             Skip to main content
           </a>
           {children}
+          <SpeedInsights />
+          <Analytics />
         </ErrorBoundary>
       </body>
     </html>
