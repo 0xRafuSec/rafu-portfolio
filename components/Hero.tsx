@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
       } else {
         clearInterval(nameInterval);
       }
-    }, 100); // Name reveal speed
+    }, 150); // Name reveal speed
     
     return () => clearInterval(nameInterval);
   }, []);
@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
         } else {
           if (titleInterval) clearInterval(titleInterval);
         }
-      }, 20); // Title typing speed
+      }, 80); // Title typing speed
     }, delay);
     
     return () => {
