@@ -6,6 +6,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 import StructuredData from './components/StructuredData'
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
+import Providers from '@/providers'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -109,6 +110,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth dark ${spaceGrotesk.variable} ${jetBrainsMono.variable}`} suppressHydrationWarning>
       <body className="font-sans" suppressHydrationWarning>
+        <Providers>
         <StructuredData />
         <NoZoomScript />
         <ErrorBoundary>
@@ -122,6 +124,7 @@ export default function RootLayout({
           <SpeedInsights />
           <Analytics />
         </ErrorBoundary>
+        </Providers>
       </body>
     </html>
   )

@@ -53,7 +53,7 @@ const Icons = {
   ),
   Metasploit: () => (
     <img 
-      src="/icons/metasploit.png" 
+      src="/icons/metasploit.svg" 
       alt="Metasploit" 
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
@@ -99,10 +99,24 @@ const Icons = {
       alt="MITRE ATT&CK" 
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
-  )
+  ),
+  PowerShell: () => (
+    <img 
+      src="/icons/powershell.svg" 
+      alt="PowerShell" 
+      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+    />
+  ),
+  Bash: () => (
+    <img 
+      src="/icons/bash.svg" 
+      alt="Bash" 
+      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+    />
+  ),
 };
 
-import { Shield, Code, Terminal as TerminalIcon, Radio, ShieldCheck, FileText, CheckSquare, ShieldAlert, Zap, Cloud, Scale, Bot } from 'lucide-react';
+import { Shield, Radio, ShieldCheck, FileText, CheckSquare, ShieldAlert, Zap, Cloud, Scale, Bot } from 'lucide-react';
 
 const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: string, isCustom?: boolean }) => (
   <div className="group relative flex items-center justify-center p-3 bg-white/80 dark:bg-black/40 rounded-xl border border-gray-200 dark:border-white/10 hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-sm hover:shadow-[0_0_20px_rgba(0,163,101,0.4)] dark:hover:shadow-[0_0_25px_rgba(0,255,157,0.5)] backdrop-blur-sm hover:scale-110 hover:-translate-y-1 cursor-pointer">
@@ -217,8 +231,8 @@ const Skills: React.FC = () => {
             </div>
             <div className="flex flex-wrap gap-4 flex-1">
               <SkillBadge icon={Icons.Python} name="Python" isCustom={true} />
-              <SkillBadge icon={TerminalIcon} name="Bash" />
-              <SkillBadge icon={Code} name="PowerShell" />
+              <SkillBadge icon={Icons.Bash} name="Bash" />
+              <SkillBadge icon={Icons.PowerShell} name="PowerShell" />
             </div>
           </div>
 
