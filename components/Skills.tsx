@@ -53,7 +53,7 @@ const Icons = {
   ),
   Metasploit: () => (
     <img 
-      src="/icons/metasploit.svg" 
+      src="/icons/Metasploit.svg" 
       alt="Metasploit" 
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
