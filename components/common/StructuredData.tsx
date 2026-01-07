@@ -18,17 +18,17 @@ export default function StructuredData() {
       sameAs: [
         'https://github.com/0xRafuSec',
         'https://www.linkedin.com/in/muhammadrafayali/',
-        'https://www.instagram.com/rafucybersec/'
+        'https://www.instagram.com/rafucybersec/',
       ],
       email: 'rafay.arshad1@outlook.com',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Islamabad',
-        addressCountry: 'PK'
+        addressCountry: 'PK',
       },
       alumniOf: {
         '@type': 'CollegeOrUniversity',
-        name: 'University of Engineering and Technology'
+        name: 'University of Engineering and Technology',
       },
       knowsAbout: [
         'Cyber Security',
@@ -41,7 +41,7 @@ export default function StructuredData() {
         'Wazuh',
         'Threat Hawk',
         'Active Directory',
-        'Penetration Testing'
+        'Penetration Testing',
       ],
       hasCredential: [
         {
@@ -50,8 +50,8 @@ export default function StructuredData() {
           name: 'ISO/IEC 27001:2022 Lead Auditor',
           issuer: {
             '@type': 'Organization',
-            name: 'MasterMind'
-          }
+            name: 'MasterMind',
+          },
         },
         {
           '@type': 'EducationalOccupationalCredential',
@@ -59,13 +59,13 @@ export default function StructuredData() {
           name: 'Certified SOC Analyst Foundation',
           issuer: {
             '@type': 'Organization',
-            name: 'SIEM XPERT'
-          }
-        }
-      ]
+            name: 'SIEM XPERT',
+          },
+        },
+      ],
     })
     document.head.appendChild(script)
-    
+
     return () => {
       document.head.removeChild(script)
     }
@@ -73,4 +73,3 @@ export default function StructuredData() {
 
   return null
 }
-

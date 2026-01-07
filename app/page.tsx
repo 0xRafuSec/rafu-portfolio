@@ -1,4 +1,4 @@
-import PortfolioContent from '../components/PortfolioContent'
+import PortfolioContent from '@/components/PortfolioContent'
 
 export default function Home() {
   return <PortfolioContent />

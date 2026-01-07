@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import PortfolioContent from '../../components/PortfolioContent'
+import PortfolioContent from '@/components/PortfolioContent'
 
 export default function ContactPage() {
   useEffect(() => {

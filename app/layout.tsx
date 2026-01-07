@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from 'next'
 import { JetBrains_Mono, Space_Grotesk } from 'next/font/google'
 import './globals.css'
-import NoZoomScript from './components/NoZoomScript'
-import ErrorBoundary from './components/ErrorBoundary'
-import StructuredData from './components/StructuredData'
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/next';
+import NoZoomScript from '@/components/common/NoZoomScript'
+import ErrorBoundary from '@/components/common/ErrorBoundary'
+import StructuredData from '@/components/common/StructuredData'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next'
 import Providers from '@/providers'
 
 const spaceGrotesk = Space_Grotesk({

@@ -26,7 +26,7 @@ export default function NoZoomScript() {
     // Prevent double-tap zoom on mobile
     if (typeof window !== 'undefined') {
       document.addEventListener('touchend', preventZoom, { passive: false })
-      
+
       // Ensure viewport scale is correct
       const setViewportScale = () => {
         const viewport = document.querySelector('meta[name="viewport"]')
@@ -37,10 +37,10 @@ export default function NoZoomScript() {
           )
         }
       }
-      
+
       setViewportScale()
       window.addEventListener('resize', setViewportScale)
-      
+
       return () => {
         document.removeEventListener('touchend', preventZoom)
         window.removeEventListener('resize', setViewportScale)
@@ -50,4 +50,3 @@ export default function NoZoomScript() {
 
   return null
 }
-
