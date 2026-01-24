@@ -109,8 +109,7 @@ const Navbar: React.FC = () => {
             <div className="absolute inset-0 bg-cyber-green-dark/20 dark:bg-cyber-green/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 scale-150" />
           </div>
           <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-mono relative hover-glitch">
-            <span className="relative z-10">Rafu</span>
-            <span className="text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue relative z-10 transition-colors duration-300"> CyberSec</span>
+            <span className="text-cyber-green-dark dark:text-cyber-green group-hover:text-cyber-blue-dark dark:group-hover:text-cyber-blue relative z-10 transition-colors duration-300">0xRafuSec</span>
             {/* Clean underline on hover */}
             <span className="absolute -bottom-0.5 left-0 h-[2px] bg-gradient-to-r from-cyber-green-dark to-cyber-blue-dark dark:from-cyber-green dark:to-cyber-blue w-0 group-hover:w-full transition-all duration-500" />
           </span>

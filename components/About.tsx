@@ -49,11 +49,11 @@ const About: React.FC = () => {
 
             <div className="flex flex-col md:flex-row gap-4 items-center justify-start border-t border-gray-200 dark:border-white/10 pt-8">
               {/* Email Button */}
-              <a href="mailto:rafay.arshad1@outlook.com" className="flex items-center gap-2 group bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-900/30 rounded-full pl-2 pr-4 py-1.5 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all w-10 hover:w-auto overflow-hidden whitespace-nowrap">
+              <a href="mailto:muhammad.rafayali@outlook.com" className="flex items-center gap-2 group bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-900/30 rounded-full pl-2 pr-4 py-1.5 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all w-10 hover:w-auto overflow-hidden whitespace-nowrap">
                 <div className="min-w-[24px] flex justify-center text-[#0078D4]">
                     <OutlookIcon size={20} />
                 </div>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-mono text-[#0078D4]">rafay.arshad1@outlook.com</span>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-mono text-[#0078D4]">muhammd.rafayali@outlook.com</span>
               </a>
 
               {/* GitHub Button */}

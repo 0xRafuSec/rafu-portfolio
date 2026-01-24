@@ -154,7 +154,7 @@ const Contact: React.FC = () => {
               </a>
               
               <a 
-                href="mailto:rafay.arshad1@outlook.com"
+                href="mailto:muhammad.rafayali@outlook.com"
                 className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-cyber-gray/30 border border-gray-200 dark:border-white/5 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
               >
                 <div className="relative w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
@@ -163,7 +163,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <h4 className="text-gray-900 dark:text-white font-medium group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors duration-300">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300 break-all">rafay.arshad1@outlook.com</p>
+                  <p className="text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300 break-all">Muhammad.rafayali@outlook.com</p>
                 </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
                   <svg className="w-5 h-5 text-cyber-green-dark dark:text-cyber-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -274,7 +274,7 @@ const Contact: React.FC = () => {
               
               {formState === 'error' && (
                 <p className="text-sm text-red-500 dark:text-red-400 text-center">
-                  {errorMessage || 'Failed to send. Please email directly at rafay.arshad1@outlook.com'}
+                  {errorMessage || 'Failed to send. Please email directly at muhammad.rafayali@outlook.com'}
                 </p>
               )}
             </div>
