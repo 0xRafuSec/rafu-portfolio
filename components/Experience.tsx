@@ -48,20 +48,20 @@ const Experience: React.FC = () => {
           <div className="space-y-12">
             {experienceData.map((item, index) => (
               <div key={item.id} className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                
+
                 {/* Dot */}
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-gray-100 dark:bg-black border-4 border-cyber-green-dark dark:border-cyber-green rounded-full transform -translate-x-[7px] md:-translate-x-1/2 mt-6 z-10 shadow-none dark:shadow-[0_0_10px_#00ff9d]"></div>
 
                 {/* Content Side */}
                 <div className="flex-1 ml-8 md:ml-0">
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block bg-white/80 dark:bg-black/40 backdrop-blur-sm p-6 rounded-xl border border-gray-200 dark:border-white/10 transition-all duration-300 hover:scale-[1.02] hover:border-cyber-green-dark dark:hover:border-cyber-green hover:shadow-lg dark:hover:shadow-[0_0_20px_rgba(0,255,136,0.15)] group cursor-pointer relative"
+                    className="block bg-transparent backdrop-blur-sm p-6 rounded-xl border border-white/10 transition-all duration-300 hover:scale-[1.02] hover:border-cyber-green hover:shadow-[0_0_20px_rgba(0,255,136,0.15)] group cursor-pointer relative"
                   >
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ExternalLink size={18} className="text-cyber-green-dark dark:text-cyber-green" />
+                      <ExternalLink size={18} className="text-cyber-green-dark dark:text-cyber-green" />
                     </div>
 
                     <div className="flex flex-col gap-2 mb-4">

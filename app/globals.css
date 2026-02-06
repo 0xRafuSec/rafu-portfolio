@@ -1,6 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Cursive font for Encryption section */
+.cursive {
+  font-family: "Cedarville Cursive", cursive;
+}
+
+/* Welcome-text gradient - adapted for green theme */
+.Welcome-text {
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    linear-gradient(90.01deg, #00ff9d 0.01%, #00e1ff 50.01%, #00ff9d 100%);
+  background-blend-mode: normal, screen;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Welcome-box glassmorphism effect */
+.Welcome-box {
+  isolation: isolate;
+  overflow: hidden;
+  align-items: center;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-radius: 32px;
+  box-shadow: inset 0 -7px 11px rgba(0, 255, 157, 0.12);
+  display: flex;
+  position: relative;
+  width: max-content;
+  transition: 0.45s cubic-bezier(0.6, 0.6, 0, 1) box-shadow;
+}
+
+/* Button primary with green theme */
+.button-primary {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 80, 50, 0) 0%,
+      rgba(0, 80, 50, 0.32) 100%
+    ),
+    rgba(0, 255, 157, 0.12);
+  box-shadow: inset 0 0 12px rgba(0, 255, 157, 0.24);
+}
+.button-primary:hover {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 80, 50, 0) 0%,
+      rgba(0, 80, 50, 0.42) 100%
+    ),
+    rgba(0, 255, 157, 0.24);
+  box-shadow: inset 0 0 12px rgba(0, 255, 157, 0.44);
+}
 
 * {
   box-sizing: border-box;
