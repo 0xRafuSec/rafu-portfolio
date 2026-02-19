@@ -313,7 +313,6 @@ const Terminal: React.FC = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               className="bg-transparent border-none outline-none flex-1 text-gray-800 dark:text-white min-w-[50px] caret-cyber-green-dark dark:caret-cyber-green"
-              autoFocus
               autoComplete="off"
             />
           </div>
