@@ -57,17 +57,27 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
       }
     };
 
-    const intervalId = setInterval(draw, 33);
-    return () => clearInterval(intervalId);
+    let rafId: number;
+    let lastTime = 0;
+    const animate = (time: number) => {
+      if (time - lastTime >= 33) {
+        draw();
+        lastTime = time;
+      }
+      rafId = requestAnimationFrame(animate);
+    };
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   // Boot Sequence Logic with Typing Animation
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
+    const lineTimeouts: ReturnType<typeof setTimeout>[] = [];
     const typingIntervals: ReturnType<typeof setInterval>[] = [];
 
     bootSequence.forEach(({ text, delay }, index) => {
-      setTimeout(() => {
+      const lineTimeout = setTimeout(() => {
         // Add line with empty displayed text
         setLines((prev) => [...prev, { text, displayed: '' }]);
         
@@ -93,6 +103,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
         
         typingIntervals.push(typingInterval);
       }, delay);
+      lineTimeouts.push(lineTimeout);
     });
 
     const progressInterval = setInterval(() => {
@@ -111,6 +122,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
 
     return () => {
       clearTimeout(timeoutId);
+      lineTimeouts.forEach((lineTimeout) => clearTimeout(lineTimeout));
       clearInterval(progressInterval);
       typingIntervals.forEach(interval => clearInterval(interval));
     };

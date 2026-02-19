@@ -5,16 +5,34 @@ import PortfolioContent from '../../components/PortfolioContent'
 
 export default function ContactPage() {
   useEffect(() => {
-    const timer = setTimeout(() => {
+    let cancelled = false
+    const startedAt = Date.now()
+
+    const scrollToSection = () => {
+      if (cancelled) return
+
       const element = document.getElementById('contact')
-      if (element) {
+      const isReady = element && element.getBoundingClientRect().height > 0
+
+      if (isReady && element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
       }
+
+      if (Date.now() - startedAt < 8000) {
+        requestAnimationFrame(scrollToSection)
+      }
+    }
+
+    const timer = setTimeout(() => {
+      scrollToSection()
     }, 300)
 
-    return () => clearTimeout(timer)
+    return () => {
+      cancelled = true
+      clearTimeout(timer)
+    }
   }, [])
 
   return <PortfolioContent />
 }
-

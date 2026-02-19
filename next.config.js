@@ -5,6 +5,7 @@ const nextConfig = {
   // React 19 compatibility
   experimental: {
     reactCompiler: false,
+    optimizePackageImports: ['lucide-react'],
   },
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -15,4 +16,3 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
-

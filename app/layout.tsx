@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { JetBrains_Mono, Space_Grotesk } from 'next/font/google'
+import { Cedarville_Cursive, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import NoZoomScript from './components/NoZoomScript'
 import ErrorBoundary from './components/ErrorBoundary'
@@ -19,6 +19,13 @@ const jetBrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-jetbrains-mono',
+  display: 'swap',
+})
+
+const cedarvilleCursive = Cedarville_Cursive({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-cursive',
   display: 'swap',
 })
 
@@ -98,8 +105,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
+  userScalable: true,
 }
 
 export default function RootLayout({
@@ -108,7 +115,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`scroll-smooth dark ${spaceGrotesk.variable} ${jetBrainsMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`scroll-smooth dark ${spaceGrotesk.variable} ${jetBrainsMono.variable} ${cedarvilleCursive.variable}`} suppressHydrationWarning>
       <body className="font-sans" suppressHydrationWarning>
         <Providers>
         <StructuredData />
@@ -129,4 +136,3 @@ export default function RootLayout({
     </html>
   )
 }
-

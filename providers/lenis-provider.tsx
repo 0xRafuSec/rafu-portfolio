@@ -10,6 +10,7 @@ type LenisProviderProps = {
 
 const LenisProvider = ({ children }: LenisProviderProps) => {
   const lenisRef = useRef<Lenis | null>(null);
+  const frameRef = useRef<number | null>(null);
 
   useEffect(() => {
     lenisRef.current = new Lenis({
@@ -19,16 +20,20 @@ const LenisProvider = ({ children }: LenisProviderProps) => {
 
     const animate = (time: number) => {
       lenisRef.current?.raf(time);
-      requestAnimationFrame(animate);
+      frameRef.current = requestAnimationFrame(animate);
     };
-    requestAnimationFrame(animate);
+    frameRef.current = requestAnimationFrame(animate);
 
     return () => {
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+      }
       lenisRef.current?.destroy();
+      lenisRef.current = null;
     };
   }, []);
 
-  return <div>{children}</div>;
+  return <>{children}</>;
 };
 
 export default LenisProvider;

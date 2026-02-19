@@ -85,6 +85,8 @@ const Hero: React.FC = () => {
         muted
         loop
         playsInline
+        preload="metadata"
+        aria-hidden="true"
         className="rotate-180 absolute top-[-370px] left-1/2 -translate-x-1/2 w-screen min-w-[100vw] h-full object-cover -z-20 opacity-0"
         style={{ filter: 'sepia(100%) hue-rotate(70deg) saturate(3) brightness(0.8)' }}
       >

@@ -1,21 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Cursive font for Encryption section */
 .cursive {
-  font-family: "Cedarville Cursive", cursive;
+  font-family: var(--font-cursive), cursive;
 }
 
 /* Welcome-text gradient - adapted for green theme */
 .Welcome-text {
-  background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
-    ),
+  background:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
     linear-gradient(90.01deg, #00ff9d 0.01%, #00e1ff 50.01%, #00ff9d 100%);
   background-blend-mode: normal, screen;
   -webkit-background-clip: text;
@@ -40,20 +35,14 @@
 
 /* Button primary with green theme */
 .button-primary {
-  background: linear-gradient(
-      180deg,
-      rgba(0, 80, 50, 0) 0%,
-      rgba(0, 80, 50, 0.32) 100%
-    ),
+  background:
+    linear-gradient(180deg, rgba(0, 80, 50, 0) 0%, rgba(0, 80, 50, 0.32) 100%),
     rgba(0, 255, 157, 0.12);
   box-shadow: inset 0 0 12px rgba(0, 255, 157, 0.24);
 }
 .button-primary:hover {
-  background: linear-gradient(
-      180deg,
-      rgba(0, 80, 50, 0) 0%,
-      rgba(0, 80, 50, 0.42) 100%
-    ),
+  background:
+    linear-gradient(180deg, rgba(0, 80, 50, 0) 0%, rgba(0, 80, 50, 0.42) 100%),
     rgba(0, 255, 157, 0.24);
   box-shadow: inset 0 0 12px rgba(0, 255, 157, 0.44);
 }
@@ -123,25 +112,31 @@ body {
 /* Hacker Background Utility */
 .bg-grid-pattern {
   background-size: 50px 50px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
 
 .dark .bg-grid-pattern {
-  background-image: linear-gradient(to right, rgba(0, 255, 157, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(0, 255, 157, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
 }
 
 .reveal-on-scroll {
   opacity: 0;
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
   transform: translateY(30px);
+  will-change: transform, opacity;
 }
 
 .reveal-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
 
 /* Screen reader only class */
@@ -170,16 +165,29 @@ body {
 
 /* Glitch Effect Classes */
 .hover-glitch:hover {
-  animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  will-change: transform;
 }
 
 @keyframes glitch {
-  0% { transform: translate(0) }
-  20% { transform: translate(-2px, 2px) }
-  40% { transform: translate(-2px, -2px) }
-  60% { transform: translate(2px, 2px) }
-  80% { transform: translate(2px, -2px) }
-  100% { transform: translate(0) }
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 @keyframes letterReveal {
@@ -198,4 +206,3 @@ body {
     filter: blur(0);
   }
 }
-

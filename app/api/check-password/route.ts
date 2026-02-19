@@ -11,6 +11,28 @@ import crypto from 'crypto';
 // 2. Purchase subscription for API key (optional - free tier works fine)
 // 3. Add to .env: HIBP_API_KEY=your_api_key_here
 
+const RANGE_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+const rangeCache = new Map<string, { data: string; expiresAt: number }>();
+
+function getCachedRange(prefix: string): string | null {
+  const entry = rangeCache.get(prefix);
+  if (!entry) return null;
+
+  if (Date.now() > entry.expiresAt) {
+    rangeCache.delete(prefix);
+    return null;
+  }
+
+  return entry.data;
+}
+
+function setCachedRange(prefix: string, data: string) {
+  rangeCache.set(prefix, {
+    data,
+    expiresAt: Date.now() + RANGE_CACHE_TTL_MS,
+  });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { password } = await request.json();
@@ -44,23 +66,28 @@ export async function POST(request: NextRequest) {
       }
 
       // Fetch from HIBP (k-anonymity model - only sends first 5 chars of hash)
-      const response = await fetch(apiUrl, { headers });
+      let data = getCachedRange(prefix);
 
-      if (!response.ok) {
-        // If rate limited or error, return unknown status
-        if (response.status === 429) {
-          return NextResponse.json(
-            { breached: false, count: 0, error: 'Rate limited. Please try again later.' },
-            { status: 429 }
-          );
+      if (!data) {
+        const response = await fetch(apiUrl, { headers });
+
+        if (!response.ok) {
+          // If rate limited or error, return unknown status
+          if (response.status === 429) {
+            return NextResponse.json(
+              { breached: false, count: 0, error: 'Rate limited. Please try again later.' },
+              { status: 429 }
+            );
+          }
+          throw new Error(`HIBP API error: ${response.status}`);
         }
-        throw new Error(`HIBP API error: ${response.status}`);
-      }
 
-      const data = await response.text();
+        data = await response.text();
+        setCachedRange(prefix, data);
+      }
       
       // Parse response: each line is "SUFFIX:COUNT"
-      const hashes = data.split('\n');
+      const hashes = (data ?? '').split('\n');
       
       // Check if our hash suffix is in the results
       for (const line of hashes) {
@@ -100,4 +127,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-

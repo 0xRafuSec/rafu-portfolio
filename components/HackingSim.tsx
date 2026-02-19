@@ -113,6 +113,7 @@ const HackingSim: React.FC = () => {
                     </span>
                     <button
                         onClick={handleToggle}
+                        aria-label={isRunning ? 'Stop simulation' : 'Start simulation'}
                         className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all ${isRunning
                                 ? 'bg-red-500 hover:bg-red-600 text-white shadow-lg shadow-red-500/30'
                                 : 'bg-cyber-green-dark dark:bg-cyber-green hover:bg-emerald-600 dark:hover:bg-emerald-400 text-white dark:text-black shadow-lg shadow-cyber-green-dark/30 dark:shadow-cyber-green/30'
@@ -125,15 +126,15 @@ const HackingSim: React.FC = () => {
 
             <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">
                 <div className="bg-gray-50 dark:bg-[#1a1a1a] p-3 md:p-4 rounded-lg text-center border border-gray-200 dark:border-white/5">
-                    <div className="text-gray-500 dark:text-cyber-muted text-[10px] md:text-xs uppercase tracking-wider mb-1 flex items-center justify-center gap-1"><Lock size={10} /> Vulns</div>
+                    <div className="text-gray-500 dark:text-gray-400 text-[10px] md:text-xs uppercase tracking-wider mb-1 flex items-center justify-center gap-1"><Lock size={10} /> Vulns</div>
                     <div className="text-xl md:text-2xl font-mono text-yellow-600 dark:text-yellow-500">{stats.vulns}</div>
                 </div>
                 <div className="bg-gray-50 dark:bg-[#1a1a1a] p-3 md:p-4 rounded-lg text-center border border-gray-200 dark:border-white/5">
-                    <div className="text-gray-500 dark:text-cyber-muted text-[10px] md:text-xs uppercase tracking-wider mb-1 flex items-center justify-center gap-1"><ShieldAlert size={10} /> Alerts</div>
+                    <div className="text-gray-500 dark:text-gray-400 text-[10px] md:text-xs uppercase tracking-wider mb-1 flex items-center justify-center gap-1"><ShieldAlert size={10} /> Alerts</div>
                     <div className="text-xl md:text-2xl font-mono text-orange-600 dark:text-orange-500">{stats.alerts}</div>
                 </div>
                 <div className="bg-gray-50 dark:bg-[#1a1a1a] p-3 md:p-4 rounded-lg text-center border border-gray-200 dark:border-white/5">
-                    <div className="text-gray-500 dark:text-cyber-muted text-[10px] md:text-xs uppercase tracking-wider mb-1 flex items-center justify-center gap-1"><Globe size={10} /> Exploits</div>
+                    <div className="text-gray-500 dark:text-gray-400 text-[10px] md:text-xs uppercase tracking-wider mb-1 flex items-center justify-center gap-1"><Globe size={10} /> Exploits</div>
                     <div className="text-xl md:text-2xl font-mono text-red-600 dark:text-red-500">{stats.exploits}</div>
                 </div>
             </div>
@@ -161,7 +162,7 @@ const HackingSim: React.FC = () => {
                     style={{ fontFamily: '"JetBrains Mono", monospace' }}
                 >
                     {logs.length === 0 ? (
-                        <div className="h-full flex flex-col items-center justify-center text-gray-500 dark:text-cyber-muted opacity-50">
+                        <div className="h-full flex flex-col items-center justify-center text-gray-400 dark:text-gray-400">
                             <Activity className="mb-2 animate-pulse" size={32} />
                             <span>Ready to launch attack simulation</span>
                         </div>
@@ -179,7 +180,7 @@ const HackingSim: React.FC = () => {
                     )}
                 </div>
             </div>
-            <p className="text-xs text-center text-gray-500 dark:text-cyber-muted mt-4 opacity-60">
+            <p className="text-xs text-center text-gray-500 dark:text-gray-400 mt-4">
                 * Simulated attack chain for educational demonstration.
             </p>
         </div>

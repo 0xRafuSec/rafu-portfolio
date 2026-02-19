@@ -18,6 +18,8 @@ const PasswordAnalyzer: React.FC = () => {
       return;
     }
 
+    const controller = new AbortController();
+
     const timeoutId = setTimeout(async () => {
       setIsCheckingBreach(true);
       setBreachError(null);
@@ -29,6 +31,7 @@ const PasswordAnalyzer: React.FC = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ password }),
+          signal: controller.signal,
         });
 
         const data = await response.json();
@@ -43,7 +46,10 @@ const PasswordAnalyzer: React.FC = () => {
           setBreachCount(0);
           setBreachError(data.error || 'Unable to check');
         }
-      } catch (error) {
+      } catch (error: any) {
+        if (error?.name === 'AbortError') {
+          return;
+        }
         setIsBreached(false);
         setBreachCount(0);
         setBreachError('Connection error');
@@ -52,7 +58,10 @@ const PasswordAnalyzer: React.FC = () => {
       }
     }, 500); // Wait 500ms after user stops typing
 
-    return () => clearTimeout(timeoutId);
+    return () => {
+      clearTimeout(timeoutId);
+      controller.abort();
+    };
   }, [password]);
 
   const calculateStrength = (pwd: string) => {
@@ -115,10 +124,13 @@ const PasswordAnalyzer: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter password to analyze..."
+              id="password-input"
+              aria-label="Password to analyze"
               className="w-full bg-gray-50 dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-700 rounded-lg py-4 pl-12 pr-12 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green focus:ring-1 focus:ring-cyber-green-dark dark:focus:ring-cyber-green outline-none transition-all"
             />
             <button
               onClick={() => setIsVisible(!isVisible)}
+              aria-label={isVisible ? 'Hide password' : 'Show password'}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-cyber-muted hover:text-gray-900 dark:hover:text-white"
             >
               {isVisible ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -157,7 +169,7 @@ const PasswordAnalyzer: React.FC = () => {
         </div>
 
         <div className="flex-1 border-t md:border-t-0 md:border-l border-gray-200 dark:border-white/10 pt-8 md:pt-0 md:pl-12">
-          <h4 className="text-gray-900 dark:text-white font-bold mb-4">Security Checklist</h4>
+          <h3 className="text-gray-900 dark:text-white font-bold mb-4">Security Checklist</h3>
           <div className="space-y-3">
             {checks.map((check: any, i: number) => (
               <div key={i} className="flex items-center gap-3">

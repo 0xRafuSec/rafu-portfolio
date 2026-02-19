@@ -27,7 +27,7 @@ function generateSpherePoints(count: number, radius: number): Float32Array {
 export const StarBackground = () => {
     const ref = useRef<PointsType | null>(null);
     // More stars, larger radius for better coverage
-    const sphere = useMemo(() => generateSpherePoints(12000, 2.0), []);
+    const sphere = useMemo(() => generateSpherePoints(5000, 2.0), []);
 
     useFrame((_state, delta) => {
         if (ref.current) {

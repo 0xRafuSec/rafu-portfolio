@@ -42,7 +42,7 @@ export const Encryption = () => {
                     </div>
 
                     <div className="Welcome-box px-[15px] py-[4px] z-[20] border my-[20px] border-cyber-green dark:border-cyber-green opacity-[1]">
-                        <h2 className="Welcome-text text-[12px]">Encryption</h2>
+                        <span className="Welcome-text text-[12px]">Encryption</span>
                     </div>
                 </div>
 
@@ -59,6 +59,7 @@ export const Encryption = () => {
                         autoPlay
                         playsInline
                         preload="none"
+                        aria-hidden="true"
                         className="w-full h-auto"
                         style={{ filter: 'sepia(100%) hue-rotate(70deg) saturate(3) brightness(0.9)' }}
                     >

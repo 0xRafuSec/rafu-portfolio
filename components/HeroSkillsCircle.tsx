@@ -26,6 +26,7 @@ export const HeroSkillsCircle = () => {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 flex items-center justify-center"
+                style={{ willChange: 'transform' }}
             >
                 <svg
                     width="300"
@@ -59,6 +60,7 @@ export const HeroSkillsCircle = () => {
                 animate={{ rotate: -360 }}
                 transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 flex items-center justify-center"
+                style={{ willChange: 'transform' }}
             >
                 <svg
                     width="250"

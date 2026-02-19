@@ -193,13 +193,13 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="flex gap-4">
-              <a href="https://github.com/0xRafuSec" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 hover:scale-110">
+              <a href="https://github.com/0xRafuSec" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-green-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 hover:scale-110">
                 <Github size={18} />
               </a>
-              <a href="https://linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-blue-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-blue-dark dark:hover:border-cyber-blue transition-all duration-300 hover:scale-110">
+              <a href="https://linkedin.com/in/muhammadrafayali/" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-cyber-blue-dark dark:hover:bg-cyber-green hover:text-white dark:hover:text-black hover:border-cyber-blue-dark dark:hover:border-cyber-blue transition-all duration-300 hover:scale-110">
                 <Linkedin size={18} />
               </a>
-              <a href="https://instagram.com/rafucybersec/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-pink-600 dark:hover:bg-pink-500 hover:text-white dark:hover:text-white hover:border-pink-600 dark:hover:border-pink-500 transition-all duration-300 hover:scale-110">
+              <a href="https://instagram.com/rafucybersec/" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile" className="w-10 h-10 border border-gray-300 dark:border-white/10 rounded-full flex items-center justify-center text-gray-700 dark:text-white hover:bg-pink-600 dark:hover:bg-pink-500 hover:text-white dark:hover:text-white hover:border-pink-600 dark:hover:border-pink-500 transition-all duration-300 hover:scale-110">
                 <Instagram size={18} />
               </a>
             </div>
@@ -209,9 +209,10 @@ const Contact: React.FC = () => {
           <form ref={formRef} onSubmit={handleSubmit} className="bg-white/80 dark:bg-cyber-gray/40 backdrop-blur-md p-8 rounded-2xl border border-gray-200 dark:border-white/5 shadow-xl">
             <div className="space-y-4 font-mono">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Name</label>
+                <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Name</label>
                 <input
                   required
+                  id="contact-name"
                   name="name"
                   type="text"
                   maxLength={100}
@@ -220,9 +221,10 @@ const Contact: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Email</label>
+                <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Email</label>
                 <input
                   required
+                  id="contact-email"
                   name="email"
                   type="email"
                   maxLength={254}
@@ -231,9 +233,10 @@ const Contact: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Message</label>
+                <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Message</label>
                 <textarea
                   required
+                  id="contact-message"
                   name="message"
                   rows={5}
                   maxLength={5000}

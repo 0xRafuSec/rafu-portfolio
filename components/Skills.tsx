@@ -1,135 +1,145 @@
 import React from 'react';
 
+const SkillImage = ({ src, alt, className }: { src: string; alt: string; className: string }) => (
+  <img
+    src={src}
+    alt={alt}
+    className={className}
+    loading="lazy"
+    decoding="async"
+  />
+);
+
 // Official SVG Icons for Brands - Using local official brand icons
 const Icons = {
   Wazuh: () => (
-    <img
+    <SkillImage
       src="/icons/wazuh.svg"
       alt="Wazuh"
       className="w-12 h-12 sm:w-28 sm:h-28 object-contain"
     />
   ),
   QRadar: () => (
-    <img
+    <SkillImage
       src="/icons/qradar.png"
       alt="IBM QRadar"
       className="w-12 h-12 sm:w-28 sm:h-28 object-contain"
     />
   ),
   ThreatHawk: () => (
-    <img
+    <SkillImage
       src="/icons/threat-hawk.png"
       alt="Threat Hawk"
       className="w-12 h-12 sm:w-28 sm:h-28 object-contain"
     />
   ),
   Threat: () => (
-    <img
+    <SkillImage
       src="/icons/threat.svg"
       alt="Threat Intelligence"
       className="w-8 h-8 sm:w-20 sm:h-20 object-contain"
     />
   ),
   IOCs: () => (
-    <img
+    <SkillImage
       src="/icons/iocs.png"
       alt="IOCs"
       className="w-8 h-8 sm:w-20 sm:h-20 object-contain"
     />
   ),
   Hunting: () => (
-    <img
+    <SkillImage
       src="/icons/hunting.png"
       alt="Hunting"
       className="w-8 h-8 sm:w-20 sm:h-20 object-contain"
     />
   ),
   Burp: () => (
-    <img
+    <SkillImage
       src="/icons/burp.png"
       alt="Burp Suite"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   Metasploit: () => (
-    <img
+    <SkillImage
       src="/icons/Metasploit.svg"
       alt="Metasploit"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   Python: () => (
-    <img
+    <SkillImage
       src="/icons/python.png"
       alt="Python"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   Kali: () => (
-    <img
+    <SkillImage
       src="/icons/kali.svg"
       alt="Kali Linux"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   Windows: () => (
-    <img
+    <SkillImage
       src="/icons/windows.svg"
       alt="Windows"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   Linux: () => (
-    <img
+    <SkillImage
       src="/icons/linux.svg"
       alt="Linux"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   Azure: () => (
-    <img
+    <SkillImage
       src="/icons/azure.svg"
       alt="Azure"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   Mitre: () => (
-    <img
+    <SkillImage
       src="/icons/mitre.png"
       alt="MITRE ATT&CK"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   PowerShell: () => (
-    <img
+    <SkillImage
       src="/icons/powershell.svg"
       alt="PowerShell"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   Bash: () => (
-    <img
+    <SkillImage
       src="/icons/bash.svg"
       alt="Bash"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   Docker: () => (
-    <img
+    <SkillImage
       src="/icons/docker.svg"
       alt="Docker"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   GitHub: () => (
-    <img
+    <SkillImage
       src="/icons/github.svg"
       alt="GitHub"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
   NodeJS: () => (
-    <img
+    <SkillImage
       src="/icons/nodejs.svg"
       alt="Node.js"
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
@@ -168,6 +178,7 @@ const Skills: React.FC = () => {
           loop
           muted
           autoPlay
+          aria-hidden="true"
           style={{ filter: 'sepia(100%) hue-rotate(70deg) saturate(2) brightness(0.5)' }}
         >
           <source src="/videos/skills-bg.webm" type="video/webm" />

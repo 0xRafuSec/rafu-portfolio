@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
         <p className="text-cyber-green-dark dark:text-cyber-green mb-2">
           &copy; {new Date().getFullYear()} 0xRafuSec. All rights reserved.
         </p>
-        <p className="text-xs text-cyber-green-dark dark:text-cyber-green/50 font-mono">
+        <p className="text-xs text-cyber-green-dark dark:text-gray-400 font-mono">
           System Status: <span className="text-cyber-green-dark dark:text-cyber-green">Operational</span> | Security Level: <span className="text-cyber-blue-dark dark:text-cyber-blue">High</span>
         </p>
       </div>

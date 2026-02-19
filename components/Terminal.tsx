@@ -288,6 +288,7 @@ const Terminal: React.FC = () => {
                 onClick={(e) => { e.stopPropagation(); copyToClipboard(line.content); }}
                 className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 p-1 bg-gray-200 dark:bg-gray-800 rounded text-gray-500 hover:text-cyber-green transition-all"
                 title="Copy Output"
+                aria-label="Copy output to clipboard"
               >
                 <Copy size={12} />
               </button>
@@ -326,6 +327,7 @@ const Terminal: React.FC = () => {
             onClick={() => handleCommand(cmd)}
             disabled={isProcessing}
             className="px-3 py-1 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-700 rounded hover:border-cyber-green-dark dark:hover:border-cyber-green hover:text-cyber-green-dark dark:hover:text-cyber-green text-xs text-gray-600 dark:text-gray-300 transition-colors disabled:opacity-50"
+            aria-label={`Run ${cmd} command`}
           >
             {cmd}
           </button>
