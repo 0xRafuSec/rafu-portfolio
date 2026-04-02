@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import RadarPulse from "./RadarPulse";
 
 // Skill icons using actual images like space-portfolio
 const skills = [
@@ -21,7 +22,8 @@ const skills = [
 export const HeroSkillsCircle = () => {
     return (
         <div className="relative w-[400px] h-[500px]">
-            {/* Rotating ring SVG */}
+            {/* Radar pulse effect behind icons */}
+            <RadarPulse />
             <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 120, repeat: Infinity, ease: "linear" }}

@@ -91,22 +91,22 @@ const Hero: React.FC = () => {
     const tl = gsap.timeline({ delay: 0.2 });
 
     if (badgeRef.current) {
-      tl.from(badgeRef.current, { opacity: 0, y: -10, duration: 0.4, ease: "power2.out" });
+      tl.fromTo(badgeRef.current, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
     }
     if (nameRef.current) {
-      tl.from(nameRef.current, { opacity: 0, y: 30, duration: 0.6, ease: "power2.out" }, "-=0.1");
+      tl.fromTo(nameRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.1");
     }
     if (subtitleRef.current) {
-      tl.from(subtitleRef.current, { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, "-=0.3");
+      tl.fromTo(subtitleRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, "-=0.3");
     }
     if (descRef.current) {
-      tl.from(descRef.current, { opacity: 0, duration: 0.5 }, "-=0.2");
+      tl.fromTo(descRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "-=0.2");
     }
     if (buttonsRef.current) {
-      tl.from(buttonsRef.current.children, { opacity: 0, y: 15, stagger: 0.1, duration: 0.4, ease: "power2.out" }, "-=0.2");
+      tl.fromTo(buttonsRef.current.children, { opacity: 0, y: 15 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.4, ease: "power2.out" }, "-=0.2");
     }
     if (socialsRef.current) {
-      tl.from(socialsRef.current.children, { opacity: 0, y: 10, stagger: 0.08, duration: 0.3, ease: "power2.out" }, "-=0.1");
+      tl.fromTo(socialsRef.current.children, { opacity: 0, y: 10 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.3, ease: "power2.out" }, "-=0.1");
     }
 
     return () => { tl.kill(); };

@@ -16,7 +16,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
     { text: "Bypassing firewall...", delay: 500 },
     { text: "Mounting virtual file system...", delay: 650 },
     { text: "Establishing secure tunnel...", delay: 800 },
-    { text: "ACCESS GRANTED", delay: 1000 },
+    { text: "ACCESS GRANTED!", delay: 1000 },
   ];
 
   // Matrix Rain Effect
@@ -105,7 +105,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
 
     timeoutId = setTimeout(() => {
       onComplete();
-    }, 1500); // Reduced from 3000ms to 1500ms
+    }, 2500); // Reduced from 3000ms to 1500ms
 
     return () => {
       clearTimeout(timeoutId);

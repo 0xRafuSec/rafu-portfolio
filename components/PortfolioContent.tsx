@@ -33,73 +33,63 @@ export default function PortfolioContent() {
     if (loading || !mainRef.current) return
 
     const reducedMotion = prefersReducedMotion()
+    if (reducedMotion) return
+
     const lowEnd = isLowEndDevice()
 
-    // Skip scroll animations entirely if user prefers reduced motion
-    if (reducedMotion) {
-      mainRef.current.querySelectorAll('section').forEach((el) => {
-        gsap.set(el, { opacity: 1, y: 0 })
-      })
-      return
-    }
+    // Small delay to ensure DOM is fully painted before GSAP measures positions
+    const timer = setTimeout(() => {
+      const ctx = gsap.context(() => {
+        const sections = mainRef.current!.querySelectorAll('section')
 
-    const ctx = gsap.context(() => {
-      const sections = mainRef.current!.querySelectorAll('section')
+        sections.forEach((section) => {
+          // Animate section heading
+          const heading = section.querySelector('h2')
+          if (heading) {
+            gsap.fromTo(heading,
+              { y: 30, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: lowEnd ? 0.4 : 0.7,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: heading,
+                  start: 'top 90%',
+                  toggleActions: 'play none none none',
+                },
+              }
+            )
+          }
 
-      sections.forEach((section) => {
-        // Animate section heading
-        const heading = section.querySelector('h2')
-        if (heading) {
-          gsap.from(heading, {
-            y: 40,
-            opacity: 0,
-            duration: lowEnd ? 0.4 : 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: heading,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-          })
-        }
+          // Stagger animate cards/items within sections
+          const cards = section.querySelectorAll(
+            '.grid > a, .grid > div, .space-y-12 > div, .space-y-24 > div'
+          )
+          if (cards.length > 0) {
+            gsap.fromTo(cards,
+              { y: lowEnd ? 15 : 30, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: lowEnd ? 0.3 : 0.5,
+                stagger: lowEnd ? 0.05 : 0.1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: section,
+                  start: 'top 85%',
+                  toggleActions: 'play none none none',
+                },
+              }
+            )
+          }
+        })
+      }, mainRef)
 
-        // Stagger animate cards/items within sections
-        const cards = section.querySelectorAll(
-          '.grid > a, .grid > div, .space-y-12 > div, .space-y-24 > div'
-        )
-        if (cards.length > 0) {
-          gsap.from(cards, {
-            y: lowEnd ? 20 : 50,
-            opacity: 0,
-            duration: lowEnd ? 0.3 : 0.6,
-            stagger: lowEnd ? 0.05 : 0.12,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 75%',
-              toggleActions: 'play none none none',
-            },
-          })
-        }
+      return () => ctx.revert()
+    }, 100)
 
-        // Fallback: animate the entire section if no cards found
-        if (cards.length === 0) {
-          gsap.from(section, {
-            y: lowEnd ? 15 : 30,
-            opacity: 0,
-            duration: lowEnd ? 0.4 : 0.7,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
-          })
-        }
-      })
-    }, mainRef)
-
-    return () => ctx.revert()
+    return () => clearTimeout(timer)
   }, [loading])
 
   const loadingClass = loading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'
