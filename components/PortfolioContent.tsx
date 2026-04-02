@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef } from 'react'
-import { gsap, ScrollTrigger } from '@/lib/gsap'
+import { gsap } from '@/lib/gsap'
 import { isLowEndDevice, prefersReducedMotion } from '@/lib/performance'
 import Navbar from './Navbar'
 import Hero from './Hero'
