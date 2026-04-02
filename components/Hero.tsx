@@ -1,11 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronRight, Download, Github, Linkedin, Terminal, Instagram } from 'lucide-react';
+import { gsap } from 'gsap';
 import HeroSkillsCircle from './HeroSkillsCircle';
 
 const Hero: React.FC = () => {
   const [descriptionDisplayed, setDescriptionDisplayed] = useState('');
   const [nameDisplayed, setNameDisplayed] = useState('');
   const [titleDisplayed, setTitleDisplayed] = useState('');
+
+  // Refs for GSAP entrance
+  const badgeRef = useRef<HTMLDivElement>(null);
+  const nameRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLDivElement>(null);
+  const descRef = useRef<HTMLParagraphElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
+  const socialsRef = useRef<HTMLDivElement>(null);
 
   // Cool animated reveal for name (letter by letter with fade-in and scale)
   useEffect(() => {
@@ -20,7 +29,7 @@ const Hero: React.FC = () => {
       } else {
         clearInterval(nameInterval);
       }
-    }, 80); // Faster name reveal speed
+    }, 80);
 
     return () => clearInterval(nameInterval);
   }, []);
@@ -28,7 +37,7 @@ const Hero: React.FC = () => {
   // Typing animation for title (starts after name completes)
   useEffect(() => {
     const fullTitle = "CYBER SECURITY ENGINEER";
-    const delay = 18 * 80 + 300; // Wait for name to finish (18 chars * 80ms) + 300ms delay
+    const delay = 18 * 80 + 300;
     let titleInterval: ReturnType<typeof setInterval> | null = null;
 
     const timeoutId = setTimeout(() => {
@@ -42,7 +51,7 @@ const Hero: React.FC = () => {
         } else {
           if (titleInterval) clearInterval(titleInterval);
         }
-      }, 50); // Faster title typing speed
+      }, 50);
     }, delay);
 
     return () => {
@@ -54,7 +63,7 @@ const Hero: React.FC = () => {
   // Typing animation for description (starts after title completes)
   useEffect(() => {
     const fullDescription = "Transforming logs into intelligence and vulnerabilities into fortifications through precision threat detection and automated incident response.";
-    const delay = 18 * 80 + 23 * 50 + 400; // Wait for name + title to finish + 400ms delay
+    const delay = 18 * 80 + 23 * 50 + 400;
     let typingInterval: ReturnType<typeof setInterval> | null = null;
 
     const timeoutId = setTimeout(() => {
@@ -68,13 +77,39 @@ const Hero: React.FC = () => {
         } else {
           if (typingInterval) clearInterval(typingInterval);
         }
-      }, 15); // Faster typing speed for description
+      }, 15);
     }, delay);
 
     return () => {
       clearTimeout(timeoutId);
       if (typingInterval) clearInterval(typingInterval);
     };
+  }, []);
+
+  // GSAP entrance timeline
+  useEffect(() => {
+    const tl = gsap.timeline({ delay: 0.2 });
+
+    if (badgeRef.current) {
+      tl.from(badgeRef.current, { opacity: 0, y: -10, duration: 0.4, ease: "power2.out" });
+    }
+    if (nameRef.current) {
+      tl.from(nameRef.current, { opacity: 0, y: 30, duration: 0.6, ease: "power2.out" }, "-=0.1");
+    }
+    if (subtitleRef.current) {
+      tl.from(subtitleRef.current, { opacity: 0, y: 20, duration: 0.5, ease: "power2.out" }, "-=0.3");
+    }
+    if (descRef.current) {
+      tl.from(descRef.current, { opacity: 0, duration: 0.5 }, "-=0.2");
+    }
+    if (buttonsRef.current) {
+      tl.from(buttonsRef.current.children, { opacity: 0, y: 15, stagger: 0.1, duration: 0.4, ease: "power2.out" }, "-=0.2");
+    }
+    if (socialsRef.current) {
+      tl.from(socialsRef.current.children, { opacity: 0, y: 10, stagger: 0.08, duration: 0.3, ease: "power2.out" }, "-=0.1");
+    }
+
+    return () => { tl.kill(); };
   }, []);
 
   return (
@@ -89,15 +124,21 @@ const Hero: React.FC = () => {
 
           {/* LEFT SIDE - Text Content */}
           <div className="flex-1 text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyber-green-dark/30 dark:border-cyber-green/30 bg-cyber-green/5 text-cyber-green-dark dark:text-cyber-green text-sm font-mono mb-6 shadow-none dark:shadow-neon-green animate-fade-in-up">
+            <div
+              ref={badgeRef}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyber-green-dark/30 dark:border-cyber-green/30 bg-cyber-green/5 text-cyber-green-dark dark:text-cyber-green text-sm font-mono mb-6 shadow-none dark:shadow-neon-green"
+            >
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-cyber-green-dark dark:bg-cyber-green animate-hire-glow"></span>
+                <span
+                  className="absolute inline-flex h-full w-full rounded-full bg-cyber-green-dark dark:bg-cyber-green"
+                  style={{ animation: 'badgePulse 1.8s ease-in-out infinite' }}
+                ></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-green-dark dark:bg-cyber-green"></span>
               </span>
               Available For Hire
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white font-sans whitespace-nowrap">
+            <h1 ref={nameRef} className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white font-sans whitespace-nowrap">
               <span className="inline-block">
                 {nameDisplayed.split('').map((char, index) => {
                   const isSpace = char === ' ';
@@ -127,7 +168,7 @@ const Hero: React.FC = () => {
               </span>
             </h1>
 
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-8">
+            <div ref={subtitleRef} className="flex items-center justify-center lg:justify-start gap-2 mb-8">
               <Terminal className="text-cyber-green-dark dark:text-cyber-green w-5 h-5 md:w-8 md:h-8" />
               <h2 className="text-xl md:text-3xl text-gray-800 dark:text-gray-200 font-mono font-bold tracking-wider bg-black/5 dark:bg-black/30 px-4 py-1 rounded border-l-4 border-cyber-green-dark dark:border-cyber-green">
                 <span className="inline-block">
@@ -155,7 +196,7 @@ const Hero: React.FC = () => {
               </h2>
             </div>
 
-            <p className="text-gray-600 dark:text-cyber-muted mb-10 leading-relaxed font-mono text-sm md:text-base border-t border-b border-gray-200 dark:border-white/5 py-4 bg-white/5 dark:bg-black/20 backdrop-blur-sm">
+            <p ref={descRef} className="text-gray-600 dark:text-cyber-muted mb-10 leading-relaxed font-mono text-sm md:text-base border-t border-b border-gray-200 dark:border-white/5 py-4 bg-white/5 dark:bg-black/20 backdrop-blur-sm">
               <span className="text-cyber-blue-dark dark:text-cyber-blue">&gt;&gt;</span>{' '}
               <span className="inline">
                 {descriptionDisplayed}
@@ -165,7 +206,7 @@ const Hero: React.FC = () => {
               </span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8 animate-fade-in-up [animation-delay:800ms]">
+            <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8">
               <a
                 href="/contact"
                 onClick={(e) => {
@@ -216,7 +257,7 @@ const Hero: React.FC = () => {
               </a>
             </div>
 
-            <div className="flex justify-center lg:justify-start gap-6 text-gray-500 dark:text-cyber-muted animate-fade-in-up [animation-delay:1000ms]">
+            <div ref={socialsRef} className="flex justify-center lg:justify-start gap-6 text-gray-500 dark:text-cyber-muted">
               <a href="https://github.com/0xRafuSec" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile (opens in new tab)" className="hover:text-cyber-green-dark dark:hover:text-cyber-green transition-colors hover:scale-110 transform duration-200 focus:outline-none focus:ring-2 focus:ring-cyber-green-dark dark:focus:ring-cyber-green rounded">
                 <Github size={24} />
               </a>
