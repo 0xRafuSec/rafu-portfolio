@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -7,68 +7,16 @@ interface SplashScreenProps {
 const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const [lines, setLines] = useState<Array<{ text: string; displayed: string }>>([]);
   const [progress, setProgress] = useState(0);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const bootSequence = [
-    { text: "Initializing kernel...", delay: 100 },
-    { text: "Loading security modules [OK]", delay: 400 },
-    { text: "Verifying encrypted handshake...", delay: 800 },
-    { text: "Bypassing firewall...", delay: 1200 },
-    { text: "Mounting virtual file system...", delay: 1600 },
-    { text: "Establishing secure tunnel...", delay: 2000 },
-    { text: "ACCESS GRANTED", delay: 2400 },
+    { text: "Initializing kernel...", delay: 50 },
+    { text: "Loading security modules [OK]", delay: 200 },
+    { text: "Verifying encrypted handshake...", delay: 350 },
+    { text: "Bypassing firewall...", delay: 500 },
+    { text: "Mounting virtual file system...", delay: 650 },
+    { text: "Establishing secure tunnel...", delay: 800 },
+    { text: "ACCESS GRANTED", delay: 1000 },
   ];
-
-  // Matrix Rain Effect
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops: number[] = [];
-
-    for (let x = 0; x < columns; x++) {
-      drops[x] = 1;
-    }
-
-    const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = '#0F0';
-      ctx.font = `${fontSize}px monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    };
-
-    let rafId: number;
-    let lastTime = 0;
-    const animate = (time: number) => {
-      if (time - lastTime >= 33) {
-        draw();
-        lastTime = time;
-      }
-      rafId = requestAnimationFrame(animate);
-    };
-    rafId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
 
   // Boot Sequence Logic with Typing Animation
   useEffect(() => {
@@ -78,10 +26,8 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
 
     bootSequence.forEach(({ text, delay }, index) => {
       const lineTimeout = setTimeout(() => {
-        // Add line with empty displayed text
         setLines((prev) => [...prev, { text, displayed: '' }]);
         
-        // Type out the text character by character
         let charIndex = 0;
         const typingInterval = setInterval(() => {
           setLines((prev) => {
@@ -99,7 +45,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
           if (charIndex >= text.length) {
             clearInterval(typingInterval);
           }
-        }, 50); // Typing speed: 50ms per character
+        }, 20); // Faster typing speed: 20ms per character
         
         typingIntervals.push(typingInterval);
       }, delay);
@@ -112,13 +58,13 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + 4; // Faster load
+        return prev + 8; // Much faster progress
       });
-    }, 80);
+    }, 50);
 
     timeoutId = setTimeout(() => {
       onComplete();
-    }, 3000);
+    }, 1500);
 
     return () => {
       clearTimeout(timeoutId);
@@ -130,9 +76,12 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
 
   return (
     <div className="fixed inset-0 bg-black z-[100] flex flex-col items-center justify-center font-mono text-green-500 overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 opacity-30" />
+      {/* Lightweight CSS-only scanline effect instead of heavy canvas matrix rain */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
+        backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,0,0.03) 2px, rgba(0,255,0,0.03) 4px)',
+      }} />
       
-      <div className="relative z-10 w-full max-w-lg p-6 bg-black/80 border border-green-500/30 rounded-lg shadow-[0_0_50px_rgba(0,255,0,0.1)] backdrop-blur-sm">
+      <div className="relative z-10 w-full max-w-lg p-6 bg-black/80 border border-green-500/30 rounded-lg shadow-[0_0_50px_rgba(0,255,0,0.1)]">
         <div className="h-64 overflow-hidden mb-6 font-mono text-sm md:text-base">
           {lines.map((line, index) => (
             <div key={index} className="flex items-center gap-2 mb-1">

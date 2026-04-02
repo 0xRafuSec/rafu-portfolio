@@ -21,7 +21,7 @@ const certifications = [
     link: "/certificates/ISO 27001 INFORMATION SECURITY ASSOCIATE.pdf"
   },
   {
-    name: "Cybersecurity Specialization",
+    name: "Cybersecurity Professional Certificate",
     issuer: "Google",
     date: "2023",
     link: "/certificates/Google Cybersecurity.pdf"
@@ -33,10 +33,28 @@ const certifications = [
     link: "/certificates/Security Analyst Fundamentals.pdf"
   },
   {
+    name: "Certified in Cybersecurity (CC)",
+    issuer: "ISC2",
+    date: "2024",
+    link: "#"
+  },
+  {
     name: "Ethical Hacking & Penetration Testing",
     issuer: "Udemy",
     date: "2023",
     link: "/certificates/UEH.pdf"
+  },
+  {
+    name: "Linux 100",
+    issuer: "TCM Security",
+    date: "2024",
+    link: "#"
+  },
+  {
+    name: "Active Lab Profile — Red/Blue Team Practice",
+    issuer: "TryHackMe",
+    date: "Active",
+    link: "https://tryhackme.com/p/0xRafuSec"
   }
 ];
 

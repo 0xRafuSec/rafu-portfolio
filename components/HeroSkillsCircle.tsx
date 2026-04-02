@@ -24,7 +24,7 @@ export const HeroSkillsCircle = () => {
             {/* Rotating ring SVG */}
             <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 flex items-center justify-center"
                 style={{ willChange: 'transform' }}
             >
@@ -58,7 +58,7 @@ export const HeroSkillsCircle = () => {
             {/* Counter-rotating ring */}
             <motion.div
                 animate={{ rotate: -360 }}
-                transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 flex items-center justify-center"
                 style={{ willChange: 'transform' }}
             >
@@ -96,7 +96,7 @@ export const HeroSkillsCircle = () => {
                         delay: index * 0.15,
                         duration: 0.5,
                         y: {
-                            duration: 2.5 + index * 0.3,
+                            duration: 4 + index * 0.5,
                             repeat: Infinity,
                             ease: "easeInOut"
                         }

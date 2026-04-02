@@ -147,7 +147,7 @@ const Icons = {
   ),
 };
 
-import { Shield, Radio, ShieldCheck, FileText, CheckSquare, ShieldAlert, Zap, Cloud, Scale, Bot } from 'lucide-react';
+import { Shield, Radio, ShieldCheck, FileText, CheckSquare, ShieldAlert, Zap, Cloud, Scale, Bot, ShieldHalf, AlertTriangle, Plug, FileSearch, MonitorCog } from 'lucide-react';
 
 const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: string, isCustom?: boolean }) => (
   <div className="group relative flex items-center justify-center p-3 bg-transparent rounded-xl border border-white/10 hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-none hover:shadow-[0_0_25px_rgba(0,255,157,0.5)] backdrop-blur-sm hover:scale-110 hover:-translate-y-1 cursor-pointer">
@@ -207,6 +207,7 @@ const Skills: React.FC = () => {
               <SkillBadge icon={Icons.Wazuh} name="Wazuh" isCustom={true} />
               <SkillBadge icon={Icons.QRadar} name="IBM QRadar" isCustom={true} />
               <SkillBadge icon={Icons.ThreatHawk} name="Threat Hawk" isCustom={true} />
+              <SkillBadge icon={MonitorCog} name="Microsoft Sentinel" />
               <SkillBadge icon={Icons.Threat} name="Threat Intelligence" isCustom={true} />
               <SkillBadge icon={Icons.IOCs} name="IOC Analysis" isCustom={true} />
               <SkillBadge icon={Icons.Hunting} name="Threat Hunting" isCustom={true} />
@@ -227,7 +228,8 @@ const Skills: React.FC = () => {
               <SkillBadge icon={Icons.Burp} name="Burp Suite" isCustom={true} />
               <SkillBadge icon={Icons.Metasploit} name="Metasploit" isCustom={true} />
               <SkillBadge icon={Icons.Mitre} name="MITRE ATT&CK" isCustom={true} />
-              <SkillBadge icon={Radio} name="OSINT" isCustom={true} />
+              <SkillBadge icon={Radio} name="OSINT" />
+              <SkillBadge icon={FileSearch} name="Nmap" />
             </div>
           </div>
 
@@ -242,8 +244,10 @@ const Skills: React.FC = () => {
             </div>
             <div className="flex flex-wrap gap-4 flex-1">
               <SkillBadge icon={Icons.Windows} name="Windows Security" isCustom={true} />
-              <SkillBadge icon={Icons.Linux} name="Linux" isCustom={true} />
-              <SkillBadge icon={Icons.Azure} name="Azure" isCustom={true} />
+              <SkillBadge icon={Icons.Linux} name="Linux Hardening" isCustom={true} />
+              <SkillBadge icon={Icons.Azure} name="Azure Cloud" isCustom={true} />
+              <SkillBadge icon={ShieldHalf} name="Active Directory" />
+              <SkillBadge icon={MonitorCog} name="VMware" />
             </div>
           </div>
 
@@ -261,6 +265,24 @@ const Skills: React.FC = () => {
               <SkillBadge icon={CheckSquare} name="NCA-ECC" />
               <SkillBadge icon={ShieldCheck} name="SAMA" />
               <SkillBadge icon={Shield} name="ADHICS" />
+            </div>
+          </div>
+
+          {/* Row 5: Security Operations */}
+          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-6">
+            <div className="w-full md:w-64 flex-shrink-0">
+              <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
+                <AlertTriangle className="text-orange-600 dark:text-orange-500 w-6 h-6" />
+                Security Ops
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-500 mt-2 font-sans">IR & Engineering</p>
+            </div>
+            <div className="flex flex-wrap gap-4 flex-1">
+              <SkillBadge icon={ShieldAlert} name="Incident Response" />
+              <SkillBadge icon={FileText} name="Incident Documentation" />
+              <SkillBadge icon={CheckSquare} name="Rule Parsing" />
+              <SkillBadge icon={Shield} name="Alert Tuning" />
+              <SkillBadge icon={Plug} name="API Integration" />
             </div>
           </div>
 

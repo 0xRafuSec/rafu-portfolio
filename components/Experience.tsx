@@ -5,30 +5,44 @@ import { TimelineItem } from '../types';
 const experienceData: TimelineItem[] = [
   {
     id: 1,
-    title: "Cyber Security Analyst",
-    company: "Cyber Silo",
-    date: "Feb 2025 – July 2025",
-    location: "Islamabad | Remote",
+    title: "Cyber Security Engineer",
+    company: "Encbit",
+    date: "Jul 2025 – Present",
+    location: "Lahore | Hybrid",
     points: [
-      "Designed and implemented custom SIEM detection rules and parsers, increasing detection fidelity by 40% across critical systems.",
-      "Automated compliance mapping in SIEM by correlating ISO 27001, NCA-ECC, and SAMA controls using Excel-based matrices and scripting.",
-      "Integrated MITRE ATT&CK techniques via Atomic Red Team to validate detection accuracy.",
-      "Resolved SIEM data flow issues by correcting agent misconfigurations, improving log integrity by 99%.",
-      "Developed YAML-based CIS hardening templates and audit automation scripts for firewalls."
+      "Managed Wazuh SIEM deployments across 5+ client environments handling agent integrations, log source onboarding, rule tuning, and ongoing platform maintenance for 50+ monitored assets.",
+      "Authored 15+ tailored detection rules and decoders for new device types, resolving parsing issues and improving log ingestion accuracy by 30% across monitored assets.",
+      "Conducted OSINT-driven attack surface analysis using Google Dorking, WHOIS reconnaissance, and Shodan, identifying 10+ exposed assets and misconfigurations for remediation.",
+      "Monitored 200+ daily security events, triaging incidents, investigating anomalies, and coordinating fixes across endpoint and network layers.",
+      "Maintained active hands-on research via TryHackMe labs practicing offensive and defensive techniques grounded in MITRE ATT&CK TTPs."
     ]
   },
   {
     id: 2,
+    title: "Cyber Security Analyst",
+    company: "Cyber Silo",
+    date: "Feb 2025 – Jul 2025",
+    location: "Islamabad | Hybrid",
+    points: [
+      "Engineered and deployed custom SIEM detection rules and log parsers using Wazuh and Threat Hawk, increasing detection fidelity by 40% across critical systems.",
+      "Automated compliance mapping workflows in SIEM by correlating ISO 27001, NCA-ECC, and SAMA controls with global standards via Excel-based matrices and Python scripting, cutting manual alignment effort by 60%.",
+      "Validated threat detection coverage by integrating MITRE ATT&CK techniques via Atomic Red Team, simulating 20+ real-world attack scenarios to verify rule accuracy and identify coverage gaps.",
+      "Resolved SIEM data flow issues by correcting agent misconfigurations and log parsing errors, restoring 99% log integrity across monitored assets.",
+      "Built YAML-based CIS hardening templates and audit automation scripts for FortiGate, Cisco, and pfSense firewalls, enforcing secure baseline configurations per CIS Benchmarks."
+    ]
+  },
+  {
+    id: 3,
     title: "SOC Analyst",
     company: "Allama Iqbal Open University (via Cyber Silo)",
     date: "Feb 2024 – Feb 2025",
     location: "Islamabad | Hybrid",
     points: [
-      "Spearheaded SIEM deployment across 30+ servers and network devices, enhancing visibility and reducing detection blind spots by 35%.",
-      "Identified exposed assets via OSINT tools such as Google Dorking and WHOIS-based reconnaissance.",
-      "Reduced false positives by 45% through rule optimization and logic alignment with threat intel sources.",
-      "Designed and implemented incident response playbooks, cutting average response time from 30+ minutes to under 10.",
-      "Troubleshot SIEM integration errors ensuring 24/7 uptime for critical assets."
+      "Spearheaded SIEM deployment and integration across 30+ servers, network devices, and endpoints, expanding threat visibility and closing 35% of previously unmonitored attack surfaces.",
+      "Reduced false positives by 45% through systematic rule optimization, logic refinement, and alignment with curated threat intelligence feeds and attacker TTPs.",
+      "Designed and implemented incident response playbooks for containment, remediation, and escalation workflows, cutting MTTR from 30+ minutes to under 10 minutes.",
+      "Monitored and triaged security alerts in real time, performing IOC analysis, log correlation, and root cause analysis across endpoint and network telemetry sources.",
+      "Managed endpoint security monitoring using Wazuh EDR, detecting and containing threats across 30+ endpoints with MITRE ATT&CK-mapped detection rules."
     ]
   }
 ];

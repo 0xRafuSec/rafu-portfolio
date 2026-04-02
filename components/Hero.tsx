@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
       } else {
         clearInterval(nameInterval);
       }
-    }, 150); // Name reveal speed
+    }, 80); // Faster name reveal speed
 
     return () => clearInterval(nameInterval);
   }, []);
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
   // Typing animation for title (starts after name completes)
   useEffect(() => {
     const fullTitle = "CYBER SECURITY ENGINEER";
-    const delay = 18 * 100 + 500; // Wait for name to finish (18 chars * 100ms) + 500ms delay
+    const delay = 18 * 80 + 300; // Wait for name to finish (18 chars * 80ms) + 300ms delay
     let titleInterval: ReturnType<typeof setInterval> | null = null;
 
     const timeoutId = setTimeout(() => {
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
         } else {
           if (titleInterval) clearInterval(titleInterval);
         }
-      }, 80); // Title typing speed
+      }, 50); // Faster title typing speed
     }, delay);
 
     return () => {
@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
   // Typing animation for description (starts after title completes)
   useEffect(() => {
     const fullDescription = "Transforming logs into intelligence and vulnerabilities into fortifications through precision threat detection and automated incident response.";
-    const delay = 18 * 100 + 23 * 50 + 800; // Wait for name + title to finish + 800ms delay
+    const delay = 18 * 80 + 23 * 50 + 400; // Wait for name + title to finish + 400ms delay
     let typingInterval: ReturnType<typeof setInterval> | null = null;
 
     const timeoutId = setTimeout(() => {
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
         } else {
           if (typingInterval) clearInterval(typingInterval);
         }
-      }, 20); // Slower typing speed for description (was 30ms)
+      }, 15); // Faster typing speed for description
     }, delay);
 
     return () => {

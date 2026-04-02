@@ -1,68 +1,102 @@
 "use client";
 
-import { Points, PointMaterial } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, Suspense, useMemo } from "react";
-import type { Points as PointsType } from "three";
+import { useRef, useEffect } from "react";
 
-// Generate sphere points manually to avoid NaN issues
-function generateSpherePoints(count: number, radius: number): Float32Array {
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-        // Generate random point in sphere using rejection sampling
-        let x, y, z;
-        do {
-            x = (Math.random() - 0.5) * 2;
-            y = (Math.random() - 0.5) * 2;
-            z = (Math.random() - 0.5) * 2;
-        } while (x * x + y * y + z * z > 1);
+/**
+ * Lightweight CSS + Canvas star background.
+ * Replaces the Three.js WebGL implementation which was causing
+ * severe lag on older/integrated GPUs (like HD 4600 in HP 850 G1).
+ * 
+ * This uses a simple 2D canvas with pre-rendered static stars
+ * and a very gentle CSS rotation for the parallax effect,
+ * leveraging GPU-composited CSS transforms instead of per-frame
+ * WebGL rendering.
+ */
 
-        positions[i * 3] = x * radius;
-        positions[i * 3 + 1] = y * radius;
-        positions[i * 3 + 2] = z * radius;
-    }
-    return positions;
-}
+function StarField() {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
-export const StarBackground = () => {
-    const ref = useRef<PointsType | null>(null);
-    // More stars, larger radius for better coverage
-    const sphere = useMemo(() => generateSpherePoints(5000, 2.0), []);
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
 
-    useFrame((_state, delta) => {
-        if (ref.current) {
-            ref.current.rotation.x -= delta / 8;
-            ref.current.rotation.y -= delta / 12;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        // Set canvas size
+        const dpr = Math.min(window.devicePixelRatio, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        ctx.scale(dpr, dpr);
+
+        // Draw stars once (no animation loop needed)
+        const starCount = 800;
+        for (let i = 0; i < starCount; i++) {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            const radius = Math.random() * 1.2;
+            const opacity = Math.random() * 0.7 + 0.1;
+
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0, 255, 100, ${opacity})`;
+            ctx.fill();
         }
-    });
+
+        // Handle resize
+        const handleResize = () => {
+            const newDpr = Math.min(window.devicePixelRatio, 2);
+            canvas.width = window.innerWidth * newDpr;
+            canvas.height = window.innerHeight * newDpr;
+            ctx.scale(newDpr, newDpr);
+
+            for (let i = 0; i < starCount; i++) {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const radius = Math.random() * 1.2;
+                const opacity = Math.random() * 0.7 + 0.1;
+
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 255, 100, ${opacity})`;
+                ctx.fill();
+            }
+        };
+
+        let resizeTimer: ReturnType<typeof setTimeout>;
+        const debouncedResize = () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(handleResize, 250);
+        };
+
+        window.addEventListener('resize', debouncedResize);
+        return () => {
+            window.removeEventListener('resize', debouncedResize);
+            clearTimeout(resizeTimer);
+        };
+    }, []);
 
     return (
-        <group rotation={[0, 0, Math.PI / 4]}>
-            <Points
-                ref={ref}
-                stride={3}
-                positions={sphere}
-                frustumCulled
-            >
-                <PointMaterial
-                    transparent
-                    color="#00ff00"
-                    size={0.0015}
-                    sizeAttenuation
-                    depthWrite={false}
-                />
-            </Points>
-        </group>
+        <canvas
+            ref={canvasRef}
+            className="w-full h-full"
+            style={{
+                animation: 'starRotate 120s linear infinite',
+            }}
+            aria-hidden="true"
+        />
     );
-};
+}
 
 export const StarsCanvas = () => (
-    <div className="w-full h-full fixed inset-0 z-[1] pointer-events-none">
-        <Canvas camera={{ position: [0, 0, 1] }}>
-            <Suspense fallback={null}>
-                <StarBackground />
-            </Suspense>
-        </Canvas>
+    <div className="w-full h-full fixed inset-0 z-[1] pointer-events-none opacity-60">
+        <StarField />
+        <style jsx global>{`
+            @keyframes starRotate {
+                from { transform: rotate(0deg) scale(1.2); }
+                to { transform: rotate(360deg) scale(1.2); }
+            }
+        `}</style>
     </div>
 );
 

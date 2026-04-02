@@ -14,8 +14,9 @@ const LenisProvider = ({ children }: LenisProviderProps) => {
 
   useEffect(() => {
     lenisRef.current = new Lenis({
-      duration: 0.8,
-      easing: (t) => 1 - Math.pow(1 - t, 3),
+      duration: 0.5,
+      easing: (t) => 1 - Math.pow(1 - t, 2),
+      touchMultiplier: 1.5,
     });
 
     const animate = (time: number) => {
