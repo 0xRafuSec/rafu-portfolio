@@ -93,11 +93,11 @@ const Experience: React.FC = () => {
                         </span>
                       </div>
                     </div>
-                    <ul className="space-y-3">
+                    <ul className="space-y-4">
                       {item.points.map((point, i) => (
-                        <li key={i} className="text-gray-600 dark:text-cyber-text/80 text-sm flex items-start gap-2 font-body">
-                          <span className="text-cyber-green-dark dark:text-cyber-green mt-1.5 w-1.5 h-1.5 bg-cyber-green-dark dark:bg-cyber-green rounded-full flex-shrink-0 group-hover:bg-cyber-blue-dark dark:group-hover:bg-cyber-blue transition-colors"></span>
-                          <span className="leading-relaxed">{point}</span>
+                        <li key={i} className="text-gray-600 dark:text-cyber-text/80 text-[13px] flex items-start gap-3 font-mono leading-[1.7] pl-3 border-l-2 border-cyber-green-dark/20 dark:border-cyber-green/15 hover:border-cyber-green-dark dark:hover:border-cyber-green transition-colors duration-300">
+                          <span className="text-cyber-green-dark dark:text-cyber-green mt-[7px] w-1.5 h-1.5 bg-cyber-green-dark dark:bg-cyber-green rounded-full flex-shrink-0 group-hover:bg-cyber-blue-dark dark:group-hover:bg-cyber-blue transition-colors"></span>
+                          <span>{point}</span>
                         </li>
                       ))}
                     </ul>

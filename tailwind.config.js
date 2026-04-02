@@ -60,14 +60,14 @@ module.exports = {
         },
         hireGlow: {
           '0%, 100%': { 
-            opacity: '0.4',
+            opacity: '0.3',
             transform: 'scale(1)',
-            boxShadow: '0 0 4px rgba(0, 255, 157, 0.3)'
+            boxShadow: '0 0 4px rgba(0, 255, 157, 0.4)'
           },
           '50%': { 
-            opacity: '1',
-            transform: 'scale(2)',
-            boxShadow: '0 0 12px rgba(0, 255, 157, 0.8), 0 0 24px rgba(0, 255, 157, 0.4)'
+            opacity: '0.9',
+            transform: 'scale(2.5)',
+            boxShadow: '0 0 8px rgba(0, 255, 157, 1), 0 0 20px rgba(0, 255, 157, 0.6), 0 0 40px rgba(0, 255, 157, 0.3)'
           }
         }
       },

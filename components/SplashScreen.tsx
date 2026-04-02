@@ -1,7 +1,80 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 interface SplashScreenProps {
   onComplete: () => void;
+}
+
+/**
+ * Matrix Rain — lightweight canvas animation for splash screen only.
+ * Uses a small character set and throttled frame rate for performance.
+ */
+function MatrixRain() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
+
+    const fontSize = 14;
+    const cols = Math.floor(w / fontSize);
+    const drops: number[] = new Array(cols).fill(0).map(() => Math.random() * -50);
+    const chars = '01アイウエオカキクケコサシスセソ▓░▒█'.split('');
+
+    let animId: number;
+    let lastTime = 0;
+    const FPS = 18; // throttled for performance
+    const interval = 1000 / FPS;
+
+    const draw = (time: number) => {
+      animId = requestAnimationFrame(draw);
+      if (time - lastTime < interval) return;
+      lastTime = time;
+
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < cols; i++) {
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+
+        // Head character is bright white-green, trail is dimmer
+        if (Math.random() > 0.6) {
+          ctx.fillStyle = '#00ff9d';
+        } else {
+          ctx.fillStyle = `rgba(0, 255, 100, ${Math.random() * 0.4 + 0.1})`;
+        }
+
+        ctx.fillText(char, x, y);
+
+        if (y > h && Math.random() > 0.97) {
+          drops[i] = 0;
+        }
+        drops[i] += 0.6 + Math.random() * 0.4;
+      }
+    };
+
+    animId = requestAnimationFrame(draw);
+
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 opacity-40"
+      aria-hidden="true"
+    />
+  );
 }
 
 const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
@@ -18,7 +91,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
     { text: "ACCESS GRANTED", delay: 1000 },
   ];
 
-  // Boot Sequence Logic with Typing Animation
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
     const lineTimeouts: ReturnType<typeof setTimeout>[] = [];
@@ -27,7 +99,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
     bootSequence.forEach(({ text, delay }, index) => {
       const lineTimeout = setTimeout(() => {
         setLines((prev) => [...prev, { text, displayed: '' }]);
-        
+
         let charIndex = 0;
         const typingInterval = setInterval(() => {
           setLines((prev) => {
@@ -40,13 +112,13 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             }
             return newLines;
           });
-          
+
           charIndex++;
           if (charIndex >= text.length) {
             clearInterval(typingInterval);
           }
-        }, 20); // Faster typing speed: 20ms per character
-        
+        }, 20);
+
         typingIntervals.push(typingInterval);
       }, delay);
       lineTimeouts.push(lineTimeout);
@@ -58,7 +130,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + 8; // Much faster progress
+        return prev + 8;
       });
     }, 50);
 
@@ -76,11 +148,9 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
 
   return (
     <div className="fixed inset-0 bg-black z-[100] flex flex-col items-center justify-center font-mono text-green-500 overflow-hidden">
-      {/* Lightweight CSS-only scanline effect instead of heavy canvas matrix rain */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
-        backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,0,0.03) 2px, rgba(0,255,0,0.03) 4px)',
-      }} />
-      
+      {/* Matrix Rain Canvas Background */}
+      <MatrixRain />
+
       <div className="relative z-10 w-full max-w-lg p-6 bg-black/80 border border-green-500/30 rounded-lg shadow-[0_0_50px_rgba(0,255,0,0.1)]">
         <div className="h-64 overflow-hidden mb-6 font-mono text-sm md:text-base">
           {lines.map((line, index) => (
@@ -102,7 +172,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             <span>{progress}%</span>
           </div>
           <div className="h-1 bg-gray-900 rounded-full overflow-hidden border border-green-900">
-            <div 
+            <div
               className="h-full bg-green-500 shadow-[0_0_15px_#00ff00] transition-all duration-75 ease-out"
               style={{ width: `${progress}%` }}
             />

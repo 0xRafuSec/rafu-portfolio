@@ -70,10 +70,10 @@ const Education: React.FC = () => {
                       {edu.courses.map((course, courseIndex) => (
                         <div 
                           key={courseIndex}
-                          className="flex items-start gap-3 text-gray-600 dark:text-gray-400 group/item hover:text-cyber-green-dark dark:hover:text-cyber-green transition-colors duration-200"
+                          className="flex items-center gap-2 text-gray-600 dark:text-gray-400 group/item hover:text-cyber-green-dark dark:hover:text-cyber-green transition-colors duration-200"
                           style={{ animationDelay: `${courseIndex * 50}ms` }}
                         >
-                          <span className="text-cyber-green-dark dark:text-cyber-green mt-1.5 group-hover/item:scale-125 transition-transform duration-200">▸</span>
+                          <span className="text-cyber-green-dark dark:text-cyber-green text-xs flex-shrink-0 group-hover/item:scale-125 transition-transform duration-200">▸</span>
                           <span className="font-mono text-sm">{course}</span>
                         </div>
                       ))}

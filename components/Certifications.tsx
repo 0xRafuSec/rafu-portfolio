@@ -21,7 +21,7 @@ const certifications = [
     link: "/certificates/ISO 27001 INFORMATION SECURITY ASSOCIATE.pdf"
   },
   {
-    name: "Cybersecurity Professional Certificate",
+    name: "Cybersecurity Specialization",
     issuer: "Google",
     date: "2023",
     link: "/certificates/Google Cybersecurity.pdf"

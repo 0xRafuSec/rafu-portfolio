@@ -176,7 +176,7 @@ const Hero: React.FC = () => {
                   }
                 }}
                 aria-label="Navigate to contact section"
-                className="group relative px-8 py-3 bg-cyber-green-dark dark:bg-cyber-green text-white dark:text-black font-bold font-mono rounded-sm overflow-hidden hover:shadow-[0_0_20px_rgba(0,163,101,0.5)] dark:hover:shadow-[0_0_20px_#00ff9d] transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyber-green-dark dark:focus:ring-cyber-green focus:ring-offset-2"
+                className="group relative px-5 py-2.5 bg-cyber-green-dark dark:bg-cyber-green text-white dark:text-black font-bold font-mono text-sm rounded-sm overflow-hidden hover:shadow-[0_0_20px_rgba(0,163,101,0.5)] dark:hover:shadow-[0_0_20px_#00ff9d] transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:scale-105 cursor-pointer whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-cyber-green-dark dark:focus:ring-cyber-green focus:ring-offset-2"
               >
                 <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-shimmer skew-x-[10deg]"></div>
                 <span className="skew-x-[10deg] flex items-center gap-2 relative z-10">
@@ -195,7 +195,7 @@ const Hero: React.FC = () => {
                   }
                 }}
                 aria-label="Navigate to projects section"
-                className="group relative px-8 py-3 border border-cyber-green-dark dark:border-cyber-green text-cyber-green-dark dark:text-cyber-green font-bold font-mono rounded-sm overflow-hidden hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:shadow-[0_0_10px_rgba(0,163,101,0.3)] dark:hover:shadow-[0_0_10px_#00ff9d] hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyber-green-dark dark:focus:ring-cyber-green focus:ring-offset-2"
+                className="group relative px-5 py-2.5 border border-cyber-green-dark dark:border-cyber-green text-cyber-green-dark dark:text-cyber-green font-bold font-mono text-sm rounded-sm overflow-hidden hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:shadow-[0_0_10px_rgba(0,163,101,0.3)] dark:hover:shadow-[0_0_10px_#00ff9d] hover:scale-105 cursor-pointer whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-cyber-green-dark dark:focus:ring-cyber-green focus:ring-offset-2"
               >
                 <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-cyber-green-dark/10 dark:via-cyber-green/20 to-transparent group-hover:animate-shimmer skew-x-[10deg]"></div>
                 <span className="skew-x-[10deg] relative z-10">View Projects</span>
@@ -206,7 +206,7 @@ const Hero: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download resume PDF (opens in new tab)"
-                className="group relative px-8 py-3 border border-cyber-blue-dark dark:border-cyber-blue text-cyber-blue-dark dark:text-cyber-blue font-bold font-mono rounded-sm overflow-hidden hover:bg-cyber-blue-dark/5 dark:hover:bg-cyber-blue/10 transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:shadow-[0_0_10px_rgba(0,150,170,0.3)] dark:hover:shadow-[0_0_10px_#00e1ff] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyber-blue-dark dark:focus:ring-cyber-blue focus:ring-offset-2"
+                className="group relative px-5 py-2.5 border border-cyber-blue-dark dark:border-cyber-blue text-cyber-blue-dark dark:text-cyber-blue font-bold font-mono text-sm rounded-sm overflow-hidden hover:bg-cyber-blue-dark/5 dark:hover:bg-cyber-blue/10 transition-all duration-300 flex items-center gap-2 skew-x-[-10deg] hover:shadow-[0_0_10px_rgba(0,150,170,0.3)] dark:hover:shadow-[0_0_10px_#00e1ff] hover:scale-105 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-cyber-blue-dark dark:focus:ring-cyber-blue focus:ring-offset-2"
               >
                 <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-cyber-blue-dark/10 dark:via-cyber-blue/20 to-transparent group-hover:animate-shimmer skew-x-[10deg]"></div>
                 <span className="skew-x-[10deg] flex items-center gap-2 relative z-10">
