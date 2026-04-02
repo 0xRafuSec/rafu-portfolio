@@ -1,7 +1,9 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { gsap, ScrollTrigger } from '@/lib/gsap'
+import { isLowEndDevice, prefersReducedMotion } from '@/lib/performance'
 import Navbar from './Navbar'
 import Hero from './Hero'
 import About from './About'
@@ -24,47 +26,81 @@ const StarsCanvas = dynamic(() => import('./StarBackground'), { ssr: false })
 
 export default function PortfolioContent() {
   const [loading, setLoading] = useState(true)
+  const mainRef = useRef<HTMLElement>(null)
 
+  // GSAP ScrollTrigger — animate sections on scroll
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible')
+    if (loading || !mainRef.current) return
+
+    const reducedMotion = prefersReducedMotion()
+    const lowEnd = isLowEndDevice()
+
+    // Skip scroll animations entirely if user prefers reduced motion
+    if (reducedMotion) {
+      mainRef.current.querySelectorAll('section').forEach((el) => {
+        gsap.set(el, { opacity: 1, y: 0 })
+      })
+      return
+    }
+
+    const ctx = gsap.context(() => {
+      const sections = mainRef.current!.querySelectorAll('section')
+
+      sections.forEach((section) => {
+        // Animate section heading
+        const heading = section.querySelector('h2')
+        if (heading) {
+          gsap.from(heading, {
+            y: 40,
+            opacity: 0,
+            duration: lowEnd ? 0.4 : 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: heading,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          })
+        }
+
+        // Stagger animate cards/items within sections
+        const cards = section.querySelectorAll(
+          '.grid > a, .grid > div, .space-y-12 > div, .space-y-24 > div'
+        )
+        if (cards.length > 0) {
+          gsap.from(cards, {
+            y: lowEnd ? 20 : 50,
+            opacity: 0,
+            duration: lowEnd ? 0.3 : 0.6,
+            stagger: lowEnd ? 0.05 : 0.12,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 75%',
+              toggleActions: 'play none none none',
+            },
+          })
+        }
+
+        // Fallback: animate the entire section if no cards found
+        if (cards.length === 0) {
+          gsap.from(section, {
+            y: lowEnd ? 15 : 30,
+            opacity: 0,
+            duration: lowEnd ? 0.4 : 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+            },
+          })
         }
       })
-    }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' })
+    }, mainRef)
 
-    const observeSection = (section: Element) => {
-      if (section.classList.contains('observed')) {
-        return
-      }
-      section.classList.add('reveal-on-scroll', 'observed')
-      observer.observe(section)
-    }
-
-    document.querySelectorAll('section').forEach(observeSection)
-
-    const mutationObserver = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (!(node instanceof HTMLElement)) {
-            return
-          }
-          if (node.tagName === 'SECTION') {
-            observeSection(node)
-          }
-          node.querySelectorAll('section').forEach(observeSection)
-        })
-      })
-    })
-
-    mutationObserver.observe(document.body, { childList: true, subtree: true })
-
-    return () => {
-      observer.disconnect()
-      mutationObserver.disconnect()
-    }
-  }, [])
+    return () => ctx.revert()
+  }, [loading])
 
   const loadingClass = loading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'
 
@@ -88,7 +124,7 @@ export default function PortfolioContent() {
 
             <Navbar />
 
-            <main id="main-content" className="relative z-20">
+            <main id="main-content" ref={mainRef} className="relative z-20">
               <Hero />
               <About />
               <Skills />

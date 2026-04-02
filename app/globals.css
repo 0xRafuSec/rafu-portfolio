@@ -124,20 +124,7 @@ body {
     linear-gradient(to bottom, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
 }
 
-.reveal-on-scroll {
-  opacity: 0;
-  transition:
-    opacity 1s ease-out,
-    transform 1s ease-out;
-  transform: translateY(30px);
-  will-change: transform, opacity;
-}
-
-.reveal-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-  will-change: auto;
-}
+/* GSAP handles scroll animations — no CSS reveal classes needed */
 
 /* Screen reader only class */
 .sr-only {

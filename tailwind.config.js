@@ -66,7 +66,7 @@ module.exports = {
           },
           '50%': { 
             opacity: '0.9',
-            transform: 'scale(2.5)',
+            transform: 'scale(1.5)',
             boxShadow: '0 0 8px rgba(0, 255, 157, 1), 0 0 20px rgba(0, 255, 157, 0.6), 0 0 40px rgba(0, 255, 157, 0.3)'
           }
         }
