@@ -78,24 +78,10 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-32 overflow-visible" id="home">
-      {/* Blackhole Video Background - FULL WIDTH */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-        className="rotate-180 absolute top-[-370px] left-1/2 -translate-x-1/2 w-screen min-w-[100vw] h-full object-cover -z-20 opacity-0"
-        style={{ filter: 'sepia(100%) hue-rotate(70deg) saturate(3) brightness(0.8)' }}
-      >
-        <source src="/videos/blackhole.webm" type="video/webm" />
-      </video>
-
-      {/* Background Gradient Spotlights - ALL GREEN */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#00ff9d]/15 rounded-full blur-[128px] pointer-events-none animate-pulse-fast" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#00ff9d]/10 rounded-full blur-[128px] pointer-events-none" />
+    <section className="relative min-h-screen flex items-center pt-32 overflow-hidden" id="home">
+      {/* Subtle radial gradient overlays for hero-specific depth */}
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(ellipse_at_top_left,_rgba(0,255,157,0.08)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(ellipse_at_bottom_right,_rgba(0,225,255,0.05)_0%,_transparent_50%)]" />
 
       {/* Main Hero Content - Left aligned, lower position */}
       <div className="w-full px-6 md:px-12 relative z-10">
@@ -104,9 +90,9 @@ const Hero: React.FC = () => {
           {/* LEFT SIDE - Text Content */}
           <div className="flex-1 text-left max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyber-green-dark/30 dark:border-cyber-green/30 bg-cyber-green/5 text-cyber-green-dark dark:text-cyber-green text-sm font-mono mb-6 shadow-none dark:shadow-neon-green animate-fade-in-up">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green-dark dark:bg-cyber-green opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-green-dark dark:bg-cyber-green"></span>
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-cyber-green-dark dark:bg-cyber-green animate-hire-glow"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-green-dark dark:bg-cyber-green"></span>
               </span>
               Available For Hire
             </div>
