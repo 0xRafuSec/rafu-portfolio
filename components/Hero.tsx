@@ -128,12 +128,12 @@ const Hero: React.FC = () => {
               ref={badgeRef}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyber-green-dark/30 dark:border-cyber-green/30 bg-cyber-green/5 text-cyber-green-dark dark:text-cyber-green text-sm font-mono mb-6 shadow-none dark:shadow-neon-green"
             >
-              <span className="relative flex h-2.5 w-2.5">
+              <span className="relative flex h-2.2 w-2.2">
                 <span
                   className="absolute inline-flex h-full w-full rounded-full bg-cyber-green-dark dark:bg-cyber-green"
                   style={{ animation: 'badgePulse 1.8s ease-in-out infinite' }}
                 ></span>
-                <span className="relative inline-flex rounded-full h-2.2 w-2.2 bg-cyber-green-dark dark:bg-cyber-green"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-green-dark dark:bg-cyber-green"></span>
               </span>
               Available For Hire
             </div>

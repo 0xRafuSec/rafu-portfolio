@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  zoom: 90%;
+}
+
 /* Cursive font for Encryption section */
 .cursive {
   font-family: var(--font-cursive), cursive;

@@ -118,11 +118,11 @@ export default function PortfolioContent() {
               <Hero />
               <About />
               <Skills />
-              <Encryption />
               <Certifications />
               <Experience />
               <Education />
               <Projects />
+              <Encryption />
 
               {/* Interactive Zone */}
               <section id="interactive" className="py-20 relative overflow-hidden scroll-mt-20">

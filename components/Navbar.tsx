@@ -93,16 +93,16 @@ const Navbar: React.FC = () => {
           </span>
         </Link>
 
-        {/* Desktop Menu - Center with cyberpunk sleek container */}
+        {/* Desktop Menu - Center with transparent floating buttons */}
         <div className="hidden md:flex items-center">
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-[#0a0a0a]/80 border border-white/5 rounded-lg backdrop-blur-md shadow-[0_0_15px_rgba(0,255,157,0.05)]">
+          <div className="flex items-center gap-4 px-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.id)}
                 aria-label={`Navigate to ${link.name} section`}
-                className="group relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white font-mono tracking-wide cursor-pointer transition-colors duration-300 overflow-hidden rounded-md"
+                className="group relative px-4 py-2 text-sm font-medium text-[#00ff9d]/80 hover:text-[#00ff9d] font-mono tracking-wide cursor-pointer transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
                   <span className="text-[#00ff9d] opacity-0 group-hover:opacity-100 transition-opacity duration-300 mr-2 -translate-x-2 group-hover:translate-x-0 font-bold">&gt;</span>
