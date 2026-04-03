@@ -57,6 +57,31 @@ export const HeroSkillsCircle = () => {
                 </svg>
             </motion.div>
 
+            {/* Counter-rotating ring */}
+            <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 flex items-center justify-center"
+                style={{ willChange: 'transform' }}
+            >
+                <svg
+                    width="250"
+                    height="250"
+                    viewBox="0 0 250 250"
+                    className="opacity-40"
+                >
+                    <circle
+                        cx="125"
+                        cy="125"
+                        r="120"
+                        fill="none"
+                        stroke="#00ff9d"
+                        strokeWidth="1"
+                        strokeDasharray="15 8"
+                    />
+                </svg>
+            </motion.div>
+
 
             {/* Floating skill icons */}
             {skills.map((skill, index) => (
