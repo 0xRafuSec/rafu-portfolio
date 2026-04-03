@@ -83,7 +83,7 @@ export default function RadarPulse() {
   return (
     <div
       ref={wrapperRef}
-      className="absolute inset-0 pointer-events-none overflow-visible"
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] pointer-events-none overflow-visible"
       style={{ borderRadius: "50%", zIndex: 0 }}
     >
       {/* A) Static dashed rings */}
@@ -121,16 +121,10 @@ export default function RadarPulse() {
       {/* C) Sweep glow trail */}
       <div
         ref={trailRef}
-        className="absolute"
+        className="absolute inset-0"
         style={{
-          width: "50%",
-          height: "60px",
-          top: "calc(50% - 30px)",
-          left: "50%",
-          transformOrigin: "left center",
-          background:
-            "conic-gradient(from 0deg, transparent 0deg, rgba(0, 255, 136, 0.08) 30deg, transparent 60deg)",
-          borderRadius: "0 50% 50% 0",
+          borderRadius: "50%",
+          background: "conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(0, 255, 136, 0.15) 60deg, transparent 60deg, transparent 360deg)",
         }}
       />
 

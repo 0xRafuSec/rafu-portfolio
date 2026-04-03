@@ -108,7 +108,7 @@ const HackingSim: React.FC = () => {
                     Live <span className="text-cyber-blue-dark dark:text-cyber-blue">Threat Simulation</span>
                 </h3>
                 <div className="flex items-center gap-4">
-                    <span className={`text-xs font-mono px-2 py-1 rounded ${isRunning ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 animate-pulse' : 'bg-gray-100 text-gray-500 dark:bg-gray-800'}`}>
+                    <span className={`text-xs font-mono px-2 py-1 rounded ${isRunning ? 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 animate-pulse' : 'bg-gray-100 text-gray-500 dark:bg-[#00ff9d]/10'}`}>
                         {isRunning ? 'ACTIVE' : 'IDLE'}
                     </span>
                     <button
@@ -125,22 +125,22 @@ const HackingSim: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">
-                <div className="bg-gray-50 dark:bg-[#1a1a1a] p-3 md:p-4 rounded-lg text-center border border-gray-200 dark:border-white/5">
+                <div className="bg-gray-50 dark:bg-[#00ff9d]/5 p-3 md:p-4 rounded-lg text-center border border-gray-200 dark:border-[#00ff9d]/20">
                     <div className="text-gray-500 dark:text-gray-400 text-[10px] md:text-xs uppercase tracking-wider mb-1 flex items-center justify-center gap-1"><Lock size={10} /> Vulns</div>
                     <div className="text-xl md:text-2xl font-mono text-yellow-600 dark:text-yellow-500">{stats.vulns}</div>
                 </div>
-                <div className="bg-gray-50 dark:bg-[#1a1a1a] p-3 md:p-4 rounded-lg text-center border border-gray-200 dark:border-white/5">
+                <div className="bg-gray-50 dark:bg-[#00ff9d]/5 p-3 md:p-4 rounded-lg text-center border border-gray-200 dark:border-[#00ff9d]/20">
                     <div className="text-gray-500 dark:text-gray-400 text-[10px] md:text-xs uppercase tracking-wider mb-1 flex items-center justify-center gap-1"><ShieldAlert size={10} /> Alerts</div>
                     <div className="text-xl md:text-2xl font-mono text-orange-600 dark:text-orange-500">{stats.alerts}</div>
                 </div>
-                <div className="bg-gray-50 dark:bg-[#1a1a1a] p-3 md:p-4 rounded-lg text-center border border-gray-200 dark:border-white/5">
+                <div className="bg-gray-50 dark:bg-[#00ff9d]/5 p-3 md:p-4 rounded-lg text-center border border-gray-200 dark:border-[#00ff9d]/20">
                     <div className="text-gray-500 dark:text-gray-400 text-[10px] md:text-xs uppercase tracking-wider mb-1 flex items-center justify-center gap-1"><Globe size={10} /> Exploits</div>
                     <div className="text-xl md:text-2xl font-mono text-red-600 dark:text-red-500">{stats.exploits}</div>
                 </div>
             </div>
 
             {/* Progress Bar */}
-            <div className="relative h-2 bg-gray-200 dark:bg-[#1a1a1a] rounded-full overflow-hidden mb-6">
+            <div className="relative h-2 bg-gray-200 dark:bg-[#00ff9d]/10 rounded-full overflow-hidden mb-6">
                 <div
                     className="absolute top-0 left-0 h-full bg-cyber-green-dark dark:bg-cyber-green shadow-none dark:shadow-[0_0_10px_#00ff88] transition-all duration-100"
                     style={{ width: `${progress}%` }}
@@ -148,8 +148,8 @@ const HackingSim: React.FC = () => {
             </div>
 
             {/* Console - Always keep dark for that hacker feel, but adjust surrounding if needed */}
-            <div className="rounded-lg overflow-hidden border border-gray-300 dark:border-white/10 bg-gray-900 dark:bg-[#0a0a0a] shadow-inner">
-                <div className="flex items-center justify-between px-4 py-2 bg-gray-800 dark:bg-[#1a1a1a] border-b border-gray-700 dark:border-white/5">
+            <div className="rounded-lg overflow-hidden border border-gray-300 dark:border-[#00ff9d]/20 bg-gray-900 dark:bg-[#000d05]/80 shadow-inner">
+                <div className="flex items-center justify-between px-4 py-2 bg-gray-800 dark:bg-[#00ff9d]/10 border-b border-gray-700 dark:border-[#00ff9d]/20">
                     <div className="flex items-center gap-2">
                         <Terminal size={14} className="text-gray-400" />
                         <span className="text-xs text-gray-300 font-mono">automated_threat_sim.exe</span>

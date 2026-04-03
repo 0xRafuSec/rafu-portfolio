@@ -256,8 +256,8 @@ const Terminal: React.FC = () => {
   const quickCommands = ['help', 'ls', 'whoami', 'pwd', 'clear'];
 
   return (
-    <div className="w-full max-w-3xl mx-auto font-mono text-sm shadow-[0_0_50px_rgba(0,255,157,0.1)] rounded-lg overflow-hidden border border-white/10 backdrop-blur-sm bg-transparent">
-      <div className="flex items-center justify-between bg-gray-100/90 dark:bg-[#1a1a1a]/90 px-4 py-2 border-b border-gray-200 dark:border-[#333]">
+    <div className="w-full max-w-3xl mx-auto font-mono text-sm shadow-[0_0_50px_rgba(0,255,157,0.1)] rounded-lg overflow-hidden border border-white/10 dark:border-[#00ff9d]/20 backdrop-blur-md bg-white/5 dark:bg-[#00ff9d]/[0.02]">
+      <div className="flex items-center justify-between bg-gray-100/90 dark:bg-[#00ff9d]/10 px-4 py-2 border-b border-gray-200 dark:border-[#00ff9d]/20">
         <div className="flex items-center gap-2">
           <TerminalIcon size={14} className="text-gray-500 dark:text-gray-400" />
           <span className="text-gray-600 dark:text-gray-400 text-xs">guest@rafay-portfolio:~</span>
@@ -286,7 +286,7 @@ const Terminal: React.FC = () => {
             {line.type === 'output' && (
               <button
                 onClick={(e) => { e.stopPropagation(); copyToClipboard(line.content); }}
-                className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 p-1 bg-gray-200 dark:bg-gray-800 rounded text-gray-500 hover:text-cyber-green transition-all"
+                className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 p-1 bg-gray-200 dark:bg-[#00ff9d]/10 rounded text-gray-500 hover:text-cyber-green transition-all"
                 title="Copy Output"
                 aria-label="Copy output to clipboard"
               >
@@ -319,13 +319,13 @@ const Terminal: React.FC = () => {
         )}
       </div>
 
-      <div className="bg-gray-50/90 dark:bg-[#111]/90 p-3 flex flex-wrap gap-2 justify-center border-t border-gray-200 dark:border-[#333]">
+      <div className="bg-gray-50/90 dark:bg-[#00ff9d]/5 p-3 flex flex-wrap gap-2 justify-center border-t border-gray-200 dark:border-[#00ff9d]/20">
         {quickCommands.map(cmd => (
           <button
             key={cmd}
             onClick={() => handleCommand(cmd)}
             disabled={isProcessing}
-            className="px-3 py-1 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-700 rounded hover:border-cyber-green-dark dark:hover:border-cyber-green hover:text-cyber-green-dark dark:hover:text-cyber-green text-xs text-gray-600 dark:text-gray-300 transition-colors disabled:opacity-50"
+            className="px-3 py-1 bg-white dark:bg-[#00ff9d]/10 border border-gray-300 dark:border-[#00ff9d]/20 rounded hover:border-cyber-green-dark dark:hover:border-cyber-green hover:text-cyber-green-dark dark:hover:text-cyber-green text-xs text-gray-600 dark:text-gray-300 transition-colors disabled:opacity-50"
             aria-label={`Run ${cmd} command`}
           >
             {cmd}

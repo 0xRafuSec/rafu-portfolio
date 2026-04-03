@@ -136,9 +136,9 @@ const Contact: React.FC = () => {
                 href="https://maps.google.com/?q=Islamabad,Pakistan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-cyber-gray/30 border border-gray-200 dark:border-white/5 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
+                className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-[#00ff9d]/5 border border-gray-200 dark:border-[#00ff9d]/20 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
               >
-                <div className="relative w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                <div className="relative w-12 h-12 bg-gray-100 dark:bg-[#00ff9d]/10 rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-[#00ff9d]/20 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                   <MapPin size={20} className="relative z-10" />
                   <div className="absolute inset-0 bg-cyber-green-dark dark:bg-cyber-green rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
                 </div>
@@ -155,9 +155,9 @@ const Contact: React.FC = () => {
 
               <a
                 href="mailto:muhammad.rafayali@outlook.com"
-                className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-cyber-gray/30 border border-gray-200 dark:border-white/5 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
+                className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-[#00ff9d]/5 border border-gray-200 dark:border-[#00ff9d]/20 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
               >
-                <div className="relative w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                <div className="relative w-12 h-12 bg-gray-100 dark:bg-[#00ff9d]/10 rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-[#00ff9d]/20 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                   <OutlookIcon size={20} className="relative z-10" />
                   <div className="absolute inset-0 bg-cyber-green-dark dark:bg-cyber-green rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
                 </div>
@@ -174,9 +174,9 @@ const Contact: React.FC = () => {
 
               <a
                 href="tel:+923009817567"
-                className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-cyber-gray/30 border border-gray-200 dark:border-white/5 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
+                className="group flex items-center gap-4 p-3 rounded-xl bg-gray-100/50 dark:bg-[#00ff9d]/5 border border-gray-200 dark:border-[#00ff9d]/20 hover:border-cyber-green-dark dark:hover:border-cyber-green hover:bg-cyber-green-dark/5 dark:hover:bg-cyber-green/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyber-green-dark/20 dark:hover:shadow-cyber-green/20 cursor-pointer"
               >
-                <div className="relative w-12 h-12 bg-gray-100 dark:bg-cyber-gray rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-white/5 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                <div className="relative w-12 h-12 bg-gray-100 dark:bg-[#00ff9d]/10 rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-gray-200 dark:border-[#00ff9d]/20 group-hover:bg-cyber-green-dark dark:group-hover:bg-cyber-green group-hover:text-white dark:group-hover:text-black group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                   <Phone size={20} className="relative z-10" />
                   <div className="absolute inset-0 bg-cyber-green-dark dark:bg-cyber-green rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
                 </div>
@@ -206,7 +206,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Form */}
-          <form ref={formRef} onSubmit={handleSubmit} className="bg-white/80 dark:bg-cyber-gray/40 backdrop-blur-md p-8 rounded-2xl border border-gray-200 dark:border-white/5 shadow-xl">
+          <form ref={formRef} onSubmit={handleSubmit} className="bg-white/80 dark:bg-[#00ff9d]/5 backdrop-blur-md p-8 rounded-2xl border border-gray-200 dark:border-[#00ff9d]/20 shadow-xl">
             <div className="space-y-4 font-mono">
               <div>
                 <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 dark:text-cyber-muted mb-1">Your Name</label>

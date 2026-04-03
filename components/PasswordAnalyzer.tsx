@@ -126,7 +126,7 @@ const PasswordAnalyzer: React.FC = () => {
               placeholder="Enter password to analyze..."
               id="password-input"
               aria-label="Password to analyze"
-              className="w-full bg-gray-50 dark:bg-[#1a1a1a] border border-gray-300 dark:border-gray-700 rounded-lg py-4 pl-12 pr-12 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green focus:ring-1 focus:ring-cyber-green-dark dark:focus:ring-cyber-green outline-none transition-all"
+              className="w-full bg-gray-50 dark:bg-[#00ff9d]/5 border border-gray-300 dark:border-gray-700 rounded-lg py-4 pl-12 pr-12 text-gray-900 dark:text-white focus:border-cyber-green-dark dark:focus:border-cyber-green focus:ring-1 focus:ring-cyber-green-dark dark:focus:ring-cyber-green outline-none transition-all"
             />
             <button
               onClick={() => setIsVisible(!isVisible)}
@@ -141,7 +141,7 @@ const PasswordAnalyzer: React.FC = () => {
             <span className="text-sm text-gray-600 dark:text-cyber-muted">Strength Score</span>
             <span className={`text-lg font-bold ${details.text}`}>{details.label} ({strength}%)</span>
           </div>
-          <div className="h-3 bg-gray-200 dark:bg-[#1a1a1a] rounded-full overflow-hidden mb-6">
+          <div className="h-3 bg-gray-200 dark:bg-[#00ff9d]/10 rounded-full overflow-hidden mb-6">
             <div
               className={`h-full ${details.color} transition-all duration-500`}
               style={{ width: `${strength}%` }}

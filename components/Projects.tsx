@@ -53,7 +53,7 @@ const Projects: React.FC = () => {
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all capitalize font-mono ${
                 filter === cat
                   ? 'bg-cyber-blue-dark dark:bg-cyber-blue text-white dark:text-black shadow-none dark:shadow-neon-blue'
-                  : 'bg-white/50 dark:bg-cyber-gray/30 text-gray-600 dark:text-cyber-muted hover:bg-white dark:hover:bg-cyber-gray/80 border border-gray-200 dark:border-white/5'
+                  : 'bg-white/50 dark:bg-[#00ff9d]/5 text-gray-600 dark:text-cyber-muted hover:bg-white dark:hover:bg-[#00ff9d]/10 border border-gray-200 dark:border-[#00ff9d]/20'
               }`}
             >
               {cat}
@@ -61,10 +61,9 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="group bg-white/80 dark:bg-cyber-gray/40 backdrop-blur-md border border-gray-200 dark:border-white/5 rounded-xl overflow-hidden hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 hover:-translate-y-2 shadow-lg dark:shadow-none">
+            <div key={project.id} className="group bg-white/80 dark:bg-[#00ff9d]/5 backdrop-blur-md border border-gray-200 dark:border-[#00ff9d]/20 rounded-xl overflow-hidden hover:border-cyber-green-dark dark:hover:border-cyber-green transition-all duration-300 hover:-translate-y-2 shadow-lg dark:shadow-none">
               <div className="h-48 bg-gradient-to-br from-cyber-green-dark to-cyber-blue-dark dark:from-cyber-green dark:to-cyber-blue flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 <div className="transform group-hover:scale-110 transition-transform duration-300 bg-white/20 p-4 rounded-full backdrop-blur-sm">
@@ -75,7 +74,7 @@ const Projects: React.FC = () => {
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors font-sans">{project.title}</h3>
-                  <span className="text-xs font-mono py-1 px-2 rounded bg-gray-100 dark:bg-black/30 text-cyber-blue-dark dark:text-cyber-blue capitalize border border-cyber-blue-dark/20 dark:border-cyber-blue/20">{project.category}</span>
+                  <span className="text-xs font-mono py-1 px-2 rounded bg-gray-100 dark:bg-[#00ff9d]/10 text-cyber-blue-dark dark:text-cyber-blue capitalize border border-cyber-blue-dark/20 dark:border-cyber-blue/20">{project.category}</span>
                 </div>
                 
                 <p className="text-gray-600 dark:text-cyber-muted text-sm mb-6 line-clamp-3 font-mono">
@@ -84,7 +83,7 @@ const Projects: React.FC = () => {
 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, i) => (
-                    <span key={i} className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-black/30 px-2 py-1 rounded font-mono">
+                    <span key={i} className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-[#00ff9d]/10 px-2 py-1 rounded font-mono">
                       #{tag}
                     </span>
                   ))}

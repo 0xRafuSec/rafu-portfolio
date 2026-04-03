@@ -34,7 +34,7 @@ const Education: React.FC = () => {
           {education.map((edu, index) => (
             <div 
               key={index} 
-              className="bg-white/50 dark:bg-cyber-gray/40 backdrop-blur-md p-8 rounded-2xl border border-gray-200 dark:border-white/5 shadow-lg hover:shadow-xl hover:shadow-cyber-green-dark/10 dark:hover:shadow-cyber-green/20 transition-all duration-300 group hover:-translate-y-2 hover:border-cyber-green-dark/30 dark:hover:border-cyber-green/30 hover:scale-[1.02]"
+              className="bg-white/50 dark:bg-[#00ff9d]/5 backdrop-blur-md p-8 rounded-2xl border border-gray-200 dark:border-[#00ff9d]/20 shadow-lg hover:shadow-xl hover:shadow-cyber-green-dark/10 dark:hover:shadow-cyber-green/20 transition-all duration-300 group hover:-translate-y-2 hover:border-cyber-green-dark/30 dark:hover:border-cyber-green/30 hover:scale-[1.02]"
             >
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="w-16 h-16 bg-cyber-green/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-cyber-green/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
@@ -46,7 +46,7 @@ const Education: React.FC = () => {
                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors font-sans">
                       {edu.degree}
                     </h3>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-black/30 text-gray-600 dark:text-cyber-blue text-sm font-medium mt-2 md:mt-0 font-mono group-hover:bg-cyber-green-dark/10 dark:group-hover:bg-cyber-green/10 transition-colors">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-[#00ff9d]/10 text-gray-600 dark:text-cyber-blue text-sm font-medium mt-2 md:mt-0 font-mono group-hover:bg-cyber-green-dark/10 dark:group-hover:bg-cyber-green/10 transition-colors">
                       <Calendar size={14} />
                       {edu.year}
                     </span>
@@ -90,7 +90,7 @@ const Education: React.FC = () => {
                       href="https://github.com/0xRafuSec/Multi-Sensor-Intrusion-Detection-IOT" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="block bg-black/5 dark:bg-white/5 rounded-lg p-4 border-l-4 border-cyber-blue-dark dark:border-cyber-blue group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-colors hover:bg-black/10 dark:hover:bg-white/10 cursor-pointer"
+                      className="block bg-black/5 dark:bg-[#00ff9d]/5 rounded-lg p-4 border-l-4 border-cyber-blue-dark dark:border-cyber-blue group-hover:border-cyber-green-dark dark:group-hover:border-cyber-green transition-colors hover:bg-black/10 dark:hover:bg-[#00ff9d]/10 cursor-pointer"
                     >
                       <h5 className="font-bold text-gray-900 dark:text-white mb-1 font-mono group-hover:text-cyber-green-dark dark:group-hover:text-cyber-green transition-colors hover-glitch">
                         {edu.fyp.title}

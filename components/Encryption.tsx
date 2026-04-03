@@ -8,7 +8,7 @@ export const Encryption = () => {
     return (
         <section id="security" className="scroll-mt-20">
             <div className="flex flex-row relative items-center justify-center min-h-screen w-full h-full">
-                <div className="absolute w-auto h-auto top-0 z-[5]">
+                <div className="absolute w-auto h-auto top-[25%] z-[5]">
                     <motion.div
                         variants={slideInFromTop}
                         initial="hidden"

@@ -64,7 +64,7 @@ html {
 }
 
 body {
-  @apply bg-gray-50 text-gray-900 dark:bg-[#0a0a0a] dark:text-[#e0e0e0] font-sans;
+  @apply bg-gray-50 text-gray-900 dark:bg-transparent dark:text-[#e0e0e0] font-sans;
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
