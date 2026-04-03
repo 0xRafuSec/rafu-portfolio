@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html, body {
-  zoom: 90%;
+  zoom: 95%;
 }
 
 /* Cursive font for Encryption section */
