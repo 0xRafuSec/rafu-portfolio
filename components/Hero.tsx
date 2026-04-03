@@ -133,7 +133,7 @@ const Hero: React.FC = () => {
                   className="absolute inline-flex h-full w-full rounded-full bg-cyber-green-dark dark:bg-cyber-green"
                   style={{ animation: 'badgePulse 1.8s ease-in-out infinite' }}
                 ></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-green-dark dark:bg-cyber-green"></span>
+                <span className="relative inline-flex rounded-full h-2.2 w-2.2 bg-cyber-green-dark dark:bg-cyber-green"></span>
               </span>
               Available For Hire
             </div>
@@ -196,7 +196,7 @@ const Hero: React.FC = () => {
               </h2>
             </div>
 
-            <p ref={descRef} className="text-gray-600 dark:text-cyber-muted mb-10 leading-relaxed font-mono text-sm md:text-base border-t border-b border-gray-200 dark:border-[#00ff9d]/20 py-4 bg-[#00ff9d]/5 dark:bg-[#00ff9d]/5 backdrop-blur-sm">
+            <p ref={descRef} className="text-gray-600 dark:text-cyber-green/80 mb-10 leading-relaxed font-mono text-sm md:text-base border-t border-b border-gray-200 dark:border-[#00ff9d]/20 py-4 bg-[#00ff9d]/5 dark:bg-[#00ff9d]/5 backdrop-blur-sm">
               <span className="text-cyber-blue-dark dark:text-cyber-blue">&gt;&gt;</span>{' '}
               <span className="inline">
                 {descriptionDisplayed}

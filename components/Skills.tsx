@@ -168,7 +168,7 @@ const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: s
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-20 transition-colors duration-300 scroll-mt-20 relative overflow-hidden">
+    <section id="skills" className="py-10 md:py-16 transition-colors duration-300 scroll-mt-20 relative overflow-hidden">
       {/* Video Background for Skills - GREEN Filter */}
       <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center overflow-hidden">
         <video
@@ -186,16 +186,16 @@ const Skills: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 relative">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white relative z-10 font-sans">
+        <div className="text-center mb-10 relative">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white relative z-10 font-sans">
             Ski<span className="text-cyber-green-dark dark:text-cyber-green">lls.</span>
           </h2>
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-6">
+        <div className="max-w-6xl mx-auto space-y-4">
 
           {/* Row 1: SIEM & SOC */}
-          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-6">
+          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-3">
             <div className="w-full md:w-64 flex-shrink-0">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
                 <ShieldAlert className="text-cyber-green-dark dark:text-cyber-green w-6 h-6" />
@@ -215,7 +215,7 @@ const Skills: React.FC = () => {
           </div>
 
           {/* Row 2: Offensive Security */}
-          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-6">
+          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-3">
             <div className="w-full md:w-64 flex-shrink-0">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
                 <Zap className="text-cyber-blue-dark dark:text-cyber-blue w-6 h-6" />
@@ -234,7 +234,7 @@ const Skills: React.FC = () => {
           </div>
 
           {/* Row 3: OS & Cloud */}
-          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-6">
+          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-3">
             <div className="w-full md:w-64 flex-shrink-0">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
                 <Cloud className="text-cyber-purple w-6 h-6" />
@@ -252,7 +252,7 @@ const Skills: React.FC = () => {
           </div>
 
           {/* Row 4: Governance */}
-          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-6">
+          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-3">
             <div className="w-full md:w-64 flex-shrink-0">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
                 <Scale className="text-yellow-600 dark:text-yellow-500 w-6 h-6" />
@@ -269,7 +269,7 @@ const Skills: React.FC = () => {
           </div>
 
           {/* Row 5: Security Operations */}
-          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-6">
+          <div className="flex flex-col md:flex-row gap-4 items-start border-b border-white/5 pb-3">
             <div className="w-full md:w-64 flex-shrink-0">
               <h3 className="text-xl font-bold text-gray-800 dark:text-gray-300 font-sans flex items-center gap-2">
                 <AlertTriangle className="text-orange-600 dark:text-orange-500 w-6 h-6" />

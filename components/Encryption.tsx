@@ -8,7 +8,7 @@ export const Encryption = () => {
     return (
         <section id="security" className="scroll-mt-20">
             <div className="flex flex-row relative items-center justify-center min-h-screen w-full h-full">
-                <div className="absolute w-auto h-auto top-[25%] z-[5]">
+                <div className="absolute w-auto h-auto top-28 md:top-[15%] z-[5]">
                     <motion.div
                         variants={slideInFromTop}
                         initial="hidden"
@@ -46,7 +46,7 @@ export const Encryption = () => {
                     </div>
                 </div>
 
-                <div className="absolute z-[20] bottom-[10px] px-[5px]">
+                <div className="absolute z-[20] top-[55%] md:top-[60%] px-[5px]">
                     <div className="cursive text-[18px] md:text-[20px] font-medium text-center text-cyber-green-dark dark:text-cyber-green">
                         Secure your data with end-to-end encryption.
                     </div>

@@ -93,18 +93,28 @@ const Navbar: React.FC = () => {
           </span>
         </Link>
 
-        {/* Desktop Menu - Center with transparent container */}
+        {/* Desktop Menu - Center with cyberpunk sleek container */}
         <div className="hidden md:flex items-center">
-          <div className="flex items-center gap-6 px-6 py-2.5 rounded-full border border-[#00ff9d] backdrop-blur-md">
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-[#0a0a0a]/80 border border-white/5 rounded-lg backdrop-blur-md shadow-[0_0_15px_rgba(0,255,157,0.05)]">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.id)}
                 aria-label={`Navigate to ${link.name} section`}
-                className="text-sm font-medium text-[#00ff9d] hover-glitch duration-300 font-mono tracking-wide cursor-pointer"
+                className="group relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white font-mono tracking-wide cursor-pointer transition-colors duration-300 overflow-hidden rounded-md"
               >
-                {link.name}
+                <span className="relative z-10 flex items-center">
+                  <span className="text-[#00ff9d] opacity-0 group-hover:opacity-100 transition-opacity duration-300 mr-2 -translate-x-2 group-hover:translate-x-0 font-bold">&gt;</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">{link.name}</span>
+                  <span className="text-[#00ff9d] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1 animate-pulse font-bold">_</span>
+                </span>
+                
+                {/* Background scanning highlight */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00ff9d]/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+                
+                {/* Glowing Underline */}
+                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#00ff9d] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left shadow-[0_0_10px_#00ff9d]"></div>
               </a>
             ))}
           </div>

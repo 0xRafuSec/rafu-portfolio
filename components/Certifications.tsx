@@ -73,11 +73,11 @@ const Certifications: React.FC = () => {
               href={cert.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center gap-4 bg-white/50 dark:bg-cyber-gray/40 backdrop-blur-md p-6 rounded-xl border border-gray-200 dark:border-white/5 hover:border-cyber-green-dark/50 dark:hover:border-cyber-green/50 transition-all hover:translate-x-1 hover:shadow-lg dark:hover:shadow-none overflow-hidden"
+              className="group relative flex items-center gap-4 bg-white/50 dark:bg-[#00ff9d]/5 backdrop-blur-md p-6 rounded-xl border border-gray-200 dark:border-[#00ff9d]/20 hover:border-cyber-green-dark/50 dark:hover:border-cyber-green/50 transition-all hover:translate-x-1 hover:shadow-lg dark:hover:shadow-[0_0_15px_#00ff9d_inset] overflow-hidden"
             >
               <div className="absolute inset-0 bg-cyber-green-dark/5 dark:bg-cyber-green/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               
-              <div className="flex-shrink-0 w-12 h-12 bg-gray-100 dark:bg-black rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-cyber-green-dark/20 dark:border-cyber-green/20 relative z-10">
+              <div className="flex-shrink-0 w-12 h-12 bg-gray-100 dark:bg-[#00ff9d]/10 rounded-full flex items-center justify-center text-cyber-green-dark dark:text-cyber-green border border-cyber-green-dark/20 dark:border-cyber-green/20 relative z-10">
                 <Award size={24} />
               </div>
               
