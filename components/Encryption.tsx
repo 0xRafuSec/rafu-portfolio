@@ -46,7 +46,7 @@ export const Encryption = () => {
                     </div>
                 </div>
 
-                <div className="absolute z-[20] bottom-25 md:bottom-[15%] px-[5px]">
+                <div className="absolute z-[20] bottom-26 md:bottom-[15%] px-[5px]">
                     <div className="cursive text-[18px] md:text-[20px] font-medium text-center text-cyber-green-dark dark:text-cyber-green">
                         Secure your data with end-to-end encryption.
                     </div>
