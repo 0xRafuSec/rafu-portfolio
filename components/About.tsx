@@ -15,7 +15,7 @@ const OutlookIcon = ({ size = 20, className = "" }: { size?: number, className?:
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 border-t border-gray-200 dark:border-white/5 scroll-mt-20 relative">
+    <section id="about" className="py-20 scroll-mt-20 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
