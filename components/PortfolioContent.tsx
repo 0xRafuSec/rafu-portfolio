@@ -109,7 +109,7 @@ export default function PortfolioContent() {
 
             {/* Global Backgrounds - Space Theme with GREEN tint */}
             <div className="fixed inset-0 z-0 bg-gradient-to-b from-[#020a05] via-[#030a06] to-[#020a04]"></div>
-            <div className="fixed inset-0 z-[0] bg-[radial-gradient(ellipse_at_top,_#00ff9d10_0%,_transparent_50%)] pointer-events-none"></div>
+            <div className="fixed inset-0 z-[0] bg-[radial-gradient(ellipse_at_top,_#00ff9d10_0%,_transparent_100%)] pointer-events-none"></div>
             <StarsCanvas />
 
             <Navbar />
