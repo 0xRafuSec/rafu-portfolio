@@ -81,7 +81,7 @@ const Education: React.FC = () => {
                   </div>
 
                   {/* Final Year Project Section */}
-                  <div className="pt-4 border-t border-gray-200 dark:border-white/5">
+                  <div className="pt-4">
                     <div className="flex items-center gap-2 mb-3">
                       <Code size={18} className="text-cyber-blue-dark dark:text-cyber-blue" />
                       <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide font-mono">Final Year Project</h4>
