@@ -115,8 +115,8 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-32 overflow-hidden" id="home">
       {/* Subtle radial gradient overlays for hero-specific depth */}
-      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(ellipse_at_top_left,_rgba(0,255,157,0.08)_0%,_transparent_100%)]" />
-      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(ellipse_at_bottom_right,_rgba(0,225,255,0.05)_0%,_transparent_100%)]" />
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(ellipse_at_top_left,_rgba(0,255,157,0.08)_100%,_transparent_100%)]" />
+      <div className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(ellipse_at_bottom_right,_rgba(0,225,255,0.05)_100%,_transparent_100%)]" />
 
       {/* Main Hero Content - Left aligned, lower position */}
       <div className="w-full px-6 md:px-12 relative z-10">
