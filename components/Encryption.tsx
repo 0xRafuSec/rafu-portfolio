@@ -52,7 +52,13 @@ export const Encryption = () => {
                     </div>
                 </div>
 
-                <div className="w-full flex items-start justify-center absolute opacity-50">
+                <div 
+                    className="w-full h-full flex items-start justify-center absolute opacity-50 pointer-events-none inset-0"
+                    style={{
+                        maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+                        WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)'
+                    }}
+                >
                     <video
                         loop
                         muted
@@ -60,7 +66,7 @@ export const Encryption = () => {
                         playsInline
                         preload="none"
                         aria-hidden="true"
-                        className="w-full h-auto"
+                        className="w-full h-full object-cover"
                         style={{ filter: 'sepia(100%) hue-rotate(70deg) saturate(3) brightness(0.9)' }}
                     >
                         <source src="/videos/encryption-bg.webm" type="video/webm" />

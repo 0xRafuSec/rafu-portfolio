@@ -145,6 +145,13 @@ const Icons = {
       className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
     />
   ),
+  OSINT: () => (
+    <SkillImage
+      src="/icons/osint.png"
+      alt="OSINT"
+      className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+    />
+  ),
 };
 
 import { Shield, Radio, ShieldCheck, FileText, CheckSquare, ShieldAlert, Zap, Cloud, Scale, Bot, ShieldHalf, AlertTriangle, Plug, FileSearch, MonitorCog } from 'lucide-react';
@@ -234,7 +241,7 @@ const Skills: React.FC = () => {
               <SkillBadge icon={Icons.Burp} name="Burp Suite" isCustom={true} />
               <SkillBadge icon={Icons.Metasploit} name="Metasploit" isCustom={true} />
               <SkillBadge icon={Icons.Mitre} name="MITRE ATT&CK" isCustom={true} />
-              <SkillBadge icon={Radio} name="OSINT" />
+              <SkillBadge icon={Icons.OSINT} name="OSINT" isCustom={true} />
               <SkillBadge icon={FileSearch} name="Nmap" />
             </div>
           </div>
