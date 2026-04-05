@@ -21,7 +21,7 @@ const About: React.FC = () => {
           <div className="text-center mb-16">
             <p className="text-cyber-blue-dark dark:text-cyber-blue font-mono tracking-widest text-sm uppercase mb-2">Introduction</p>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white font-sans">
-              Over<span className="text-cyber-green-dark dark:text-cyber-green">view.</span>
+              Over<span className="text-cyber-green-dark dark:text-cyber-green">view</span>
             </h2>
           </div>
 

@@ -168,9 +168,15 @@ const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: s
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-10 md:py-16 transition-colors duration-300 scroll-mt-20 relative overflow-hidden">
+    <section id="skills" className="py-20 transition-colors duration-300 scroll-mt-20 relative overflow-hidden">
       {/* Video Background for Skills - GREEN Filter */}
-      <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center overflow-hidden">
+      <div 
+        className="absolute inset-0 w-full h-full z-0 flex items-center justify-center overflow-hidden pointer-events-none"
+        style={{
+          maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)'
+        }}
+      >
         <video
           className="absolute min-w-full min-h-full object-cover opacity-30"
           preload="none"
@@ -188,7 +194,7 @@ const Skills: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10 relative">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white relative z-10 font-sans">
-            Cyber <span className="text-cyber-green-dark dark:text-cyber-green">Arsenal.</span>
+            Technical <span className="text-cyber-green-dark dark:text-cyber-green">Skills</span>
           </h2>
         </div>
 
