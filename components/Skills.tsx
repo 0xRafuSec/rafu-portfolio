@@ -154,7 +154,7 @@ const Icons = {
   ),
 };
 
-import { Shield, Radio, ShieldCheck, FileText, CheckSquare, ShieldAlert, Zap, Cloud, Scale, Bot, ShieldHalf, AlertTriangle, Plug, FileSearch, MonitorCog } from 'lucide-react';
+import { Shield, ShieldCheck, FileText, CheckSquare, ShieldAlert, Zap, Cloud, Scale, Bot, ShieldHalf, AlertTriangle, Plug, FileSearch, MonitorCog } from 'lucide-react';
 
 const SkillBadge = ({ icon: Icon, name, isCustom = false }: { icon: any, name: string, isCustom?: boolean }) => (
   <div className="group relative flex items-center justify-center p-3 bg-transparent rounded-xl border border-white/10 hover:border-cyber-green transition-all duration-300 w-16 h-16 sm:w-20 sm:h-20 shadow-none hover:shadow-[0_0_25px_rgba(0,255,157,0.5)] backdrop-blur-sm hover:scale-110 hover:-translate-y-1 cursor-pointer">
